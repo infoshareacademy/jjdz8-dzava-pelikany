@@ -9,7 +9,7 @@ public class Menu {
         clearScreen();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------------");
-        System.out.println("Witaj w aplikacji prod. DzavaPelikany!");
+        System.out.println("       Witaj w aplikacji prod. DzavaPelikany!");
         System.out.println("-----------------------------------------------------");
         System.out.println("1. Rejestracja.");
         System.out.println("2. Logowanie.");

@@ -12,7 +12,7 @@ public class LoginScreen {
         clearScreen();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------------");
-        System.out.println("Logowanie: ");
+        System.out.println("                    Logowanie: ");
         System.out.println("-----------------------------------------------------");
         System.out.println("Wprowadź dane : \n");
         System.out.println("Login : ");

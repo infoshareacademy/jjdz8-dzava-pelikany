@@ -16,7 +16,7 @@ public class RegistrationScreen {
         clearScreen();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------------");
-        System.out.println("Rejestracja: ");
+        System.out.println("                    Rejestracja: ");
         System.out.println("-----------------------------------------------------");
         System.out.println("Wprowadź dane : \n");
         System.out.println("Imię : ");
