@@ -1,7 +1,5 @@
 package com.infoshareacademy;
 
-import com.infoshareacademy.Entity.Owner;
-import com.infoshareacademy.Entity.Room;
 import com.infoshareacademy.View.Menu;
 
 import java.io.IOException;

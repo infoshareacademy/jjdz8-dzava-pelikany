@@ -5,6 +5,6 @@ public abstract class User {
     protected String userPassword;
     protected String name;
     protected String phoneNumber;
-    protected long id;
+    protected Long id;
     protected byte userType;
 }
