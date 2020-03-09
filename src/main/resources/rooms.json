@@ -1,0 +1,19 @@
+{
+  "roomsList": [
+    {
+      "streetAndNumber": "Nowowiejska 25",
+      "city": "Gdynia",
+      "area": 15,
+      "price": 1200.0,
+      "flatId": "f5c38d6f-aa5d-471b-947a-dcd81355ecba",
+      "status": false
+    },
+    {
+      "streetAndNumber": "Wiejska 8",
+      "city": "Warszawa",
+      "area": 6,
+      "price": 1200.0,
+      "status": false
+    }
+  ]
+}

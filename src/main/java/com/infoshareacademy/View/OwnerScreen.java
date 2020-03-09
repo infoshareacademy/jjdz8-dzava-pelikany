@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class OwnerScreen extends Screen{
-    public void ownerMenu() throws IOException {
+    public void ownerMenu() throws IOException, InterruptedException {
         clearScreen();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------------");

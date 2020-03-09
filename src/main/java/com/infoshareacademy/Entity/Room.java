@@ -6,9 +6,9 @@ public class Room {
     private byte area;
     private double price;
 
-    private Long id;
-    private int flatId;
-    private boolean status;
+//    private Long id;
+//    private UUID flatId;
+//    private boolean status;
 
     public Room(String streetAndNumber, String city, byte area, double price) {
         this.streetAndNumber = streetAndNumber;

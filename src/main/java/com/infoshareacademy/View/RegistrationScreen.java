@@ -12,7 +12,7 @@ public class RegistrationScreen extends Screen{
     private String login;
     private String password;
 
-    public void signUp() throws IOException {
+    public void signUp() throws IOException, InterruptedException {
         clearScreen();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------------");
