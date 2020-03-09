@@ -1,44 +1,47 @@
 package com.infoshareacademy.View;
 
-import com.infoshareacademy.Entity.Owner;
 import com.infoshareacademy.Utilities.OwnerEdit;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class OwnerScreen extends Screen{
-    public void ownerMenu() throws IOException {
+import static com.infoshareacademy.View.Screen.clearScreen;
+
+public class OwnerEditScreen {
+
+    public void ownerEditMenu() throws IOException {
         clearScreen();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------------");
         System.out.println("                Profil Właściciela.");
         System.out.println("-----------------------------------------------------");
-        System.out.println("1. Dodaj mieszkanie.");
-        System.out.println("2. Edytuj dane mieszkania.");
-        System.out.println("3. Rejestruj wynajęcie mieszkania.");
-        System.out.println();
-        System.out.println();
-        System.out.println("4. Edytuj swoje dane.");
-        System.out.println("0. Wyloguj.");
+        System.out.println("Wybierz, co chcesz edytować: ");
+        System.out.println("1. Login");
+        System.out.println("2. Imię ");
+        System.out.println("3. Nazwisko");
+        System.out.println("4. Email");
+        System.out.println("\n\n0. Powrót do menu");
 
         byte dialedNumber = scanner.nextByte();
+        OwnerEdit ownerEdit = new OwnerEdit();
         switch (dialedNumber) {
             case (1):
-                //do napisania
+                ownerEdit.editOwnerLogin();
                 break;
             case (2):
-                //do napisania
+                ownerEdit.editName();
                 break;
             case (3):
-                //do napisania
+                ownerEdit.editSurname();
                 break;
             case (4):
-                OwnerEditScreen ownerEditScreen = new OwnerEditScreen();
-                ownerEditScreen.ownerEditMenu();
+                ownerEdit.editEmail();
                 break;
             case (0):
                 Menu.mainMenu();
                 break;
         }
+
+
     }
 }

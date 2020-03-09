@@ -23,14 +23,18 @@ public class SaveAndLoad {
     Scanner scanner = new Scanner(in);
 
     private Owner makeOwner() {
-        out.println("Wprowadź login: ");
-        String login = scanner.nextLine();
+        String login = getCorrectOwnerLogin();
         out.println("Wprowadź imię: ");
         String name = scanner.nextLine();
         out.println("Wprowadź nazwisko: ");
         String surname = scanner.nextLine();
+        out.println("Wprowadź email: ");
+        String email = scanner.nextLine();
         Owner owner;
-        owner = new Owner(login,name,surname);
+        owner = new Owner(login);
+        owner.setName(name);
+        owner.setSurname(surname);
+        owner.setEmail(email);
         return owner;
     }
 
@@ -47,14 +51,18 @@ public class SaveAndLoad {
     }
 
     private Tenant makeTenant() {
-        out.println("Wprowadź login: ");
-        String login = scanner.nextLine();
+        String login = getCorrectTenantLogin();
         out.println("Wprowadź imię: ");
         String name = scanner.nextLine();
         out.println("Wprowadź nazwisko: ");
         String surname = scanner.nextLine();
+        out.println("Wprowadź email: ");
+        String email = scanner.nextLine();
         Tenant tenant;
-        tenant = new Tenant(login,name,surname);
+        tenant = new Tenant(login);
+        tenant.setName(name);
+        tenant.setSurname(surname);
+        tenant.setEmail(email);
         return tenant;
     }
 
@@ -70,5 +78,26 @@ public class SaveAndLoad {
         out.println("\nTwoje dane zostałe zapisane!");
     }
 
+    private String getCorrectTenantLogin() {
+        out.println("Wprowadź login: ");
+        String login = scanner.nextLine();
+        while (Tenants.tenantExist(login)) {
+            out.println("Podany login już istnieje, spróbuj ponownie: ");
+            login = scanner.nextLine();
+        }
+
+        return login;
+    }
+
+    private String getCorrectOwnerLogin() {
+        out.println("Wprowadź login: ");
+        String login = scanner.nextLine();
+        while (Owners.ownerExist(login)) {
+            out.println("Podany login już istnieje, spróbuj ponownie: ");
+            login = scanner.nextLine();
+        }
+
+        return login;
+    }
 
 }

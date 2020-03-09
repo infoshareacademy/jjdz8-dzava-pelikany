@@ -1,10 +1,11 @@
 {
-  "tenantsList": [
+  "ownersList": [
     {
-      "login": "PawełM",
-      "name": "Paweł",
-      "surname": "Molesta",
-      "id": "9691a7ad-9a0b-4c42-8b97-81cae574488c"
+      "login": "AniaW",
+      "name": "Ania",
+      "surname": "Czarnecka",
+      "email": "anna@gmail.com",
+      "id": "5c2cf146-1922-45a4-b31b-ce3081dfa8d7"
     }
   ]
 }
