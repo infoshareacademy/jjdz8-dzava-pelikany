@@ -1,17 +1,16 @@
 package com.infoshareacademy.Utilities;
 
-import com.infoshareacademy.Entity.Owner;
-import com.infoshareacademy.Entity.Room;
-import com.infoshareacademy.Entity.Tenant;
+import com.infoshareacademy.Entity.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
+
+import static java.lang.System.*;
 
 public class SaveAndLoad {
 
     private static Map<Long, Room> roomList = new HashMap<>();
-    private static Map<Long, Owner> ownerList = new HashMap<>();
-    private static Map<Long, Tenant> tenantList = new HashMap<>();
 
     public static Map<Long, Room> roomLoad(){
         //TODO
@@ -20,18 +19,56 @@ public class SaveAndLoad {
     public static void roomSave(){
         //TODO
     }
-    public static Map<Long, Owner> ownerLoad(){
-        //TODO
-        return null;
+
+    Scanner scanner = new Scanner(in);
+
+    private Owner makeOwner() {
+        out.println("Wprowadź login: ");
+        String login = scanner.nextLine();
+        out.println("Wprowadź imię: ");
+        String name = scanner.nextLine();
+        out.println("Wprowadź nazwisko: ");
+        String surname = scanner.nextLine();
+        Owner owner;
+        owner = new Owner(login,name,surname);
+        return owner;
     }
-    public static void ownerSave(){
-        //TODO
+
+    private void saveOwner(Owner owner) {
+        Owners owners = JsonReader.create(new Owners(), "src/main/resources/owners.json");
+        owners.addOwner(owner);
+        JsonSaver.makeJson(owners, "src/main/resources/owners.json");
     }
-    public static Map<Long, Tenant> tenantLoad(){
-        //TODO
-        return null;
+
+    public void makeOwnerAccount() {
+        Owner owner = makeOwner();
+        saveOwner(owner);
+        out.println("\nTwoje dane zostałe zapisane!");
     }
-    public static void tenantSave(){
-        //TODO
+
+    private Tenant makeTenant() {
+        out.println("Wprowadź login: ");
+        String login = scanner.nextLine();
+        out.println("Wprowadź imię: ");
+        String name = scanner.nextLine();
+        out.println("Wprowadź nazwisko: ");
+        String surname = scanner.nextLine();
+        Tenant tenant;
+        tenant = new Tenant(login,name,surname);
+        return tenant;
     }
+
+    private void saveTenant(Tenant tenant) {
+        Tenants tenants = JsonReader.create(new Tenants(), "src/main/resources/tenants.json");
+        tenants.addTenant(tenant);
+        JsonSaver.makeJson(tenants, "src/main/resources/tenants.json");
+    }
+
+    public void makeTenantAccount() {
+        Tenant tenant = makeTenant();
+        saveTenant(tenant);
+        out.println("\nTwoje dane zostałe zapisane!");
+    }
+
+
 }
