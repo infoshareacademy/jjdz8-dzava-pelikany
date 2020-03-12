@@ -1,5 +1,6 @@
 package com.infoshareacademy.View;
 
+import com.infoshareacademy.Utilities.RoomSearch;
 import com.infoshareacademy.Utilities.TenantEdit;
 
 import java.io.IOException;
@@ -22,7 +23,8 @@ public class TenantScreen extends Screen {
         byte dialedNumber = scanner.nextByte();
         switch (dialedNumber) {
             case (1):
-                //do napisania
+                RoomSearch roomSearch = new RoomSearch();
+                roomSearch.setCriteria();
                 break;
             case (2):
                 //do napisania

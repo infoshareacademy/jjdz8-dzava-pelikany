@@ -1,0 +1,40 @@
+{
+  "roomsList": [
+    {
+      "address": "Wojska Polskiego 40, Gdańsk 80-268" ,
+      "area": "123",
+      "price" : "850.0",
+      "id": "1",
+      "flatId": "1",
+      "status": "false",
+      "city": "Gdańsk"
+    },
+    {
+      "address": "Wojska Polskiego 40, Gdynia 84-268" ,
+      "area": "123",
+      "price" : "8500.0",
+      "id": "2",
+      "flatId": "2",
+      "status": "false",
+      "city": "Gdynia"
+    },
+    {
+      "address": "Wojska Polskiego 40, Warszawa 12-248" ,
+      "area": "123",
+      "price" : "150.0",
+      "id": "3",
+      "flatId": "3",
+      "status": "true",
+      "city": "Warszawa"
+    },
+    {
+      "address": "Mickiewicza 41, Kraków 31-120 ",
+      "area":"321",
+      "price" : "1250.0",
+      "id": "4",
+      "flatId": "4",
+      "status": "false",
+      "city": "Kraków"
+    }
+  ]
+}
