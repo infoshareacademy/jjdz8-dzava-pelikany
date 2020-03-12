@@ -1,6 +1,6 @@
 package com.infoshareacademy.View;
 
-import com.infoshareacademy.Utilities.RoomRegistration;
+import com.infoshareacademy.Utilities.SaveAndLoad;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -23,8 +23,8 @@ public class OwnerScreen extends Screen{
         byte dialedNumber = scanner.nextByte();
         switch (dialedNumber) {
             case (1):
-                RoomRegistration roomRegistration = new RoomRegistration();
-                roomRegistration.createRoom();
+                SaveAndLoad saveAndLoad = new SaveAndLoad();
+                saveAndLoad.createRoom();
                 break;
             case (2):
                 //do napisania
