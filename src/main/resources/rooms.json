@@ -5,8 +5,8 @@
       "city": "Gdynia",
       "area": 15,
       "price": 1200.0,
-      "flatId": "f5c38d6f-aa5d-471b-947a-dcd81355ecba",
-      "status": false
+      "registrationTerm": "10/10/1010",
+      "status": true
     },
     {
       "streetAndNumber": "Wiejska 8",
@@ -14,6 +14,41 @@
       "area": 6,
       "price": 1200.0,
       "status": false
+    },
+    {
+      "streetAndNumber": "krzywoustego12",
+      "city": "gdynia",
+      "area": 20,
+      "price": 1200.0,
+      "assigmentId": "062b592a-f5b8-4aaf-a2c6-e910cc28969c",
+      "status": false
+    },
+    {
+      "streetAndNumber": "dadada 13",
+      "city": "kwidzyn",
+      "area": 50,
+      "price": 1300.0,
+      "assigmentId": "3b4405a8-3821-48c6-87c7-c0103f6a0efb",
+      "registrationTerm": "10/10/2020",
+      "status": true
+    },
+    {
+      "streetAndNumber": "polska 120",
+      "city": "gdansk",
+      "area": 100,
+      "price": 1500.0,
+      "assigmentId": "ca732b05-14d0-4de3-9a9e-9e93e45f32e2",
+      "registrationTerm": "10",
+      "status": true
+    },
+    {
+      "streetAndNumber": "rodziina 12",
+      "city": "egiert",
+      "area": 50,
+      "price": 200.0,
+      "assigmentId": "d01561ff-8103-40e6-9493-a3d7c5f69032",
+      "registrationTerm": "10/10/1010",
+      "status": true
     }
   ]
 }

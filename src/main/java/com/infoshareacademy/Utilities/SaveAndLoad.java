@@ -53,8 +53,6 @@ public class SaveAndLoad {
     }
 
 
-    Scanner scanner = new Scanner(in);
-
     private Owner makeOwner() {
         String login = getCorrectOwnerLogin();
         out.println("Wprowadź imię: ");

@@ -10,7 +10,7 @@ import static com.infoshareacademy.View.Screen.clearScreen;
 
 public class TenantEditScreen {
 
-    public void tenantEditMenu() throws IOException {
+    public void tenantEditMenu() throws IOException , InterruptedException{
         clearScreen();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------------");
