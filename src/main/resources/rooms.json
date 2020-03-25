@@ -49,6 +49,15 @@
       "assigmentId": "d01561ff-8103-40e6-9493-a3d7c5f69032",
       "registrationTerm": "10/10/1010",
       "status": true
+    },
+    {
+      "streetAndNumber": "Lewego100",
+      "city": "munchen",
+      "area": 100,
+      "price": 5000.0,
+      "assigmentId": "5dec05e0-ce27-42c4-b168-c84d4c16edc1",
+      "registrationTerm": "10",
+      "status": true
     }
   ]
 }

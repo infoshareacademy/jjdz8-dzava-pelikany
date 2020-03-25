@@ -13,15 +13,26 @@ import java.util.UUID;
 
 public class RoomRegistration extends Screen {
 
+    UUID roomUUID = null;
+
     public void registerRoom() throws IOException, InterruptedException {
 
-        Long userTenantNrInput = null;
+        OwnerScreen ownerScreen = new OwnerScreen();
+        clearScreen();
+        chooseRoom();
+        chooseTenant();
+
+        System.out.println("");
+        System.out.println("pokoj zostal wynajety");
+        Thread.sleep(1000);
+        ownerScreen.ownerMenu();
+    }
+
+
+    public void chooseRoom(){
         Long userRoomNrInput = null;
         String userRoomTermInput = null;
-        UUID roomUUID = null;
-        OwnerScreen ownerScreen = new OwnerScreen();
 
-        clearScreen();
         Rooms rooms = JsonReader.create(new Rooms(), "src/main/resources/rooms.json");
         System.out.println("");
         System.out.println("Lista Pokoi:");
@@ -42,8 +53,8 @@ public class RoomRegistration extends Screen {
         }
         System.out.println("Podaj termin najmu (DD/MM/YYYY)");
         while (userRoomTermInput == null) {
-                Scanner scanner = new Scanner(System.in);
-                userRoomTermInput = scanner.nextLine();
+            Scanner scanner = new Scanner(System.in);
+            userRoomTermInput = scanner.nextLine();
         }
 
         for (int i = 0; i < rooms.getRoomsList().size(); i++) {
@@ -55,6 +66,10 @@ public class RoomRegistration extends Screen {
             }
         }
         JsonSaver.makeJson(rooms, "src/main/resources/rooms.json");
+    }
+
+    public void chooseTenant(){
+        Long userTenantNrInput = null;
 
         System.out.println("");
         System.out.println("Lista osob:");
@@ -83,10 +98,5 @@ public class RoomRegistration extends Screen {
             }
         }
         JsonSaver.makeJson(tenants, "src/main/resources/tenants.json");
-
-        System.out.println("");
-        System.out.println("pokoj zostal wynajety");
-        Thread.sleep(1000);
-        ownerScreen.ownerMenu();
     }
 }
