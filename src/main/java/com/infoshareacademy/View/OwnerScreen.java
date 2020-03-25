@@ -1,6 +1,10 @@
 package com.infoshareacademy.View;
 
+
 import com.infoshareacademy.Utilities.SaveAndLoad;
+import com.infoshareacademy.Entity.Owner;
+import com.infoshareacademy.Utilities.OwnerEdit;
+
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -33,7 +37,8 @@ public class OwnerScreen extends Screen{
                 //do napisania
                 break;
             case (4):
-                //do napisania
+                OwnerEditScreen ownerEditScreen = new OwnerEditScreen();
+                ownerEditScreen.ownerEditMenu();
                 break;
             case (0):
                 Menu.mainMenu();

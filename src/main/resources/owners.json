@@ -1,9 +1,18 @@
 {
   "ownersList": [
     {
-      "userLogin": "Ania",
-      "id": "b7205097-9ebc-44c4-946a-9a923eed1e7d",
-      "userType": 0
+      "login": "AniaW",
+      "name": "Basia",
+      "surname": "Czarnecka",
+      "email": "anna@gmail.com",
+      "id": "5c2cf146-1922-45a4-b31b-ce3081dfa8d7"
+    },
+    {
+      "login": "PawełW",
+      "name": "Paweł",
+      "surname": "Wiśniewski",
+      "email": "paweł@wp.pl",
+      "id": "ab2de698-ad6b-4a7f-aaa7-a8aa9e25571a"
     }
   ]
 }
