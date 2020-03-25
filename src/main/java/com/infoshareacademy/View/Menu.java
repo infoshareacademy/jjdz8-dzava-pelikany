@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Menu extends Screen{
 
-    public static void mainMenu() throws IOException {
+    public static void mainMenu() throws IOException, InterruptedException {
         clearScreen();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------------");

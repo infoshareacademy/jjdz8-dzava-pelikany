@@ -1,13 +1,16 @@
 package com.infoshareacademy.View;
 
+
+import com.infoshareacademy.Utilities.SaveAndLoad;
 import com.infoshareacademy.Entity.Owner;
 import com.infoshareacademy.Utilities.OwnerEdit;
+
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class OwnerScreen extends Screen{
-    public void ownerMenu() throws IOException {
+    public void ownerMenu() throws IOException, InterruptedException {
         clearScreen();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------------");
@@ -24,7 +27,8 @@ public class OwnerScreen extends Screen{
         byte dialedNumber = scanner.nextByte();
         switch (dialedNumber) {
             case (1):
-                //do napisania
+                SaveAndLoad saveAndLoad = new SaveAndLoad();
+                saveAndLoad.createRoom();
                 break;
             case (2):
                 //do napisania

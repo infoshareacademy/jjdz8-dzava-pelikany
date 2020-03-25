@@ -8,7 +8,7 @@ public class LoginScreen extends Screen{
     private String login;
     private String password;
 
-    public void signIn() throws IOException {
+    public void signIn() throws IOException, InterruptedException {
         clearScreen();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------------");

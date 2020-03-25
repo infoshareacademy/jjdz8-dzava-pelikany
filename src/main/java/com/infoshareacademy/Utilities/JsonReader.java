@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.lang.reflect.Type;
 
+
 public class JsonReader {
 
     public static <T> T create(T object, String fileName) {

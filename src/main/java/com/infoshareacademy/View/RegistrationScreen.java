@@ -9,7 +9,9 @@ import static java.lang.System.*;
 
 public class RegistrationScreen extends Screen {
 
-    public void signUp() throws IOException {
+
+    public void signUp() throws IOException, InterruptedException {
+
         SaveAndLoad saveAndLoad = new SaveAndLoad();
         clearScreen();
         Scanner scanner = new Scanner(in);
