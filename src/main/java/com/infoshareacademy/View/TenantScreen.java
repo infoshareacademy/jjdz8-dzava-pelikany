@@ -1,5 +1,7 @@
 package com.infoshareacademy.View;
 
+import com.infoshareacademy.Utilities.TenantEdit;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -26,7 +28,8 @@ public class TenantScreen extends Screen {
                 //do napisania
                 break;
             case (3):
-                //do napisania
+                TenantEditScreen tenantEditScreen = new TenantEditScreen();
+                tenantEditScreen.tenantEditMenu();
                 break;
             case (0):
                 Menu.mainMenu();

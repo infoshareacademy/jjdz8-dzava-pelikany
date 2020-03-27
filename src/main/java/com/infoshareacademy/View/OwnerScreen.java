@@ -33,7 +33,8 @@ public class OwnerScreen extends Screen{
                 //do napisania
                 break;
             case (4):
-                //do napisania
+                OwnerEditScreen ownerEditScreen = new OwnerEditScreen();
+                ownerEditScreen.ownerEditMenu();
                 break;
             case (0):
                 Menu.mainMenu();

@@ -4,16 +4,19 @@
       "streetAndNumber": "Nowowiejska 25",
       "city": "Gdynia",
       "area": 15,
-      "price": 1200.0,
-      "flatId": "f5c38d6f-aa5d-471b-947a-dcd81355ecba",
-      "status": false
+      "price": 1200.0
     },
     {
       "streetAndNumber": "Wiejska 8",
       "city": "Warszawa",
       "area": 6,
-      "price": 1200.0,
-      "status": false
+      "price": 1200.0
+    },
+    {
+      "streetAndNumber": "NowowiejskaStreet",
+      "city": "Gizycko",
+      "area": 25,
+      "price": 1500.0
     }
   ]
 }
