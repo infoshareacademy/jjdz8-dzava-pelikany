@@ -21,28 +21,37 @@ public class RoomSearch {
         System.out.println("2. Miasto");
         System.out.println("3. Cena i Miasto");
         System.out.println("0. Powrót");
-        switch (scanner.nextByte()){
+        switch (scanner.nextByte()) {
             case 1:
-                printRoomsAvailableByPrice();
+                printRoomsAvailableByPriceAndOrCity(true, false);
                 break;
             case 2:
-                printRoomsAvailableByCity();
+                printRoomsAvailableByPriceAndOrCity(false, true);
                 break;
             case 3:
-                printRoomsAvailableByPriceAndCity();
+                printRoomsAvailableByPriceAndOrCity(true, true);
                 break;
             case 0:
                 new TenantScreen().tenantMenu();
                 break;
         }
     }
-    public void printRoomsAvailableByPrice() throws IOException {
+
+    public void printRoomsAvailableByPriceAndOrCity(boolean price, boolean city) throws IOException {
         JSONParser jsonParser = new JSONParser();
-        Scanner priceScanner = new Scanner(System.in);
-        System.out.println("Podaj maksymalną cenę za pokój: ");
-        double priceMax = priceScanner.nextDouble();
+        double priceMax = 0;
+        String citySelected = null;
 
-
+        if (price) {
+            Scanner priceScanner = new Scanner(System.in);
+            System.out.println("Podaj maksymalną cenę za pokój: ");
+            priceMax = priceScanner.nextDouble();
+        }
+        if (city) {
+            Scanner cityScanner = new Scanner(System.in);
+            System.out.println("W jakim mieście szukać pokoju?");
+            citySelected = cityScanner.nextLine();
+        }
         try {
             FileReader fileReader = new FileReader("src/main/resources/rooms.json");
             Object obj = jsonParser.parse(fileReader);
@@ -51,96 +60,38 @@ public class RoomSearch {
             int i = 1;
             JSONArray roomList = (JSONArray) jsonObject.get("roomsList");
             for (JSONObject object : (Iterable<JSONObject>) roomList) {
-            String priceString = (String)object.get("price");
-            String statusString = (String)object.get("status");
-
-                if (priceMax > Double.parseDouble(priceString) && !Boolean.parseBoolean(statusString)) {
-                    System.out.println(i + ". Adres: " + object.get("address") + "\n\tCena: " + object.get("price"));
-                    i++;
+                String priceString = (String) object.get("price");
+                String statusString = (String) object.get("status");
+                String cityFromJSON = (String) object.get("city");
+                if (city && price) {
+                    if (priceMax > Double.parseDouble(priceString) && cityFromJSON.contentEquals(citySelected) && !Boolean.parseBoolean(statusString)) {
+                        printRoomDetails((String)object.get("address"), (String)object.get("price"), i);
+                    }
+                } else if (city) {
+                    if (cityFromJSON.contentEquals(citySelected) && !Boolean.parseBoolean(statusString)) {
+                        printRoomDetails((String)object.get("address"), (String)object.get("price"), i);
+                    }
+                } else if (price) {
+                    if (priceMax > Double.parseDouble(priceString) && !Boolean.parseBoolean(statusString)) {
+                        printRoomDetails((String)object.get("address"), (String)object.get("price"), i);
+                    }
                 }
+            i++;
             }
-        } catch (FileNotFoundException e){
+            Scanner scanner = new Scanner(System.in);
+            scanner.nextLine();
+
+        } catch (FileNotFoundException e) {
             System.out.println("Coś poszło nie tak.");
-        } catch (IOException | ParseException e){
+        } catch (IOException | ParseException e) {
             System.out.println("Coś innego");
         }
-        new TenantScreen().tenantMenu();
-
-
-    }
-    public void printRoomsAvailableByCity() throws IOException {
-        JSONParser jsonParser = new JSONParser();
-        Scanner cityScanner = new Scanner(System.in);
-        System.out.println("W jakim mieście szukać pokoju?");
-        String citySelected = cityScanner.nextLine();
-
-
-        try {
-            FileReader fileReader = new FileReader("src/main/resources/rooms.json");
-            Object obj = jsonParser.parse(fileReader);
-            JSONObject jsonObject = (JSONObject) obj;
-            System.out.println();
-            int i = 1;
-            JSONArray roomList = (JSONArray) jsonObject.get("roomsList");
-            for (JSONObject object : (Iterable<JSONObject>) roomList) {
-                String city = (String)object.get("city");
-                String statusString = (String)object.get("status");
-
-                if (city.contentEquals(citySelected) && !Boolean.parseBoolean(statusString)) {
-                    System.out.println(i + ". Adres: " + object.get("address") + "\n\tCena: " + object.get("price"));
-                    i++;
-                }
-            }
-        } catch (FileNotFoundException e){
-            System.out.println("Coś poszło nie tak.");
-        } catch (IOException | ParseException e){
-            System.out.println("Coś innego");
-        }
-        new TenantScreen().tenantMenu();
-
-
-
-
-    }
-    public void printRoomsAvailableByPriceAndCity() throws IOException {
-        JSONParser jsonParser = new JSONParser();
-        Scanner priceScanner = new Scanner(System.in);
-        System.out.println("Podaj maksymalną cenę za pokój: ");
-        double priceMax = priceScanner.nextDouble();
-        Scanner cityScanner = new Scanner(System.in);
-        System.out.println("W jakim mieście szukać pokoju?");
-        String citySelected = cityScanner.nextLine();
-
-        try {
-            FileReader fileReader = new FileReader("src/main/resources/rooms.json");
-            Object obj = jsonParser.parse(fileReader);
-            JSONObject jsonObject = (JSONObject) obj;
-            System.out.println();
-            int i = 1;
-            JSONArray roomList = (JSONArray) jsonObject.get("roomsList");
-            for (JSONObject object : (Iterable<JSONObject>) roomList) {
-                String priceString = (String)object.get("price");
-                String statusString = (String)object.get("status");
-                String city = (String)object.get("city");
-
-                if (priceMax > Double.parseDouble(priceString) && city.contentEquals(citySelected) && !Boolean.parseBoolean(statusString)) {
-                    System.out.println(i + ". Adres: " + object.get("address") + "\n\tCena: " + object.get("price"));
-                    i++;
-                }
-            }
-        } catch (FileNotFoundException e){
-            System.out.println("Coś poszło nie tak.");
-        } catch (IOException | ParseException e){
-            System.out.println("Coś innego");
-        }
-        new TenantScreen().tenantMenu();
-
-
+        TenantScreen tenantScreen = new TenantScreen();
+        tenantScreen.tenantMenu();
     }
 
 
-
-
-
-
+    public void printRoomDetails(String address, String price, Integer iterator) {
+        System.out.println(iterator + ". Adres: " + address + "\n\tCena: " + price);
+    }
 }
