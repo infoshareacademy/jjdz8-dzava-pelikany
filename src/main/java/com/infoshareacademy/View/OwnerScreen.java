@@ -1,6 +1,7 @@
 package com.infoshareacademy.View;
 
 
+import com.infoshareacademy.Utilities.RoomRegistration;
 import com.infoshareacademy.Utilities.SaveAndLoad;
 import com.infoshareacademy.Entity.Owner;
 import com.infoshareacademy.Utilities.OwnerEdit;
@@ -34,7 +35,8 @@ public class OwnerScreen extends Screen{
                 //do napisania
                 break;
             case (3):
-                //do napisania
+                RoomRegistration roomRegistration = new RoomRegistration();
+                roomRegistration.registerRoom();
                 break;
             case (4):
                 OwnerEditScreen ownerEditScreen = new OwnerEditScreen();

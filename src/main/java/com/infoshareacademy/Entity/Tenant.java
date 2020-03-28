@@ -9,6 +9,15 @@ public class Tenant{
     private String surname;
     private String email;
     private UUID id;
+    private UUID AssigmentId;
+
+    public UUID getAssigmentId() {
+        return AssigmentId;
+    }
+
+    public void setAssigmentId(UUID assigmentId) {
+        AssigmentId = assigmentId;
+    }
 
     public String getName() {
         return name;
