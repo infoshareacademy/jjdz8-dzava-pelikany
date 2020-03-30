@@ -1,10 +1,12 @@
-package com.infoshareacademy.Entity;
+package com.infoshareacademy.entity;
 
-import com.infoshareacademy.Utilities.JsonReader;
+import com.infoshareacademy.file.operation.JsonReader;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.infoshareacademy.file.operation.FilesNames.OWNERS_JSON;
 
 public class Owners {
 
@@ -19,7 +21,7 @@ public class Owners {
     }
 
     public static boolean ownerExist(String login) {
-        Owners owners = JsonReader.create(new Owners(), "src/main/resources/owners.json");
+        Owners owners = JsonReader.create(new Owners(), OWNERS_JSON);
         for (Owner owner : owners.getOwnersList()) {
             if (owner.getLogin().equals(login)) {
                 return true;

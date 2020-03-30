@@ -1,24 +1,26 @@
-package com.infoshareacademy.Utilities;
-import com.infoshareacademy.Entity.Room;
-import com.infoshareacademy.Entity.Rooms;
-import com.infoshareacademy.Entity.Tenant;
-import com.infoshareacademy.Entity.Tenants;
-import com.infoshareacademy.View.OwnerScreen;
-import com.infoshareacademy.View.Screen;
+package com.infoshareacademy.utilities;
+import com.infoshareacademy.entity.Room;
+import com.infoshareacademy.entity.Rooms;
+import com.infoshareacademy.entity.Tenant;
+import com.infoshareacademy.entity.Tenants;
+import com.infoshareacademy.file.operation.JsonReader;
+import com.infoshareacademy.file.operation.JsonSaver;
+import com.infoshareacademy.view.OwnerScreen;
+import com.infoshareacademy.view.Screen;
 
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.UUID;
 
 
-public class RoomRegistration extends Screen {
+public class RoomRegistration implements Screen {
 
     UUID roomUUID = null;
 
     public void registerRoom() throws IOException, InterruptedException {
 
         OwnerScreen ownerScreen = new OwnerScreen();
-        clearScreen();
+        Screen.clearScreen();
         chooseRoom();
         chooseTenant();
 

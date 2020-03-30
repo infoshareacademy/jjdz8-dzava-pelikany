@@ -1,10 +1,12 @@
-package com.infoshareacademy.Entity;
+package com.infoshareacademy.entity;
 
-import com.infoshareacademy.Utilities.JsonReader;
+import com.infoshareacademy.file.operation.JsonReader;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.infoshareacademy.file.operation.FilesNames.TENANTS_JSON;
 
 public class Tenants {
 
@@ -19,7 +21,7 @@ public class Tenants {
     }
 
     public static boolean tenantExist(String login) {
-        Tenants tenants = JsonReader.create(new Tenants(), "src/main/resources/tenants.json");
+        Tenants tenants = JsonReader.create(new Tenants(), TENANTS_JSON);
         for (Tenant tenant : tenants.getTenantsList()) {
             if (tenant.getLogin().equals(login)) {
                 return true;

@@ -1,4 +1,4 @@
-package com.infoshareacademy.Utilities;
+package com.infoshareacademy.utilities;
 
 public class RoomEdit {
 
