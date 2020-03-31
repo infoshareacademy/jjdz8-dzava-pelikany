@@ -40,43 +40,48 @@ public class RoomSearch {
     public void printRoomsAvailableByPriceAndOrCity(boolean price, boolean city) throws IOException {
         JSONParser jsonParser = new JSONParser();
         double priceMax = 0;
+        double priceMin = 0;
         String citySelected = null;
+        if (price) {
+            Scanner priceScannerMin = new Scanner(System.in);
+            System.out.println("Podaj minimalną cenę za pokój: ");
+            priceMin = priceScannerMin.nextDouble();
+        }
 
         if (price) {
-            Scanner priceScanner = new Scanner(System.in);
+            Scanner priceScannerMax = new Scanner(System.in);
             System.out.println("Podaj maksymalną cenę za pokój: ");
-            priceMax = priceScanner.nextDouble();
+            priceMax = priceScannerMax.nextDouble();
         }
         if (city) {
             Scanner cityScanner = new Scanner(System.in);
             System.out.println("W jakim mieście szukać pokoju?");
-            citySelected = cityScanner.nextLine();
+            citySelected = convertCityName(cityScanner.nextLine());
         }
         try {
             FileReader fileReader = new FileReader("src/main/resources/rooms.json");
             Object obj = jsonParser.parse(fileReader);
             JSONObject jsonObject = (JSONObject) obj;
             System.out.println();
-            int i = 1;
+            int iterator = 0;
             JSONArray roomList = (JSONArray) jsonObject.get("roomsList");
             for (JSONObject object : (Iterable<JSONObject>) roomList) {
-                String priceString = (String) object.get("price");
-                String statusString = (String) object.get("status");
-                String cityFromJSON = (String) object.get("city");
+                Double priceFromFile = (double) object.get("price");
+                boolean status = (boolean) object.get("status");
+                String cityFromJSON = convertCityName((String) object.get("city"));
                 if (city && price) {
-                    if (priceMax > Double.parseDouble(priceString) && cityFromJSON.contentEquals(citySelected) && !Boolean.parseBoolean(statusString)) {
-                        printRoomDetails((String)object.get("address"), (String)object.get("price"), i);
+                    if (priceMin < priceFromFile && priceMax > priceFromFile && cityFromJSON.contentEquals(citySelected) && !status) {
+                        printRoomDetails((String)object.get("streetAndNumber"), (double)object.get("price"), ++iterator);
                     }
                 } else if (city) {
-                    if (cityFromJSON.contentEquals(citySelected) && !Boolean.parseBoolean(statusString)) {
-                        printRoomDetails((String)object.get("address"), (String)object.get("price"), i);
+                    if (cityFromJSON.contentEquals(citySelected) && !status) {
+                        printRoomDetails((String)object.get("streetAndNumber"), (double)object.get("price"), ++iterator);
                     }
                 } else if (price) {
-                    if (priceMax > Double.parseDouble(priceString) && !Boolean.parseBoolean(statusString)) {
-                        printRoomDetails((String)object.get("address"), (String)object.get("price"), i);
+                    if (priceMin < priceFromFile && priceMax > priceFromFile && !status) {
+                        printRoomDetails((String)object.get("streetAndNumber"), (double)object.get("price"), ++iterator);
                     }
                 }
-            i++;
             }
             Scanner scanner = new Scanner(System.in);
             scanner.nextLine();
@@ -91,7 +96,12 @@ public class RoomSearch {
     }
 
 
-    public void printRoomDetails(String address, String price, Integer iterator) {
+    public void printRoomDetails(String address, double price, Integer iterator) {
         System.out.println(iterator + ". Adres: " + address + "\n\tCena: " + price);
     }
+
+    public String convertCityName(String cityName) {
+        String convertedCityName = cityName.toLowerCase();
+        return convertedCityName.replace("ą","a").replace("ć","c").replace("ę","e").replace("ł","l").replace("ń","n").replace("ó","o").replace("ś","s").replace("ż","z").replace("ź","z");
+      }
 }
