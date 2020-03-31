@@ -1,5 +1,7 @@
 package com.infoshareacademy.view;
 
+import com.infoshareacademy.utilities.RoomSearch;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -22,7 +24,8 @@ public class TenantScreen implements Screen {
         byte dialedNumber = scanner.nextByte();
         switch (dialedNumber) {
             case (1):
-                //TODO
+                RoomSearch roomSearch = new RoomSearch();
+                roomSearch.setCriteria();
                 break;
             case (2):
                 //TODO
