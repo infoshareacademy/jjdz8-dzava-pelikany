@@ -12,6 +12,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+import static java.lang.System.out;
+
 public class RoomSearch {
   public void setCriteria() throws IOException, InterruptedException {
     Scanner scanner = new Scanner(System.in);
@@ -33,6 +35,9 @@ public class RoomSearch {
       case 0:
         new TenantScreen().tenantMenu();
         break;
+      default:
+        out.println("Nieprawidłowa wartość spróbuj ponownie.");
+        setCriteria();
     }
   }
 
