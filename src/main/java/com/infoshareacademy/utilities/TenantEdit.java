@@ -1,5 +1,6 @@
 package com.infoshareacademy.utilities;
 
+import com.infoshareacademy.entity.Owners;
 import com.infoshareacademy.entity.Tenants;
 import com.infoshareacademy.file.operation.JsonReader;
 import com.infoshareacademy.file.operation.JsonSaver;
@@ -20,6 +21,10 @@ public class TenantEdit {
     public void editTenantLogin() throws IOException, InterruptedException {
         out.println("Wprowadź dotychczasowy login: ");
         String login = scanner.nextLine();
+        while (!Tenants.tenantExist(login)) {
+            out.println("Podany login nie istnieje. Spróbuj ponownie: ");
+            login = scanner.nextLine();
+        }
         out.println("Wprowadź nowy login: ");
         String newLogin = scanner.nextLine();
         setNewLogin(login,newLogin);

@@ -19,6 +19,10 @@ public class OwnerEdit {
    public void editOwnerLogin() throws IOException, InterruptedException {
       out.println("Wprowadź dotychczasowy login: ");
       String login = scanner.nextLine();
+      while (!Owners.ownerExist(login)) {
+         out.println("Podany login nie istnieje. Spróbuj ponownie: ");
+         login = scanner.nextLine();
+      }
       out.println("Wprowadź nowy login: ");
       String newLogin = scanner.nextLine();
       setNewLogin(login,newLogin);
