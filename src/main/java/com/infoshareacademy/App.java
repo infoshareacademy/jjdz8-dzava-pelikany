@@ -1,19 +1,16 @@
 package com.infoshareacademy;
 
-import com.infoshareacademy.menu.Menu;
+import com.infoshareacademy.view.Menu;
 
 import java.io.IOException;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
-    public static void main( String[] args ) throws IOException {
+    public static void main( String[] args ) throws IOException, InterruptedException {
 
-        Menu menu = new Menu();
-        menu.mainMenu();
+      Menu.mainMenu();
+
+
 
     }
 }
