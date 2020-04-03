@@ -27,8 +27,8 @@ public class OwnerScreen extends Screen{
                 saveAndLoad.createRoom();
                 break;
             case (2):
-
-                //do napisania
+                RoomEditScreen roomEditScreen = new RoomEditScreen();
+                roomEditScreen.roomEditMenu();
                 break;
             case (3):
                 //do napisania

@@ -5,6 +5,7 @@ public class Room {
     protected String roomLogin;
     private String streetAndNumber;
     private String city;
+
     private byte area;
     private double price;
 
