@@ -3,6 +3,7 @@ package com.infoshareacademy.entity;
 import java.util.UUID;
 
 public class Room {
+    private String roomLogin;
     private String streetAndNumber;
     private String city;
     private byte area;
@@ -11,22 +12,30 @@ public class Room {
     private String registrationTerm;
     private boolean status;
 
-    public Room(String streetAndNumber, String city, byte area, double price) {
+    public Room(String roomLogin) {
+        this.roomLogin = roomLogin;
         this.assigmentId = UUID.randomUUID();
-        this.streetAndNumber = streetAndNumber;
-        this.city = city;
-        this.area = area;
-        this.price = price;
     }
 
     @Override
     public String toString() {
         return "Room{" +
-                "streetAndNumber='" + streetAndNumber + '\'' +
+                "roomLogin='" + roomLogin + '\'' +
+                ", streetAndNumber='" + streetAndNumber + '\'' +
                 ", city='" + city + '\'' +
                 ", area=" + area +
                 ", price=" + price +
+                ", registrationTerm='" + registrationTerm + '\'' +
+                ", status=" + status +
                 '}';
+    }
+
+    public String getRoomLogin() {
+        return roomLogin;
+    }
+
+    public void setRoomLogin(String roomLogin) {
+        this.roomLogin = roomLogin;
     }
 
     public String getStreetAndNumber() {

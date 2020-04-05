@@ -33,7 +33,8 @@ public class OwnerScreen implements Screen{
                 roomCreator.createRoom();
                 break;
             case (2):
-
+                RoomEditScreen roomEditScreen = new RoomEditScreen();
+                roomEditScreen.roomEditMenu();
                 break;
             case (3):
                 RoomRegistration roomRegistration = new RoomRegistration();

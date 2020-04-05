@@ -15,19 +15,29 @@ public class RoomCreator {
 
     Scanner scanner = new Scanner(in);
     OwnerScreen ownerScreen = new OwnerScreen();
+
     private Room roomDetails() {
-        out.println("Wprowadź ulicę i numer : ");
+        String roomLogin = getCorrectRoomLogin();
+        System.out.println("Wprowadź ulicę i numer : ");
         String streetAndNumber = scanner.nextLine();
-        out.println("Wprowadź miasto : ");
+        System.out.println("Wprowadź miasto : ");
         String city = scanner.nextLine();
-        out.println("Wprowadź powierzchnię pokoju w m2 : ");
+        System.out.println("Wprowadź powierzchnię pokoju w m2 : ");
         byte area = scanner.nextByte();
-        out.println("Wprowadź cenę w PLN : ");
+        System.out.println("Wprowadź cenę w PLN : ");
         double price = scanner.nextDouble();
-        Room room;
-        room = new Room(streetAndNumber, city, area, price);
+        return createRoom(roomLogin, streetAndNumber, city, area, price);
+    }
+
+    private Room createRoom(String roomLogin, String streetAndNumber, String city, byte area, double price) {
+        Room room = new Room(roomLogin);
+        room.setStreetAndNumber(streetAndNumber);
+        room.setCity(city);
+        room.setArea(area);
+        room.setPrice(price);
         return room;
     }
+
 
     private void saveRoom(Room room) {
         Rooms rooms = JsonReader.create(new Rooms(), "src/main/resources/rooms.json");
@@ -38,8 +48,19 @@ public class RoomCreator {
     public void createRoom() throws IOException, InterruptedException {
         Room room = roomDetails();
         saveRoom(room);
-        out.println("Dodałeś mieszkanie do swojej listy !");
+        System.out.println("Dodałeś mieszkanie do swojej listy !");
         Thread.sleep(1000);
         ownerScreen.ownerMenu();
+    }
+
+    private String getCorrectRoomLogin() {
+        out.println("Wprowadź login: ");
+        String roomLogin = scanner.nextLine();
+        while (Rooms.roomExist(roomLogin)) {
+            out.println("Podany login już istnieje, spróbuj ponownie: ");
+            roomLogin = scanner.nextLine();
+        }
+
+        return roomLogin;
     }
 }
