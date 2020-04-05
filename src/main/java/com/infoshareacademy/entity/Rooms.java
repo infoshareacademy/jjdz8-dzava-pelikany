@@ -1,4 +1,4 @@
-package com.infoshareacademy.Entity;
+package com.infoshareacademy.entity;
 
 import com.infoshareacademy.Utilities.JsonReader;
 

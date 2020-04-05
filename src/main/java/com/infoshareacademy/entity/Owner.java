@@ -1,10 +1,10 @@
-package com.infoshareacademy.Entity;
+package com.infoshareacademy.entity;
 
 import java.util.UUID;
 
-public class Tenant{
+public class Owner {
 
-    private String login;
+    protected String login;
     private String name;
     private String surname;
     private String email;
@@ -26,6 +26,14 @@ public class Tenant{
         this.surname = surname;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -34,23 +42,14 @@ public class Tenant{
         this.email = email;
     }
 
-    public void setLogin(String login) {
+    public Owner(String login) {
         this.login = login;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public Tenant(String login) {
-        this.login = login;
-
         this.id = UUID.randomUUID();
     }
 
     @Override
     public String toString() {
-        return "Tenant{" +
+        return "Owner{" +
                 "login='" + login + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
@@ -58,5 +57,6 @@ public class Tenant{
                 ", id=" + id +
                 '}';
     }
+
 
 }

@@ -1,25 +1,13 @@
 {
-  "roomsList": [
-    {
-      "roomLogin": "Lsa",
-      "streetAndNumber": "Nowoeijska",
-      "city": "Olsztyn",
-      "area": 5,
-      "price": 1200.0
-    },
+  "roomsList":
     {
       "roomLogin": "Login",
       "streetAndNumber": "Nowowiejska",
       "city": "Warszawa",
-      "area": 11,
-      "price": 5000.0
-    },
-    {
-      "roomLogin": "Pokoj1",
-      "streetAndNumber": "Wiejska",
-      "city": "Gizycko",
-      "area": 15,
-      "price": 1200.0
+      "area": 6,
+      "price": 1200.0,
+      "registrationTerm": "10/10/1010",
+      "status": true
     }
   ]
 }

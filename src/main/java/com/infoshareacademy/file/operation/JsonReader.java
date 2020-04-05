@@ -1,10 +1,12 @@
-package com.infoshareacademy.Utilities;
+package com.infoshareacademy.file.operation;
 
 import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileReader;
 import java.lang.reflect.Type;
+
+import static java.lang.System.*;
 
 
 public class JsonReader {
@@ -18,7 +20,7 @@ public class JsonReader {
                 object = gson.fromJson(new FileReader(fileName), (Type) object.getClass());
 
             } catch (Exception e) {
-                e.printStackTrace();
+                out.println("Coś poszło nie tak?!?!" + e.getMessage());
             }
         }
         return object;

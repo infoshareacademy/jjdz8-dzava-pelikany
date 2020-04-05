@@ -1,4 +1,4 @@
-package com.infoshareacademy.Utilities;
+package com.infoshareacademy.utilities;
 
 import com.infoshareacademy.Entity.Rooms;
 import com.infoshareacademy.View.RoomEditScreen;
