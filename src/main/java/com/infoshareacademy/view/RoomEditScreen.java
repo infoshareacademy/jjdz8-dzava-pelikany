@@ -1,41 +1,42 @@
-package com.infoshareacademy.View;
+package com.infoshareacademy.view;
 
-import com.infoshareacademy.Utilities.OwnerEdit;
+import com.infoshareacademy.utilities.RoomEdit;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-import static com.infoshareacademy.View.Screen.clearScreen;
+import static com.infoshareacademy.view.Screen.clearScreen;
 
-public class OwnerEditScreen {
+public class RoomEditScreen {
 
-    public void ownerEditMenu() throws IOException, InterruptedException {
+    public void roomEditMenu() throws IOException, InterruptedException {
         clearScreen();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------------");
-        System.out.println("                Profil Właściciela.");
+        System.out.println("                Edycja danych pokoju.");
         System.out.println("-----------------------------------------------------");
         System.out.println("Wybierz, co chcesz edytować: ");
-        System.out.println("1. Login");
-        System.out.println("2. Imię ");
-        System.out.println("3. Nazwisko");
-        System.out.println("4. Email");
+        System.out.println("1. Ulicę i numer domu.");
+        System.out.println("2. Miasto. ");
+        System.out.println("3. Powierzchnię pokoju. ");
+        System.out.println("4. Cenę wynajmu. ");
         System.out.println("\n\n0. Powrót do menu");
 
         byte dialedNumber = scanner.nextByte();
-        OwnerEdit ownerEdit = new OwnerEdit();
+
+        RoomEdit roomEdit = new RoomEdit();
         switch (dialedNumber) {
             case (1):
-                ownerEdit.editOwnerLogin();
+                roomEdit.editRoomStreetAndNumber();
                 break;
             case (2):
-                ownerEdit.editName();
+                roomEdit.editRoomCity();
                 break;
             case (3):
-                ownerEdit.editSurname();
+                roomEdit.editRoomArea();
                 break;
             case (4):
-                ownerEdit.editEmail();
+                roomEdit.editRoomPrice();
                 break;
             case (0):
                 Menu.mainMenu();

@@ -1,5 +1,5 @@
 {
-  "roomsList":
+  "roomsList": [
     {
       "roomLogin": "Login",
       "streetAndNumber": "Nowowiejska",
@@ -8,6 +8,15 @@
       "price": 1200.0,
       "registrationTerm": "10/10/1010",
       "status": true
+    },
+    {
+      "roomLogin": "Login123",
+      "streetAndNumber": "Nowowiejska 10",
+      "city": "Gdynia",
+      "area": 15,
+      "price": 5555.0,
+      "assigmentId": "d0f30dfa-51bb-4c73-8262-ff67de013795",
+      "status": false
     }
   ]
 }

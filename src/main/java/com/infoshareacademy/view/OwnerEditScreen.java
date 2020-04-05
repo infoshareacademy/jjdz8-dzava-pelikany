@@ -5,8 +5,8 @@ import com.infoshareacademy.utilities.OwnerEdit;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static com.infoshareacademy.view.Screen.clearScreen;
-import static java.lang.System.*;
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 public class OwnerEditScreen implements Screen {
 

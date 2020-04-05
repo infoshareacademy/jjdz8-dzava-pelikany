@@ -1,6 +1,6 @@
 package com.infoshareacademy.entity;
 
-import com.infoshareacademy.Utilities.JsonReader;
+import com.infoshareacademy.file.operation.JsonReader;
 
 import java.util.ArrayList;
 import java.util.Arrays;
