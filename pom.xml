@@ -3,8 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.infoshareacademy</groupId>
     <artifactId>dzavapelikany</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>dzavapelikanyWebApp</module>
+        <module>dzavapelikanyConsoleApp</module>
+    </modules>
     <name>dzavapelikany</name>
     <url>http://maven.apache.org</url>
     <properties>
