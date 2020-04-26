@@ -14,6 +14,10 @@
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
             crossorigin="anonymous"
     />
+
+    <link href="styles.css" rel="stylesheet" />
+    <link href="form.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -33,10 +37,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.html">Strona główna</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="registration.html">Rejestracja</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="kontakt.html">Kontakt</a>
             </li>
         </ul>
@@ -59,20 +63,25 @@
 
         <form action="action" method="post" class="contact-from">
             <div class="row">
-                <div class="form col-lg-6 col-sm-12">
-                    <label for="name">Imie:</label>
-                    <input type="text" name="name" id="name" required />
-                </div>
-                <div class="form col-lg-6 col-sm-12">
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" required />
-                </div>
                 <div class="form col-12">
                     <label for="services">Wybierz typ użytkownika:</label>
                     <select id="services">
                         <option value="lokator">Lokator</option>
                         <option value="wynajmujący">Wynajmujący</option>
                     </select>
+                </div>
+                <div class="form col-lg-6 col-sm-12">
+                    <label for="name">Imie:</label>
+                    <input type="text" name="name" id="name" required />
+                </div>
+                <div class="form col-lg-6 col-sm-12">
+                    <label for="surname">Nazwisko:</label>
+                    <input type="text" surname="surname" id="surname" required />
+                </div>
+                <div class="form col-12">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required />
+
                 </div>
                     <button class="btn btn-primary" type="submit">
                         Zarejestruj!
