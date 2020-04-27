@@ -8,6 +8,8 @@ import com.infoshareacademy.file.operation.JsonSaver;
 import java.io.IOException;
 import java.util.Scanner;
 
+import static com.infoshareacademy.file.operation.FilesNames.ROOMS_JSON;
+
 public class RoomEdit {
 
     Scanner scanner = new Scanner(System.in);
@@ -15,7 +17,7 @@ public class RoomEdit {
 
     public void editRoomStreetAndNumber() throws IOException, InterruptedException {
         System.out.println("Wprowadź login pokoju: ");
-        Rooms rooms = JsonReader.create(new Rooms(), "src/main/resources/rooms.json");
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSON);
         String roomLogin = scanner.nextLine();
         System.out.println("Wprowadź nową ulicę i numer : ");
         setNewStreetAndNumber(roomLogin);
@@ -25,14 +27,14 @@ public class RoomEdit {
     }
 
     public void setNewStreetAndNumber(String roomLogin) {
-        Rooms rooms = JsonReader.create(new Rooms(), "src/main/resources/rooms.json");
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSON);
         rooms.findRoomLogin(roomLogin).setStreetAndNumber(scanner.nextLine());
-        JsonSaver.makeJson(rooms, "src/main/resources/rooms.json");
+        JsonSaver.makeJson(rooms, ROOMS_JSON);
     }
 
     public void editRoomCity() throws IOException, InterruptedException {
         System.out.println("Wprowadź login pokoju: ");
-        Rooms rooms = JsonReader.create(new Rooms(), "src/main/resources/rooms.json");
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSON);
         String roomLogin = scanner.nextLine();
         System.out.println("Wprowadź nowe miasto : ");
         setNewCity(roomLogin);
@@ -42,14 +44,14 @@ public class RoomEdit {
     }
 
     public void setNewCity(String roomLogin) {
-        Rooms rooms = JsonReader.create(new Rooms(), "src/main/resources/rooms.json");
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSON);
         rooms.findRoomLogin(roomLogin).setCity(scanner.nextLine());
-        JsonSaver.makeJson(rooms, "src/main/resources/rooms.json");
+        JsonSaver.makeJson(rooms, ROOMS_JSON);
     }
 
     public void editRoomArea() throws IOException, InterruptedException {
         System.out.println("Wprowadź login pokoju: ");
-        Rooms rooms = JsonReader.create(new Rooms(), "src/main/resources/rooms.json");
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSON);
         String roomLogin = scanner.nextLine();
         System.out.println("Wprowadź nową powierzchnię pokoju w m2  : ");
         setNewArea(roomLogin);
@@ -59,14 +61,14 @@ public class RoomEdit {
     }
 
     public void setNewArea(String roomLogin) {
-        Rooms rooms = JsonReader.create(new Rooms(), "src/main/resources/rooms.json");
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSON);
         rooms.findRoomLogin(roomLogin).setArea(scanner.nextByte());
-        JsonSaver.makeJson(rooms, "src/main/resources/rooms.json");
+        JsonSaver.makeJson(rooms, ROOMS_JSON);
     }
 
     public void editRoomPrice() throws IOException, InterruptedException {
         System.out.println("Wprowadź login pokoju: ");
-        Rooms rooms = JsonReader.create(new Rooms(), "src/main/resources/rooms.json");
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSON);
         String roomLogin = scanner.nextLine();
         System.out.println("Wprowadź nową powierzchnię pokoju w m2  : ");
         setNewPrice(roomLogin);
@@ -76,9 +78,9 @@ public class RoomEdit {
     }
 
     public void setNewPrice(String roomLogin) {
-        Rooms rooms = JsonReader.create(new Rooms(), "src/main/resources/rooms.json");
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSON);
         rooms.findRoomLogin(roomLogin).setPrice(scanner.nextDouble());
-        JsonSaver.makeJson(rooms, "src/main/resources/rooms.json");
+        JsonSaver.makeJson(rooms, ROOMS_JSON);
     }
 
 }

@@ -9,14 +9,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet("/registration")
-public class RegistrationServlet extends HttpServlet {
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter printWriter = response.getWriter();
         request.setCharacterEncoding("UTF-8");
-       // printWriter.println("rejestracja");
-       request.getRequestDispatcher("registration.html").forward(request, response);
+        request.getRequestDispatcher("login.html").forward(request, response);
 
     }
 

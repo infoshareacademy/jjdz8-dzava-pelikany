@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.infoshareacademy.file.operation.FilesNames.ROOMS_JSON;
+
 public class Rooms {
 
     private List<Room> roomsList = new ArrayList<>();
@@ -19,7 +21,7 @@ public class Rooms {
     }
 
     public static boolean roomExist(String roomLogin) {
-        Rooms rooms = JsonReader.create(new Rooms(), "src/main/resources/rooms.json");
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSON);
         for (Room room : rooms.getRoomsList()) {
             if (room.getRoomLogin().equals(roomLogin)) {
                 return true;

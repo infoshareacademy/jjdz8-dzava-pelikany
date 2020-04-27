@@ -9,5 +9,8 @@
         <module name="dzavapelikanyWebApp" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dzavapelikany (1)" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
