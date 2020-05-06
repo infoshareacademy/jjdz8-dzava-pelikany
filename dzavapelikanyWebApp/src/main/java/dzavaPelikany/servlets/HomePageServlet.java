@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 @WebServlet("/homepage")
 public class HomePageServlet extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter printWriter = response.getWriter();
         request.setCharacterEncoding("UTF-8");

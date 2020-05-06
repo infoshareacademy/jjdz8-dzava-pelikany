@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet("/registration")
-public class RegistrationServlet extends HttpServlet {
+@WebServlet("/logout")
+public class LogoutServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter printWriter = response.getWriter();
         request.setCharacterEncoding("UTF-8");
-        request.getRequestDispatcher("registration-screen.html").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
 

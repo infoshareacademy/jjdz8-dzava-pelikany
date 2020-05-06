@@ -8,17 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
-@WebServlet("/registration")
-public class RegistrationServlet extends HttpServlet {
+@WebServlet("/tenant-contact-us")
+public class TenantContactUsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter printWriter = response.getWriter();
         request.setCharacterEncoding("UTF-8");
-        request.getRequestDispatcher("registration-screen.html").forward(request, response);
+        request.getRequestDispatcher("tenant-contact-us-screen.html").forward(request, response);
 
     }
-
-
 }

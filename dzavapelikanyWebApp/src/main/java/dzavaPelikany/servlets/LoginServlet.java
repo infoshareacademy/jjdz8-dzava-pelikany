@@ -12,10 +12,11 @@ import java.io.PrintWriter;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter printWriter = response.getWriter();
         request.setCharacterEncoding("UTF-8");
-        request.getRequestDispatcher("login.html").forward(request, response);
+        request.getRequestDispatcher("login-screen.html").forward(request, response);
 
     }
 

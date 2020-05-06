@@ -9,15 +9,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet("/contact")
-public class ContactServlet extends HttpServlet {
+@WebServlet("/owner-edit-details")
+public class OwnerEditServlet extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter printWriter = response.getWriter();
         request.setCharacterEncoding("UTF-8");
-        request.getRequestDispatcher("contact.html").forward(request, response);
+        request.getRequestDispatcher("owner-edit-screen.html").forward(request, response);
 
     }
-
-
 }
