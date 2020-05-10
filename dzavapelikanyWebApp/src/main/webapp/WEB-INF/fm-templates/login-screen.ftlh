@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="Strona mojej firmy"/>
-    <title>DzavaApp - Rejestracja.</title>
-    <link rel="stylesheet" href="styles.css"/>
-    <link href="form.css" rel="stylesheet"/>
+    <title>DzavaApp - Logowanie.</title>
+    <link rel="stylesheet" href="../../styles.css"/>
+    <link href="../../form.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Atomic Age' rel='stylesheet'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -29,10 +29,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="/homepage">Strona Główna</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/registration">Rejestracja</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/login">Logowanie</a>
             </li>
             <li class="nav-item">
@@ -44,7 +44,7 @@
 
 <header class="jumbotron">
     <div class="container">
-        <h1 class="display-3">Rejestracja</h1>
+        <h1 class="display-3">Logowanie</h1>
     </div>
 </header>
 
@@ -52,34 +52,23 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="display-5">Formularz rejestracyjny</h3>
+                <h3 class="display-5">Formularz logowania</h3>
             </div>
         </div>
 
         <form action="action" method="post" class="contact-from">
             <div class="row">
                 <div class="form col-lg-6 col-sm-12">
-                    <label for="name">Imie:</label>
-                    <input type="text" name="name" id="name" required/>
+                    <label for="login">Login:</label>
+                    <input type="text" name="login" id="login" required/>
                 </div>
                 <div class="form col-lg-6 col-sm-12">
-                    <label for="surname">Nazwisko:</label>
-                    <input type="text" name="surname" id="surname" required/>
-                </div>
-                <div class="form col-lg-6 col-sm-12">
-                    <label for="email">Email:</label>
-                    <input type="text" name="email" id="email" required/>
-                </div>
-                <div class="form col-12">
-                    <label for="services">Wybierz typ użytkownika:</label>
-                    <select id="services">
-                        <option value="tenant">Lokator</option>
-                        <option value="owner">Właściciel</option>
-                    </select>
+                    <label for="password">Hasło:</label>
+                    <input type="password" name="password" id="password" required/>
                 </div>
                 <div class="form col-12">
                     <button class="btn btn-primary" type="submit">
-                        Zarejestruj
+                        Zaloguj
                     </button>
                 </div>
             </div>
@@ -87,27 +76,7 @@
     </div>
 </main>
 
-<footer class="container">
-    <p>DzavaApp prod. DzavaPelikany - wszelkie prawa dozwolone.</p>
-</footer>
+<#include "footer.ftlh">
 
-<script
-        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"
-></script>
-
-<script
-        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"
-></script>
-
-<script
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"
-></script>
 </body>
-</html>
 </html>

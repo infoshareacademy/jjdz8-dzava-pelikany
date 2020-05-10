@@ -4,17 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="Strona mojej firmy"/>
-    <title>DzavaApp - Menu Właścicela.</title>
-    <link rel="stylesheet" href="styles.css"/>
-    <link href="form.css" rel="stylesheet"/>
+    <title>DzavaApp - Menu Lokatora.</title>
+    <link rel="stylesheet" href="../../styles.css"/>
+    <link href="../../form.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Atomic Age' rel='stylesheet'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
 <body>
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand logo" href="/owner-menu"><h2>DzavaApp!</h2></a>
+    <a class="navbar-brand logo" href="/tenant-menu"><h2>DzavaApp!</h2></a>
     <button
             class="navbar-toggler"
             type="button"
@@ -27,19 +28,19 @@
     <div class="collapse navbar-collapse" id="navigation">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/owner-menu">Menu Właściciela</a>
+                <a class="nav-link" href="/tenant-menu">Menu Lokatora</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/owner-add-room">Dodaj Pokój</a>
+                <a class="nav-link" href="/tenant-room">Twój Pokój</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/owner-edit-room">Edytuj Pokój</a>
+                <a class="nav-link" href="/tenant-search-room">Szukaj Pokoju</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/owner-edit-details">Edycja Danych</a>
+                <a class="nav-link" href="/tenant-edit-details">Edycja Danych</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/owner-contact-us">Kontakt</a>
+                <a class="nav-link" href="/tenant-contact-us">Kontakt</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Wyloguj</a>
@@ -50,7 +51,7 @@
 
 <header class="jumbotron">
     <div class="container">
-        <h1 class="display-3">Ekran Właściciela</h1>
+        <h1 class="display-3">Ekran Lokatora</h1>
     </div>
 </header>
 
@@ -58,27 +59,8 @@
 
 </main>
 
-<footer class="container">
-    <p>DzavaApp prod. DzavaPelikany - wszelkie prawa dozwolone.</p>
-</footer>
+<#include "footer.ftlh">
 
-<script
-        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"
-></script>
-
-<script
-        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"
-></script>
-
-<script
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"
-></script>
 </body>
 </html>
 </html>
