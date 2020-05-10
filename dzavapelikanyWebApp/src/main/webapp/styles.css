@@ -1,0 +1,28 @@
+main {
+    min-height: 90vh;
+}
+
+footer {
+    margin-top: 2vh;
+    border-top: 2px solid black;
+    padding-top: 2vh;
+}
+
+.logo {
+    color: gold;
+    transition: color 2s ease-in-out;
+    opacity: 1;
+    font-family: 'Atomic Age';
+    font-weight: bold;
+
+}
+
+.logo::first-letter {
+    text-transform: uppercase;
+}
+
+.logo:hover {
+    color: red;
+    transition: color 2s ease-in-out;
+    opacity: 0.8;
+}

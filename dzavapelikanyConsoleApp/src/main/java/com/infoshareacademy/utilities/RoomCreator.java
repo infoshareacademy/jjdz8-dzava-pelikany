@@ -9,7 +9,8 @@ import com.infoshareacademy.view.OwnerScreen;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static java.lang.System.*;
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 public class RoomCreator {
 
@@ -22,11 +23,24 @@ public class RoomCreator {
         String streetAndNumber = scanner.nextLine();
         System.out.println("Wprowadź miasto : ");
         String city = scanner.nextLine();
-        System.out.println("Wprowadź powierzchnię pokoju w m2 : ");
+        while (InputCheck.cityRegex(city)) {
+            out.println("Niepoprawne dane. Spróbuj ponownie: ");
+            city = scanner.nextLine();
+        }
+        System.out.println("Wprowadź powierzchnię pokoju w m2 (przykład : 15.0): ");
         byte area = scanner.nextByte();
+        while (area == 0) {
+            out.println("Niepoprawna wartość. Spróbuj ponownie: ");
+            area = scanner.nextByte();
+        }
         System.out.println("Wprowadź cenę w PLN : ");
         double price = scanner.nextDouble();
+        while (price == 0) {
+            out.println("Niepoprawna wartość. Spróbuj ponownie: ");
+            price = scanner.nextDouble();
+        }
         return createRoom(roomLogin, streetAndNumber, city, area, price);
+
     }
 
     private Room createRoom(String roomLogin, String streetAndNumber, String city, byte area, double price) {

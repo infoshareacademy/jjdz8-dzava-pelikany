@@ -11,10 +11,14 @@ class InputCheck {
     }
 
     public static boolean nameRegex(String name) {
-        return !name.matches( "^[a-zA-Z\\s]+");
+        return !name.matches("^[a-zA-Z\\s]+");
     }
 
     public static boolean surnameRegex(String surname) {
-        return !surname.matches( "^[a-zA-Z\\s]+");
+        return !surname.matches("^[a-zA-Z\\s]+");
+    }
+
+    public static boolean cityRegex(String city) {
+        return !city.matches("^[a-zA-Z\\s]+");
     }
 }
