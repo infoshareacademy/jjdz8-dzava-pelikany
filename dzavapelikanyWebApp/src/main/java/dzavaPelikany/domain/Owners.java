@@ -15,7 +15,7 @@ public class Owners {
     private List<Owner> ownersList = new ArrayList<>();
 
     public List<Owner> getOwnersList() {
-        return ownersList;
+        return this.ownersList;
     }
 
     public void addOwner(Owner owner) {
@@ -23,27 +23,14 @@ public class Owners {
     }
 
     public void deleteOwner(UUID id){
-
-    }
-
-    public static boolean ownerExist(String login) {
-        Owners owners = JsonReader.create(new Owners(), OWNERS_JSON);
-        for (Owner owner : owners.getOwnersList()) {
-            if (owner.getLogin().equals(login)) {
-                return true;
+        for (int i=0; i< ownersList.size();i++){
+            if(this.ownersList.get(i).getId().equals(i)){
+                ownersList.remove(i);
             }
         }
-        return false;
+
     }
 
-    public Owner findLogin(String login) {
-        for (Owner owner : this.ownersList) {
-            if (owner.getLogin().equals(login)) {
-                return owner;
-            }
-        }
-        return new Owner(login);
-    }
 
 
 }
