@@ -50,6 +50,7 @@ public class RegistrationServlet extends HttpServlet {
         owner.setEmail(req.getParameter("email"));
         owner.setSurname(req.getParameter("surname"));
 
+
         ownerService.saveOwner(owner);
     }
 }

@@ -71,12 +71,10 @@ public class Owner {
     @Override
     public String toString() {
         return "Owner{" +
-                "login='" + login + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 ", id=" + id +
-                ", password='" + password + '\'' +
                 '}';
     }
 }
