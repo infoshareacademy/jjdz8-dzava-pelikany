@@ -1,7 +1,6 @@
 package dzavaPelikany.servlets;
 
 import dzavaPelikany.domain.Owner;
-import dzavaPelikany.domain.User;
 import dzavaPelikany.freemarker.TemplateProvider;
 import dzavaPelikany.service.OwnerService;
 import freemarker.template.Template;
