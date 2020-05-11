@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <form action="action" method="post" class="contact-from">
+        <form action="/registration" method="post" class="contact-from">
             <div class="row">
                 <div class="form col-lg-6 col-sm-12">
                     <label for="name">Imie:</label>

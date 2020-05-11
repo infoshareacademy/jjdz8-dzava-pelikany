@@ -1,6 +1,9 @@
 package dzavaPelikany.servlets;
 
+import dzavaPelikany.domain.Owner;
+import dzavaPelikany.domain.User;
 import dzavaPelikany.freemarker.TemplateProvider;
+import dzavaPelikany.service.OwnerService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -21,6 +24,9 @@ public class RegistrationServlet extends HttpServlet {
     @Inject
     private TemplateProvider templateProvider;
 
+
+    OwnerService ownerService = new OwnerService();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -35,7 +41,16 @@ public class RegistrationServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Owner owner = new Owner();
+        owner.setName(req.getParameter("name"));
+        owner.setEmail(req.getParameter("email"));
+        owner.setSurname(req.getParameter("surname"));
 
+        ownerService.saveOwner(owner);
+    }
 }
