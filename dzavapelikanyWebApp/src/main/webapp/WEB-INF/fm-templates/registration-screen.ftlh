@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <form action="action" method="post" class="contact-from">
+        <form action="/registration" method="post" class="contact-from">
             <div class="row">
                 <div class="form col-lg-6 col-sm-12">
                     <label for="name">Imie:</label>
@@ -70,13 +70,32 @@
                     <label for="email">Email:</label>
                     <input type="text" name="email" id="email" required/>
                 </div>
-                <div class="form col-12">
-                    <label for="services">Wybierz typ użytkownika:</label>
-                    <select id="services">
-                        <option value="tenant">Lokator</option>
-                        <option value="owner">Właściciel</option>
-                    </select>
+                <form>
+                    <div class="form-row align-items-center">
+                        <div class="col-auto my-1">
+                            <label for="text">Wybierz typ użytkownika:</label>
+                            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                <option selected>Wybierz:</option>
+                                <option value="owner">Właściciel</option>
+                                <option value="tenant">Lokator</option>
+                            </select>
+                        </div>
+                        <div class="col-auto my-1">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="form col-lg-6 col-sm-12">
+                    <label for="login">Login</label>
+                    <input type="text" name="login" id="login" required/>
                 </div>
+                    <div class="form col-lg-6 col-sm-12">
+                        <label for="inputPassword6">Hasło:</label>
+                        <input type="password" id="inputPassword6" required/>
+                    </div>
                 <div class="form col-12">
                     <button class="btn btn-primary" type="submit">
                         Zarejestruj
@@ -90,5 +109,4 @@
 <#include "footer.ftlh">
 
 </body>
-</html>
 </html>

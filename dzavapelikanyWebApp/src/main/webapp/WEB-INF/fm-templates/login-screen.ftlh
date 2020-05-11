@@ -56,22 +56,16 @@
             </div>
         </div>
 
-        <form action="action" method="post" class="contact-from">
-            <div class="row">
-                <div class="form col-lg-6 col-sm-12">
-                    <label for="login">Login:</label>
-                    <input type="text" name="login" id="login" required/>
-                </div>
-                <div class="form col-lg-6 col-sm-12">
-                    <label for="password">Hasło:</label>
-                    <input type="password" name="password" id="password" required/>
-                </div>
-                <div class="form col-12">
-                    <button class="btn btn-primary" type="submit">
-                        Zaloguj
-                    </button>
-                </div>
+        <form class="form-inline">
+            <div class="form-group mb-2">
+                <label for="staticEmail2" class="sr-only">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="email">
             </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Password</label>
+                <input type="password" class="form-control" id="inputPassword2" placeholder="hasło">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Zaloguj</button>
         </form>
     </div>
 </main>
