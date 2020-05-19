@@ -1,7 +1,7 @@
 package com.infoshareacademy.utilities;
 
-import com.infoshareacademy.entity.Tenant;
-import com.infoshareacademy.entity.Tenants;
+import com.infoshareacademy.domain.entity.Tenant;
+import com.infoshareacademy.domain.entity.Tenants;
 import com.infoshareacademy.file.operation.JsonReader;
 import com.infoshareacademy.file.operation.JsonSaver;
 

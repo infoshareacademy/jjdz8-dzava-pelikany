@@ -1,6 +1,6 @@
 package com.infoshareacademy.utilities;
 
-import com.infoshareacademy.entity.Owners;
+import com.infoshareacademy.domain.entity.Owners;
 import com.infoshareacademy.file.operation.JsonReader;
 import com.infoshareacademy.file.operation.JsonSaver;
 import com.infoshareacademy.view.OwnerScreen;

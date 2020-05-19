@@ -1,5 +1,6 @@
 package dzavaPelikany.domain;
 
+
 import dzavaPelikany.fileOperation.JsonReader;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class Rooms {
     }
 
     public static boolean roomExist(String roomLogin) {
-        Rooms rooms = JsonReader.create(new Rooms(),ROOMS_JSON);
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSON);
         for (Room room : rooms.getRoomsList()) {
             if (room.getRoomLogin().equals(roomLogin)) {
                 return true;

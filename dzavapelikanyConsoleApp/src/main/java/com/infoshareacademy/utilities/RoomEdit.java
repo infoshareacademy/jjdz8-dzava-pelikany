@@ -1,7 +1,7 @@
 package com.infoshareacademy.utilities;
 
 import com.infoshareacademy.view.RoomEditScreen;
-import com.infoshareacademy.entity.Rooms;
+import com.infoshareacademy.domain.entity.Rooms;
 import com.infoshareacademy.file.operation.JsonReader;
 import com.infoshareacademy.file.operation.JsonSaver;
 
