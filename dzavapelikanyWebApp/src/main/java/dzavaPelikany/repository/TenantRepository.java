@@ -1,5 +1,7 @@
 package dzavaPelikany.repository;
 
+import dzavaPelikany.domain.Owner;
+import dzavaPelikany.domain.Owners;
 import dzavaPelikany.domain.Tenant;
 import dzavaPelikany.domain.Tenants;
 
@@ -10,6 +12,7 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.UUID;
 
+import static dzavaPelikany.fileOperation.FilesNames.OWNERS_JSON;
 import static dzavaPelikany.fileOperation.FilesNames.TENANTS_JSON;
 
 public class TenantRepository implements TenantRepositoryInterface{
@@ -20,6 +23,7 @@ public class TenantRepository implements TenantRepositoryInterface{
         tenants.addTenant(tenant);
         JsonSaver.makeJson(tenants, TENANTS_JSON);
     }
+
 
     @Override
     public Optional<Tenant> findById(UUID id) {
