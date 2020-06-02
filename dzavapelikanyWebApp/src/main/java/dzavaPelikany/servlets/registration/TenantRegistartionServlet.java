@@ -1,8 +1,10 @@
-package dzavaPelikany.servlets;
+package dzavaPelikany.servlets.registration;
 
 import dzavaPelikany.domain.Owner;
+import dzavaPelikany.domain.Tenant;
 import dzavaPelikany.freemarker.TemplateProvider;
 import dzavaPelikany.service.OwnerService;
+import dzavaPelikany.service.TenantService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -15,21 +17,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.UUID;
 
-
-@WebServlet("/registration")
-public class RegistrationServlet extends HttpServlet {
+@WebServlet("/tenant-registration")
+public class TenantRegistartionServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
 
 
-    OwnerService ownerService = new OwnerService();
+    TenantService tenantService = new TenantService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "registration-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-registration.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 
@@ -45,12 +47,24 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Owner owner = new Owner();
-        owner.setName(req.getParameter("name"));
-        owner.setEmail(req.getParameter("email"));
-        owner.setSurname(req.getParameter("surname"));
+        Tenant tenant = new Tenant();
+        tenant.setName(req.getParameter("name"));
+        tenant.setSurname(req.getParameter("surname"));
+        tenant.setEmail(req.getParameter("email"));
+        tenant.setLogin(req.getParameter("login"));
+        tenant.setId(UUID.randomUUID());
 
+        tenantService.saveTenant(tenant);
 
-        ownerService.saveOwner(owner);
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-menu-screen.ftlh");
+
+        resp.setContentType("text/html;charset=UTF-8");
+
+        PrintWriter printWriter = resp.getWriter();
+        try {
+            template.process(new HashMap<String, Object>(), printWriter);
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        }
     }
 }

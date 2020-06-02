@@ -1,6 +1,7 @@
 package dzavaPelikany.domain;
 
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Tenant {
@@ -75,5 +76,35 @@ public class Tenant {
     public Tenant(String login) {
         this.login = login;
         this.id = UUID.randomUUID();
+    }
+
+    @Override
+    public String toString() {
+        return "Tenant{" +
+                "login='" + login + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                ", id=" + id +
+                ", password='" + password + " "+
+                '}';
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+        final Tenant tenant = (Tenant) o;
+        return Objects.equals(this.login, tenant.login) &&
+                Objects.equals(this.name, tenant.name) &&
+                Objects.equals(this.surname, tenant.surname) &&
+                Objects.equals(this.email, tenant.email) &&
+                Objects.equals(this.id, tenant.id) &&
+                Objects.equals(this.password, tenant.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.login);
     }
 }
