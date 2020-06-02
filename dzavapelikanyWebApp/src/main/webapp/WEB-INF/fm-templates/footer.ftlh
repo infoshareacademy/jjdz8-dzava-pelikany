@@ -18,4 +18,18 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"
 ></script>
+<script>
+    $('#myMenu').click(function() {
+        window.location = "/owner-menu";
+    });
+    $('#myRooms').click(function() {
+        window.location = "/owner-rooms";
+    });
+    $('#addRoom').click(function() {
+        window.location = "/owner-add-room";
+    });
+    $('#EditMyData').click(function() {
+        window.location = "/owner-edit-details";
+    });
+</script>
 

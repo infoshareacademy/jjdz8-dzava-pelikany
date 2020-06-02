@@ -42,7 +42,7 @@
 
 <header class="jumbotron">
     <div class="container my-header">
-        <h1 class="display-3">Witaj ${ownerName} !</h1>
+        <h1 class="display-3">Lista pokoi</h1>
     </div>
 </header>
 
@@ -50,25 +50,11 @@
 
 <main role="main">
 
-    <p><input class="button" type ="button" id="myRooms" value="Przegladaj moje pokoje"/></p>
-    <p><input class="button" type ="button" id="addRoom" value="Dodaj pokoj"/></p>
-    <p><input class="button" type ="button" id="EditMyData" value="Edytuj moje dane"/></p>
+    <p><input class="button" type ="button" id="myMenu" value="<-- Powrot"/></p>
 
 </main>
 
 <#include "footer.ftlh">
-
-<script>
-    $('#myRooms').click(function() {
-        window.location = "/owner-rooms";
-    });
-    $('#addRoom').click(function() {
-        window.location = "/owner-add-room";
-    });
-    $('#EditMyData').click(function() {
-        window.location = "/owner-edit-details";
-    });
-</script>
 
 </body>
 </html>

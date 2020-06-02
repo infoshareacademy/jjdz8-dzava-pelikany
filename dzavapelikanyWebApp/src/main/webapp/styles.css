@@ -26,3 +26,19 @@ footer {
     transition: color 2s ease-in-out;
     opacity: 0.8;
 }
+.button{
+    margin-left: 30px;
+    padding: 15px 32px;
+    font-size: 20px;
+}
+
+.my-header{
+    margin-left: 10px !important;
+    margin-top: 30px !important;
+}
+.jumbotron{
+    padding-bottom: 30px !important;
+}
+.display-3{
+    font-size: 50px !important;
+}

@@ -27,17 +27,8 @@
 
     <div class="collapse navbar-collapse" id="navigation">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/owner-menu">Menu Właściciela</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/owner-add-room">Dodaj Pokój</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/owner-edit-room">Edytuj Pokój</a>
-            </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/owner-edit-details">Edycja Danych</a>
+                <a class="nav-link" href="/owner-menu">Menu</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/owner-contact-us">Kontakt</a>
@@ -50,12 +41,14 @@
 </nav>
 
 <header class="jumbotron">
-    <div class="container">
+    <div class="container my-header">
         <h1 class="display-3">Twoje dane</h1>
     </div>
 </header>
 
 <main role="main">
+
+    <p><input class="button" type ="button" id="myMenu" value="<-- Powrot"/></p>
 
 </main>
 

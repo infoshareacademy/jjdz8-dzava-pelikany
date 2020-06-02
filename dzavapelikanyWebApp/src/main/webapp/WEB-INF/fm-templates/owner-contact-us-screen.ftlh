@@ -27,19 +27,10 @@
 
     <div class="collapse navbar-collapse" id="navigation">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/owner-menu">Menu Właściciela</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/owner-add-room">Dodaj Pokój</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/owner-edit-room">Edytuj Pokój</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/owner-edit-details">Edycja Danych</a>
-            </li>
             <li class="nav-item active">
+                <a class="nav-link" href="/owner-menu">Menu</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/owner-contact-us">Kontakt</a>
             </li>
             <li class="nav-item">
@@ -50,7 +41,7 @@
 </nav>
 
 <header class="jumbotron">
-    <div class="container">
+    <div class="container my-header">
         <h1 class="display-3">Skontaktuj się z nami</h1>
         <p>
             Mozesz to zrobic bezpośrednio albo skorzystaj z naszego formularza
