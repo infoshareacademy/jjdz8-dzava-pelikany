@@ -1,4 +1,4 @@
-package dzavaPelikany.servlets;
+package dzavaPelikany.servlets.Login;
 
 import dzavaPelikany.freemarker.TemplateProvider;
 import freemarker.template.Template;
