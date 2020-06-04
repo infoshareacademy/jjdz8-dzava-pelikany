@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface OwnerRepositoryInterface {
 
-    public void saveOwner (Owner owner) throws IOException;
+    public void saveOwner (Owner owner, String path) throws IOException;
     public Optional<Owner> findById(UUID id);
     public Optional<Owner> findByLogin(String login);
     public void deleteOwner(Owner owner) throws IOException;

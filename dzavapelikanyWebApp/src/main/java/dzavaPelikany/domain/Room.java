@@ -12,6 +12,17 @@ public class Room {
     private String registrationTerm;
     private boolean status;
 
+
+    public String getTenantLogin() {
+        return tenantLogin;
+    }
+
+    public void setTenantLogin(String tenantLogin) {
+        this.tenantLogin = tenantLogin;
+    }
+
+    private String tenantLogin;
+
     public Room(String roomLogin) {
         this.roomLogin = roomLogin;
         this.assigmentId = UUID.randomUUID();

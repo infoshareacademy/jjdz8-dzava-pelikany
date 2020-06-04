@@ -49,16 +49,20 @@ public class OwnerRegistrationServlet extends HttpServlet {
         Owner owner = new Owner();
         owner.setName(req.getParameter("name"));
         owner.setSurname(req.getParameter("surname"));
+        owner.setPassword(req.getParameter("password"));
         owner.setEmail(req.getParameter("email"));
         owner.setLogin(req.getParameter("login"));
         owner.setId(UUID.randomUUID());
-        ownerService.saveOwner(owner);
+        String path = getServletContext().getRealPath("/WEB-INF/resources/owners.json");
+        ownerService.saveOwner(owner, path);
 
         Template template = templateProvider.getTemplate(getServletContext(), "owner-menu-screen.ftlh");
 
         resp.setContentType("text/html;charset=UTF-8");
 
         PrintWriter printWriter = resp.getWriter();
+
+
         try {
             template.process(new HashMap<String, Object>(), printWriter);
         } catch (TemplateException e) {

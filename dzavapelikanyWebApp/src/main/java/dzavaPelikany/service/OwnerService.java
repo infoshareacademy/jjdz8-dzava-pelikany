@@ -14,8 +14,8 @@ public class OwnerService {
 
     private OwnerRepository ownerRepository = new OwnerRepository();
 
-    public void saveOwner(Owner owner) throws IOException {
-        ownerRepository.saveOwner(owner);
+    public void saveOwner(Owner owner, String path) throws IOException {
+        ownerRepository.saveOwner(owner, path);
     }
 
     public Owner findById(UUID id){

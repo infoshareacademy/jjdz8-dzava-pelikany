@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 
 @WebServlet("")
-public class HomePageServlet extends HttpServlet {
+public class IndexServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;

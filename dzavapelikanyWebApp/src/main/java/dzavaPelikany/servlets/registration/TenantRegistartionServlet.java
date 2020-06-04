@@ -48,15 +48,18 @@ public class TenantRegistartionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Tenant tenant = new Tenant();
+        tenant.setPassword(req.getParameter("password"));
         tenant.setName(req.getParameter("name"));
         tenant.setSurname(req.getParameter("surname"));
         tenant.setEmail(req.getParameter("email"));
         tenant.setLogin(req.getParameter("login"));
         tenant.setId(UUID.randomUUID());
+        String path = getServletContext().getRealPath("/WEB-INF/resources/tenants.json");
 
-        tenantService.saveTenant(tenant);
 
-        Template template = templateProvider.getTemplate(getServletContext(), "tenant-menu-screen.ftlh");
+        tenantService.saveTenant(tenant, path);
+
+        Template template = templateProvider.getTemplate(getServletContext(), "index.ftlh");
 
         resp.setContentType("text/html;charset=UTF-8");
 

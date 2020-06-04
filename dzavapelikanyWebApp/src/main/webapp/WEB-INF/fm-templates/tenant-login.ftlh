@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="Strona mojej firmy"/>
-    <title>DzavaApp - Rejestracja.</title>
+    <title>DzavaApp - Logowanie.</title>
     <link rel="stylesheet" href="../../styles.css"/>
     <link href="../../form.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Atomic Age' rel='stylesheet'>
@@ -29,10 +29,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="/homepage">Strona Główna</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/registration">Rejestracja</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/login">Logowanie</a>
             </li>
             <li class="nav-item">
@@ -44,7 +44,7 @@
 
 <header class="jumbotron">
     <div class="container">
-        <h1 class="display-3">Rejestracja</h1>
+        <h1 class="display-3">Logowanie</h1>
     </div>
 </header>
 
@@ -52,38 +52,20 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="display-5">Formularz rejestracyjny</h3>
+                <h3 class="display-5">Formularz logowania</h3>
             </div>
         </div>
 
-        <form action="/owner-registration" method="post" class="contact-from">
-            <div class="row">
-                <div class="form col-lg-6 col-sm-12">
-                    <label for="name">Imie:</label>
-                    <input type="text" name="name" id="name" required/>
-                </div>
-                <div class="form col-lg-6 col-sm-12">
-                    <label for="surname">Nazwisko:</label>
-                    <input type="text" name="surname" id="surname" required/>
-                </div>
-                <div class="form col-lg-6 col-sm-12">
-                    <label for="email">Email:</label>
-                    <input type="text" name="email" id="email" required/>
-                </div>
-               <div class="form col-lg-6 col-sm-12">
-                    <label for="login">Login</label>
-                    <input type="text" name="login" id="login" required/>
-                </div>
-                <div class="form col-lg-6 col-sm-12">
-                    <label for="inputPassword6">Hasło:</label>
-                    <input type="password" id="inputPassword6" name="password" required/>
-                </div>
-                <div class="form col-12">
-                    <button class="btn btn-primary" type="submit">
-                        Zarejestruj
-                    </button>
-                </div>
+        <form class="form-inline" method="post" action="/tenant-login">
+            <div class="form-group mb-2">
+                <label for="staticEmail2" class="sr-only">Login</label>
+                <input type="text" class="form-control" id="login" placeholder="Login" name="login">
             </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Password</label>
+                <input type="password" class="form-control" id="inputPassword2" placeholder="Hasło" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Zaloguj</button>
         </form>
     </div>
 </main>

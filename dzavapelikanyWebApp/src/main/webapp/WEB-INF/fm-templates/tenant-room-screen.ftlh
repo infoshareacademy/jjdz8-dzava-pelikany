@@ -56,6 +56,19 @@
 </header>
 
 <main role="main">
+    <#if msg??>${msg}<#else>
+    <h3>Dane Twojego Pokoju</h3><br>
+        <ul>
+            <li>Miasto: ${city}</li>
+            <li>Adress: ${address}</li>
+            <li>Data Rejestracji: ${date}</li>
+            <li>Cena: ${price}</li>
+
+        </ul>
+
+
+
+    </#if>
 
 </main>
 

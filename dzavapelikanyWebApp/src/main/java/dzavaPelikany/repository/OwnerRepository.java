@@ -16,10 +16,10 @@ import static dzavaPelikany.fileOperation.FilesNames.OWNERS_JSON;
 public class OwnerRepository implements OwnerRepositoryInterface{
 
     @Override
-    public void saveOwner(Owner owner) throws IOException {
-            Owners owners = JsonReader.create(new Owners(), OWNERS_JSON);
+    public void saveOwner(Owner owner, String path) throws IOException {
+            Owners owners = JsonReader.create(new Owners(), path);
             owners.addOwner(owner);
-            JsonSaver.makeJson(owners, OWNERS_JSON);
+            JsonSaver.makeJson(owners, path);
 
     }
 
