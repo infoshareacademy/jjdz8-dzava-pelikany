@@ -89,6 +89,10 @@
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Zapisz zmiany</button>
                 </form>
+                <form action="/delete-owner" method="post">
+                    <input type="hidden" name="action" value="delete"/>
+                    <button type="submit" class="btn btn-primary mb-2" value="delete">Usuń użytkownika</button>
+                </form>
             </div>
         </main>
     </main>
