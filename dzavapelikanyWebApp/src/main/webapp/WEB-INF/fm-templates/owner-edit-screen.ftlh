@@ -91,7 +91,7 @@
                 </form>
                 <form action="/delete-owner" method="post">
                     <input type="hidden" name="action" value="delete"/>
-                    <button type="submit" class="btn btn-primary mb-2" value="delete">Usuń użytkownika</button>
+                    <button type="submit" class="btn btn-danger mb-2" value="delete">Usuń użytkownika</button>
                 </form>
             </div>
         </main>
