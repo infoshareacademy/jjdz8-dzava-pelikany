@@ -22,11 +22,11 @@ public class OwnerService {
         return ownerRepository.findById(id).orElse(null);
     }
 
-    public Owner findByLogin(String login){
-        return ownerRepository.findByLogin(login).orElse(null);
+    public Owner findByLogin(String login, String path){
+        return ownerRepository.findByLogin(login, path).orElse(null);
     }
 
-    public void deleteOwner(Owner owner) throws IOException {
-        ownerRepository.deleteOwner(owner);
+    public void deleteOwner(Owner owner, String path) throws IOException {
+        ownerRepository.deleteOwner(owner, path);
     }
 }

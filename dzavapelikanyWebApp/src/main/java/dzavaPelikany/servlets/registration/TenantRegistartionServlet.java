@@ -55,8 +55,8 @@ public class TenantRegistartionServlet extends HttpServlet {
         tenant.setLogin(req.getParameter("login"));
         tenant.setId(UUID.randomUUID());
         String path = getServletContext().getRealPath("/WEB-INF/resources/tenants.json");
-
-
+        HashMap<String,String> dataModel = new HashMap<>();
+        dataModel.put("msg","Zarejestrowano nowego lokatora");
         tenantService.saveTenant(tenant, path);
 
         Template template = templateProvider.getTemplate(getServletContext(), "index.ftlh");
@@ -65,7 +65,7 @@ public class TenantRegistartionServlet extends HttpServlet {
 
         PrintWriter printWriter = resp.getWriter();
         try {
-            template.process(new HashMap<String, Object>(), printWriter);
+            template.process(dataModel, printWriter);
         } catch (TemplateException e) {
             e.printStackTrace();
         }

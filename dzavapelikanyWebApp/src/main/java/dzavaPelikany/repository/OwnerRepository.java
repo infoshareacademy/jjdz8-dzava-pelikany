@@ -30,16 +30,16 @@ public class OwnerRepository implements OwnerRepositoryInterface{
     }
 
     @Override
-    public Optional<Owner> findByLogin(String login) {
-        Owners owners = JsonReader.create(new Owners(), OWNERS_JSON);
+    public Optional<Owner> findByLogin(String login, String path) {
+        Owners owners = JsonReader.create(new Owners(), path);
         return Optional.ofNullable(owners.getOwnersList().stream().filter(o->o.getLogin().equals(login)).findFirst().orElse(null));
     }
 
     @Override
-    public void deleteOwner(Owner owner) throws IOException {
-        Owners owners = JsonReader.create(new Owners(), OWNERS_JSON);
+    public void deleteOwner(Owner owner, String path) throws IOException {
+        Owners owners = JsonReader.create(new Owners(), path);
         owners.deleteOwner(owner.getId());
-        JsonSaver.makeJson(owners, OWNERS_JSON);
+        JsonSaver.makeJson(owners, path);
 
     }
 

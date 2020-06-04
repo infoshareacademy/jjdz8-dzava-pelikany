@@ -60,7 +60,6 @@ public class TenantLoginServlet extends HttpServlet {
             session.setAttribute("login",    tenant.getLogin());
             session.setAttribute("password", tenant.getPassword());
 
-            //setting session to expiry in 30 mins
             session.setMaxInactiveInterval(30*60);
 
 

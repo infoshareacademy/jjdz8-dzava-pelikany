@@ -56,15 +56,16 @@ public class OwnerRegistrationServlet extends HttpServlet {
         String path = getServletContext().getRealPath("/WEB-INF/resources/owners.json");
         ownerService.saveOwner(owner, path);
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-menu-screen.ftlh");
-
+        Template template = templateProvider.getTemplate(getServletContext(), "index.ftlh");
+        HashMap<String,String> dataModel = new HashMap<>();
+        dataModel.put("msg","Zarejestrowano nowego właściciela");
         resp.setContentType("text/html;charset=UTF-8");
 
         PrintWriter printWriter = resp.getWriter();
 
 
         try {
-            template.process(new HashMap<String, Object>(), printWriter);
+            template.process(dataModel, printWriter);
         } catch (TemplateException e) {
             e.printStackTrace();
         }
