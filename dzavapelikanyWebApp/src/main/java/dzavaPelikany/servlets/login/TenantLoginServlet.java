@@ -1,4 +1,4 @@
-package dzavaPelikany.servlets.Login;
+package dzavaPelikany.servlets.login;
 
 import dzavaPelikany.domain.Tenant;
 import dzavaPelikany.freemarker.TemplateProvider;
@@ -17,7 +17,8 @@ import java.util.HashMap;
 @WebServlet("/tenant-login")
 public class TenantLoginServlet extends HttpServlet {
 
-    TenantService tenantService = new TenantService();
+    @Inject
+    private TenantService tenantService;
     @Inject
     private TemplateProvider templateProvider;
 
@@ -44,11 +45,24 @@ public class TenantLoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String path = getServletContext().getRealPath("/WEB-INF/resources/tenants.json");
+        HashMap<String,String> dataModel = new HashMap<>();
 
-        if (tenantService.findByLogin(login, path) == null)
-            printWriter.println("<a href=\"/tenant-login\">Uzytkownik o takim loginie nie istnieje</a>");
-        else if (!tenantService.findByLogin(login, path).getPassword().equals(password))
-            printWriter.println("<a href=\"/tenant-login\">Przykro nam, nie prawidłowe hasło, spróbuj ponownie</a>");
+        if (tenantService.findByLogin(login, path) == null || !tenantService.findByLogin(login, path).getPassword().equals(password))
+        {
+
+            resp.setContentType("text/html;charset=UTF-8");
+
+            dataModel.put("msg","Niepoprawne dane logowania");
+
+            Template template = templateProvider.getTemplate(getServletContext(), "tenant-login.ftlh");
+
+        try {
+            template.process(dataModel, printWriter);
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        }
+
+    }
         else {
             Tenant tenant = tenantService.findByLogin(login, path);
 
@@ -64,7 +78,6 @@ public class TenantLoginServlet extends HttpServlet {
 
 
             resp.setContentType("text/html;charset=UTF-8");
-            HashMap<String,String> dataModel = new HashMap<>();
             dataModel.put("name", tenant.getName())      ;
             
             try {

@@ -1,8 +1,6 @@
 package dzavaPelikany.servlets;
 
-import dzavaPelikany.domain.Room;
 import dzavaPelikany.freemarker.TemplateProvider;
-import dzavaPelikany.service.RoomSearchService;
 import dzavaPelikany.service.RoomService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -17,12 +15,12 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.Optional;
 
 @WebServlet("/tenant-room")
 public class TenantRoomServlet extends HttpServlet {
 
-    RoomService roomService = new RoomService();
+    @Inject
+    private RoomService roomService;
     @Inject
     private HttpSession httpSession;
     @Inject

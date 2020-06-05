@@ -52,7 +52,7 @@
 
 <main role="main">
     <div class="container">
-        <p><#if msg??>${msg}<#else> </#if>
+        <p><#if msg??>${msg}<#else> </#if></p>
             <div class="row">
             <div class="col-lg-4 col-sm-12">
                 <p>

@@ -21,7 +21,9 @@ import java.util.List;
 @WebServlet("/tenant-search-room")
 public class TenantSearchRoomServlet extends HttpServlet {
 
-    RoomService roomService = new RoomService();
+    @Inject
+    private RoomService roomService;
+    
     @Inject
     private TemplateProvider templateProvider;
 

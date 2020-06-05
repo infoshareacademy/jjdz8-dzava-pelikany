@@ -22,7 +22,7 @@
     },
     {
       "roomLogin": "costam",
-      "streetAndNumber": "Nowowiejska, 11",
+      "streetAndNumber": "Warszawska, 11",
       "city": "Gdynia",
       "area": 11,
       "price": 55.0,
@@ -32,7 +32,7 @@
     },
     {
       "roomLogin": "asfa",
-      "streetAndNumber": "Nowowiejska, 20",
+      "streetAndNumber": "Wiejska, 20",
       "city": "Gdynia",
       "area": 15,
       "price": 5555.0,

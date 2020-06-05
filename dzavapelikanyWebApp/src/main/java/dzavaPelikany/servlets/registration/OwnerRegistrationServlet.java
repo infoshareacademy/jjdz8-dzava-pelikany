@@ -25,7 +25,8 @@ public class OwnerRegistrationServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
 
-    OwnerService ownerService = new OwnerService();
+    @Inject
+    private OwnerService ownerService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

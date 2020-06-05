@@ -21,7 +21,8 @@ import java.util.HashMap;
 @WebServlet("/delete-owner")
 public class OwnerDeleteServlet extends HttpServlet {
 
-    OwnerService ownerService = new OwnerService();
+    @Inject
+    private OwnerService ownerService;
     @Inject
     private HttpSession httpSession;
 
@@ -42,7 +43,6 @@ public class OwnerDeleteServlet extends HttpServlet {
 
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter printWriter = resp.getWriter();
-
         try {
             template.process(dataModel, printWriter);
         } catch (TemplateException e) {
