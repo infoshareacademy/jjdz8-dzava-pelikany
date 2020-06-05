@@ -13,6 +13,11 @@ public class Room {
     private String registrationTerm;
     private boolean status;
 
+    public boolean getStatus() {
+        return status;
+    }
+
+
     public Room(String roomLogin) {
         this.roomLogin = roomLogin;
         this.assigmentId = UUID.randomUUID();
@@ -40,7 +45,7 @@ public class Room {
     }
 
     public void setId(UUID id) {
-        id = id;
+        this.id = id;
     }
 
     public void setRoomLogin(String roomLogin) {

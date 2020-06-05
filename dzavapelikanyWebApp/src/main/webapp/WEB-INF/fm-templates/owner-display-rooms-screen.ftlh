@@ -48,15 +48,16 @@
 
 
 
-<main role="main">
+<main role="main" id="rentForm">
 
     <p><input class="button" type ="button" id="myMenu" value="<-- Powrot"/></p>
 
+    <h1>Wolne pokoje</h1>
     <table width="100%">
-    <#list rooms as room>
+    <#list freerooms as room>
         <tr>
             <th>${room.getRoomLogin()}</th>
-            <th> <td><button class="rnt" id="rnt">Wynajmij</button></td></th>
+            <th> <td><button data-roomid="${room.getId()}" class="rnt" id="rnt" >Wynajmij</button></td></th>
             <th> <td><button data-roomid="${room.getId()}" class="edt" id="edt">Edytuj</button></td></th>
             <th> <td><button data-roomid="${room.getRoomLogin()}" class="rmv" >Usun</button></td></th>
         </tr>
@@ -71,6 +72,27 @@
         </tr>
         </#list>
         </table>
+
+    <h1>Wynajete pokoje</h1>
+    <table width="100%">
+        <#list rentedrooms as room>
+            <tr>
+                <th>${room.getRoomLogin()}</th>
+                <th> <td><button data-roomid="${room.getId()}" class="rnt" id="rnt">Wynajmij</button></td></th>
+                <th> <td><button data-roomid="${room.getId()}" class="edt" id="edt">Edytuj</button></td></th>
+                <th> <td><button data-roomid="${room.getRoomLogin()}" class="rmv" >Usun</button></td></th>
+            </tr>
+            <tr>
+                <td>Miasto: ${room.getCity()}</td>
+            </tr>
+            <tr>
+                <td>Ulica: ${room.getStreetAndNumber()}</td>
+            </tr>
+            <tr>
+                <td>Metraz: ${room.getArea()}</td>
+            </tr>
+        </#list>
+    </table>
 
 </main>
 

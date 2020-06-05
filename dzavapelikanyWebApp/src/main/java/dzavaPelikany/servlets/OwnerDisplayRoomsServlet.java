@@ -19,10 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.registry.infomodel.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.sql.Array;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static dzavaPelikany.fileOperation.FilesNames.OWNERS_JSONWEB;
 import static dzavaPelikany.fileOperation.FilesNames.ROOMS_JSONWEB;
@@ -43,9 +42,12 @@ public class OwnerDisplayRoomsServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter printWriter = response.getWriter();
 
-        List<Room> rooms = JsonReader.create(new Rooms(), ROOMS_JSONWEB).getRoomsList();
+
+        Optional<List<Room>> freeRooms = Optional.of(JsonReader.create(new Rooms(), ROOMS_JSONWEB).getRoomsList().stream().filter(room -> !room.isStatus()).collect(Collectors.toCollection(ArrayList::new)));
+        Optional<List<Room>> rentedRooms = Optional.of(JsonReader.create(new Rooms(), ROOMS_JSONWEB).getRoomsList().stream().filter(Room::isStatus).collect(Collectors.toCollection(ArrayList::new)));
         Map<String, Object> dataModel = new HashMap<>();
-        dataModel.put("rooms", rooms);
+        dataModel.put("freerooms", freeRooms.get());
+        dataModel.put("rentedrooms", rentedRooms.get());
 
         try {
             template.process(dataModel, printWriter);
@@ -68,5 +70,18 @@ public class OwnerDisplayRoomsServlet extends HttpServlet {
                 rooms.getRoomsList().remove(roomToRemove.get());
                 JsonSaver.makeJson(rooms, ROOMS_JSONWEB);
             }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSONWEB);
+        Room editedRoom = rooms.getRoomsList().stream().filter(room -> room.getId().toString().equals(req.getParameter("rentRoomId"))).collect(Collectors.toCollection(ArrayList::new)).get(0);
+        if(editedRoom.isStatus()){
+            editedRoom.setStatus(false);
+            } else {
+            editedRoom.setStatus(true);
         }
+        JsonSaver.makeJson(rooms, ROOMS_JSONWEB);
+    }
+}
 

@@ -64,3 +64,14 @@
 
     });
 </script>
+<script>
+    $('.rnt').click(function rentRoom() {
+        $.ajax({url: '/owner-rooms?rentRoomId='+$(this).data('roomid'), method: "PUT", data:$("#rentForm").serialize()})
+            .then( function () {
+                location.reload();
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+    });
+</script>
