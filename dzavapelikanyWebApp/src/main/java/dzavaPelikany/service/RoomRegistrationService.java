@@ -8,11 +8,15 @@ import dzavaPelikany.domain.Tenants;
 import dzavaPelikany.fileOperation.JsonReader;
 import dzavaPelikany.fileOperation.JsonSaver;
 
+import javax.enterprise.context.RequestScoped;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.UUID;
 
+import static dzavaPelikany.fileOperation.FilesNames.ROOMS_JSONWEB;
 
+@RequestScoped
 public class RoomRegistrationService {
 
     UUID roomUUID = null;
@@ -100,4 +104,20 @@ public class RoomRegistrationService {
         }
         JsonSaver.makeJson(tenants, "src/main/resources/tenants.json");
     }
+
+    public void displayRooms(PrintWriter printWriter) {
+
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSONWEB);
+
+        printWriter.println("<p>Lista Pokoi:</p>");
+
+        for (int i = 0; i < rooms.getRoomsList().size(); i++) {
+            Room room = rooms.getRoomsList().get(i);
+            printWriter.println("Nr: " + rooms.getRoomsList().indexOf(room) + " ,pokoj: " + room.getStreetAndNumber());
+        }
+
+
+    }
+
+
 }

@@ -9,6 +9,7 @@ public class Room {
     private byte area;
     private double price;
     private UUID assigmentId;
+    private UUID id;
     private String registrationTerm;
     private boolean status;
 
@@ -32,6 +33,14 @@ public class Room {
 
     public String getRoomLogin() {
         return roomLogin;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        id = id;
     }
 
     public void setRoomLogin(String roomLogin) {

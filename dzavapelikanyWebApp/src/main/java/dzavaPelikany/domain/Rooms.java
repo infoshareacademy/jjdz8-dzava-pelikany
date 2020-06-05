@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static dzavaPelikany.fileOperation.FilesNames.ROOMS_JSON;
+import static dzavaPelikany.fileOperation.FilesNames.ROOMS_JSONWEB;
 
 
 public class Rooms {
@@ -22,7 +22,7 @@ public class Rooms {
     }
 
     public static boolean roomExist(String roomLogin) {
-        Rooms rooms = JsonReader.create(new Rooms(),ROOMS_JSON);
+        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSONWEB);
         for (Room room : rooms.getRoomsList()) {
             if (room.getRoomLogin().equals(roomLogin)) {
                 return true;

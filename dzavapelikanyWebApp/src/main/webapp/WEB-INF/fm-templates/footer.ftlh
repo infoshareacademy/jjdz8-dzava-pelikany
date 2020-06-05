@@ -18,6 +18,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"
 ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $('#myMenu').click(function() {
         window.location = "/owner-menu";
@@ -33,3 +34,33 @@
     });
 </script>
 
+<script>
+    $('.rmv').click(function removeRoom() {
+        $.ajax({url: '/owner-rooms?roomid='+$(this).data('roomid'), method: "DELETE"})
+            .then( function () {
+        location.reload();
+            })
+        .catch(function (err) {
+            console.log(err)
+        })
+    });
+</script>
+
+<script>
+    $('.subedt').click(function editRoom() {
+        $.ajax({url: '/owner-edit-room?editRoomId='+$(this).data('roomid'), method: "PUT", data:$("#editForm").serialize()})
+            .then( function () {
+                location.href="/owner-rooms";
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+    });
+</script>
+<script>
+    $('.edt').click(function goToRoomEdit() {
+
+                location.href="/owner-edit-room?editRoomId="+$(this).data('roomid');
+
+    });
+</script>

@@ -52,7 +52,28 @@
 
     <p><input class="button" type ="button" id="myMenu" value="<-- Powrot"/></p>
 
+    <table width="100%">
+    <#list rooms as room>
+        <tr>
+            <th>${room.getRoomLogin()}</th>
+            <th> <td><button class="rnt" id="rnt">Wynajmij</button></td></th>
+            <th> <td><button data-roomid="${room.getId()}" class="edt" id="edt">Edytuj</button></td></th>
+            <th> <td><button data-roomid="${room.getRoomLogin()}" class="rmv" >Usun</button></td></th>
+        </tr>
+        <tr>
+            <td>Miasto: ${room.getCity()}</td>
+        </tr>
+        <tr>
+            <td>Ulica: ${room.getStreetAndNumber()}</td>
+        </tr>
+        <tr>
+            <td>Metraz: ${room.getArea()}</td>
+        </tr>
+        </#list>
+        </table>
+
 </main>
+
 
 <#include "footer.ftlh">
 
