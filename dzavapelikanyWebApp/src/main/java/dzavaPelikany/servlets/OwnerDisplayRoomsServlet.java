@@ -1,12 +1,10 @@
 package dzavaPelikany.servlets;
 
-import com.google.gson.Gson;
 import dzavaPelikany.domain.Room;
 import dzavaPelikany.domain.Rooms;
 import dzavaPelikany.fileOperation.JsonReader;
 import dzavaPelikany.fileOperation.JsonSaver;
 import dzavaPelikany.freemarker.TemplateProvider;
-import dzavaPelikany.service.RoomRegistrationService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -16,14 +14,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.registry.infomodel.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static dzavaPelikany.fileOperation.FilesNames.OWNERS_JSONWEB;
 import static dzavaPelikany.fileOperation.FilesNames.ROOMS_JSONWEB;
 
 

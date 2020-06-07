@@ -50,8 +50,8 @@
 
 <main role="main">
 
-    <p><input class="button" type ="button" id="myRooms" value="Przegladaj moje pokoje"/></p>
-    <p><input class="button" type ="button" id="addRoom" value="Dodaj pokoj"/></p>
+    <p><input class="button" type ="button" id="myRooms" value="Przeglądaj moje pokoje"/></p>
+    <p><input class="button" type ="button" id="addRoom" value="Dodaj pokój"/></p>
     <p><input class="button" type ="button" id="EditMyData" value="Edytuj moje dane"/></p>
 
 </main>

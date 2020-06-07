@@ -48,7 +48,7 @@
 
 <main role="main">
 
-    <p><input class="button" type ="button" id="myMenu" value="<-- Powrot"/></p>
+    <p><input class="button" type ="button" id="myMenu" value="<-- Powrót"/></p>
 
     <form id="editForm" class="contact-from">
         <div class="row">
@@ -66,12 +66,12 @@
                 <input type="text" value="${editedRoom.getCity()}" name="city" id="city" required/>
             </div>
             <div class="form col-lg-6 col-sm-12">
-                <label for="login">Metraz:</label>
+                <label for="login">Metraż:</label>
                 <input type="text" value="${editedRoom.getArea()}" name="area" id="area" required/>
             </div>
             <div class="form col-12">
                 <button class="btn btn-primary subedt">
-                    Edytuj Pokoj
+                    Edytuj Pokój
                 </button>
             </div>
         </div>

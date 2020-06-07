@@ -50,7 +50,7 @@
 
 <main role="main" id="rentForm">
 
-    <p><input class="button" type ="button" id="myMenu" value="<-- Powrot"/></p>
+    <p><input class="button" type ="button" id="myMenu" value="<-- Powrót"/></p>
 
     <h1>Wolne pokoje</h1>
     <table width="100%">
@@ -59,7 +59,7 @@
             <th>${room.getRoomLogin()}</th>
             <th> <td><button data-roomid="${room.getId()}" class="rnt" id="rnt" >Wynajmij</button></td></th>
             <th> <td><button data-roomid="${room.getId()}" class="edt" id="edt">Edytuj</button></td></th>
-            <th> <td><button data-roomid="${room.getRoomLogin()}" class="rmv" >Usun</button></td></th>
+            <th> <td><button data-roomid="${room.getRoomLogin()}" class="rmv" >Usuń</button></td></th>
         </tr>
         <tr>
             <td>Miasto: ${room.getCity()}</td>
@@ -73,14 +73,12 @@
         </#list>
         </table>
 
-    <h1>Wynajete pokoje</h1>
+    <h1>Wynajęte pokoje</h1>
     <table width="100%">
         <#list rentedrooms as room>
             <tr>
                 <th>${room.getRoomLogin()}</th>
-                <th> <td><button data-roomid="${room.getId()}" class="rnt" id="rnt">Wynajmij</button></td></th>
-                <th> <td><button data-roomid="${room.getId()}" class="edt" id="edt">Edytuj</button></td></th>
-                <th> <td><button data-roomid="${room.getRoomLogin()}" class="rmv" >Usun</button></td></th>
+                <th> <td><button data-roomid="${room.getId()}" class="rnt" id="rnt">Anuluj</button></td></th>
             </tr>
             <tr>
                 <td>Miasto: ${room.getCity()}</td>

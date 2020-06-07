@@ -29,9 +29,6 @@ public class OwnerEditRoomServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
-    @Inject
-    private RoomCreatorService roomCreatorService;
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
