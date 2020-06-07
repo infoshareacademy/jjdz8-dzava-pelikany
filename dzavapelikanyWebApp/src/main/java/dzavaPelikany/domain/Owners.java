@@ -24,7 +24,7 @@ public class Owners {
 
     public void deleteOwner(UUID id){
         for (int i=0; i< ownersList.size();i++){
-            if(this.ownersList.get(i).getId().equals(i)){
+            if(this.ownersList.get(i).getId().equals(id)){
                 ownersList.remove(i);
             }
         }

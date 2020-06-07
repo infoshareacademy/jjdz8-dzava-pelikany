@@ -52,7 +52,8 @@
 
 <main role="main">
     <div class="container">
-        <div class="row">
+        <p><#if msg??>${msg}<#else> </#if></p>
+            <div class="row">
             <div class="col-lg-4 col-sm-12">
                 <p>
                     Donec id elit non mi porta gravida at eget metus. Fusce dapibus,

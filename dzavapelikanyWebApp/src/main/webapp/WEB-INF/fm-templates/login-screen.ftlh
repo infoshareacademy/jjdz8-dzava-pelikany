@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="Strona mojej firmy"/>
-    <title>DzavaApp - Logowanie.</title>
+    <title>DzavaApp - Stronga główna.</title>
     <link rel="stylesheet" href="../../styles.css"/>
     <link href="../../form.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Atomic Age' rel='stylesheet'>
@@ -13,6 +14,7 @@
 
 </head>
 <body>
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand logo" href="/homepage"><h2>DzavaApp!</h2></a>
     <button
@@ -26,13 +28,13 @@
 
     <div class="collapse navbar-collapse" id="navigation">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/homepage">Strona Główna</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/registration">Rejestracja</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/login">Logowanie</a>
             </li>
             <li class="nav-item">
@@ -44,33 +46,48 @@
 
 <header class="jumbotron">
     <div class="container">
-        <h1 class="display-3">Logowanie</h1>
+        <h1 class="display-3">Aplikacja DzavaApp</h1>
     </div>
 </header>
 
 <main role="main">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <h3 class="display-5">Formularz logowania</h3>
+            <div class="col-lg-4 col-sm-16">
+                <p>
+                    Masz mieszkanie i chciałbyś znaleźć do niego lokatorów?
+                    Nasza strona pozwoli Ci w łatwy sposób to zrobić!
+                    Dodatkowo będziesz mógł bez problemu zarządzać kosztami
+                    oraz komunikować się ze wszystkimi lokatorami w jednym
+                    miejscu!
+                </p>
+                <a role="button" class="btn btn-secondary" href="/owner-login">
+                    Zaloguj się jako właściciel!
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-16">
+                <p>
+                    Szukasz pokoju? To miejsce jest dla Ciebie!
+                    Tysiące ogłoszeń. Łatwa komuniakcja z właścicielem
+                    oraz współlokatorami. Dodatkowo będziesz mógł ustalić
+                    stworzyć grafik sprzątań, wspólnych zakupów i imprez!
+                    Nie zwlekaj!
+                </p>
+
+                <a
+                        role="button"
+                        class="btn btn-secondary"
+                        href="/tenant-login"
+                >
+                    Zaloguj się jako lokator!
+                </a>
             </div>
         </div>
-
-        <form class="form-inline">
-            <div class="form-group mb-2">
-                <label for="staticEmail2" class="sr-only">Email</label>
-                <input type="text" class="form-control" id="email" placeholder="email">
-            </div>
-            <div class="form-group mx-sm-3 mb-2">
-                <label for="inputPassword2" class="sr-only">Password</label>
-                <input type="password" class="form-control" id="inputPassword2" placeholder="hasło">
-            </div>
-            <button type="submit" class="btn btn-primary mb-2">Zaloguj</button>
-        </form>
     </div>
 </main>
 
 <#include "footer.ftlh">
 
 </body>
+</html>
 </html>

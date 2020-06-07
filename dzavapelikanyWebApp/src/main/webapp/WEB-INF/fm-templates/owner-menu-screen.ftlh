@@ -51,7 +51,7 @@
 
 <header class="jumbotron">
     <div class="container">
-        <h1 class="display-3">Witaj ${ownerName} !</h1>
+        <h1 class="display-3">Witaj ${name} !</h1>
     </div>
 </header>
 

@@ -13,7 +13,6 @@
 
 </head>
 <body>
-
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand logo" href="/tenant-menu"><h2>DzavaApp!</h2></a>
     <button
@@ -51,7 +50,7 @@
 
 <header class="jumbotron">
     <div class="container">
-        <h1 class="display-3">Ekran Lokatora</h1>
+        <h1 class="display-3">Witaj, ${name}</h1>
     </div>
 </header>
 

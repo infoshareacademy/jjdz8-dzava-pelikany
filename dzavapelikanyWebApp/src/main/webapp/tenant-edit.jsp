@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -13,7 +13,12 @@
 
 </head>
 <body>
-
+<%
+String name = (String)session.getAttribute("name");
+String surname = (String)session.getAttribute("surname");
+String email = (String)session.getAttribute("email");
+String password = (String)session.getAttribute("password");
+%>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand logo" href="/tenant-menu"><h2>DzavaApp!</h2></a>
     <button
@@ -51,51 +56,30 @@
 
 <header class="jumbotron">
     <div class="container">
-        <h1 class="display-3">Wyszukaj pokój</h1>
+        <h1 class="display-3">Edytuj swoje dane</h1>
     </div>
 </header>
-
 <main role="main">
-    <main role="main">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="display-5">Szukaj Pokoju</h3>
-                </div>
-            </div>
-
-            <form class="form-inline" method="post" action="/tenant-search-room">
-                <div class="form-group mb-2">Cena Minimalna: ${'\n'}
-                    <label for="staticEmail2" class="sr-only">Cena Minimalna</label>
-                    <input type="number" class="form-control" id="login"  name="price-min" value="0">
-                </div> ${'\n'}
-                <div class="form-group mx-sm-3 mb-2">Cena Maksymalna: ${'\n'}
-                    <label for="inputPassword2" class="sr-only">Cena Maksymalna</label>
-                    <input type="number" class="form-control" id="login"  name="price-max" value="0">
-                </div> ${'\n'}
-                <div class="form-group mb-2">Miasto: ${'\n'}
-                    <label for="staticEmail2" class="sr-only">Miasto</label>
-                    <input type="text" class="form-control" id="login" name="city" placeholder="Miasto" required>
-                </div>${'\n'}
-                <div>
-                <button type="submit" class="btn btn-primary mb-2">Szukaj</button>
-                </div>
-            </form>
+    <form class="form-inline" method="post" action="${pageContext.request.contextPath}/tenant-edit-details">
+        <div class="form-group mb-2">
+            <label for="name" class="sr-only">Imię</label>
+            <input type="text" class="form-control" id="name" placeholder="<% System.out.println(name);%>" name="name" />
         </div>
-
-    <p>
-        <#if msg??><#list msg as msg>
-            <h5>${msg}</h5>
-        </#list></#if>
-         <#if room??><#list room as room>
-        <ul>
-            <li><h5>        ${room}
-                </h5></li>
-        </ul>
-        </#list><#else> </#if>
-    </p>
-
-</main>
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="surname" class="sr-only">Nazwisko</label>
+            <input type="password" class="form-control" id="surname" placeholder="<% System.out.println(surname);%>" name="surname">
+        </div>
+        <br />
+        <div class="form-group mb-2">
+            <label for="email" class="sr-only">Email</label>
+            <input type="text" class="form-control" id="email" placeholder="<% System.out.println(email);%>" name="email" />
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="inputPassword2" class="sr-only">Hasło</label>
+            <input type="password" class="form-control" id="inputPassword2" placeholder="<% System.out.println(password);%>" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Edytuj</button>
+    </form>
 </main>
 
 <#include "footer.ftlh">

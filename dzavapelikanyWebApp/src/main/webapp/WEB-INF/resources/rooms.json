@@ -1,0 +1,44 @@
+{
+  "roomsList": [
+    {
+      "roomLogin": "Login",
+      "streetAndNumber": "Nowowiejska, 22",
+      "city": "Warszawa",
+      "area": 6,
+      "price": 1200.0,
+      "registrationTerm": "10/10/1010",
+      "status": true,
+      "tenantLogin": "tadek"
+    },
+    {
+      "roomLogin": "Login123",
+      "streetAndNumber": "Nowowiejska, 10",
+      "city": "Gdynia",
+      "area": 15,
+      "price": 59.0,
+      "assigmentId": "d0f30dfa-51bb-4c73-8262-ff67de013795",
+      "status": false,
+      "tenantLogin": ""
+    },
+    {
+      "roomLogin": "costam",
+      "streetAndNumber": "Warszawska, 11",
+      "city": "Gdynia",
+      "area": 11,
+      "price": 55.0,
+      "assigmentId": "d0f30dfa-51bb-4c73-8262-ff67de013794",
+      "status": false,
+      "tenantLogin": ""
+    },
+    {
+      "roomLogin": "asfa",
+      "streetAndNumber": "Wiejska, 20",
+      "city": "Gdynia",
+      "area": 15,
+      "price": 5555.0,
+      "assigmentId": "d0f30dfa-51bb-4c73-8262-ff67de013725",
+      "status": false,
+      "tenantLogin": ""
+    }
+  ]
+}

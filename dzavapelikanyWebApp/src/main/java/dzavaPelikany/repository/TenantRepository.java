@@ -10,16 +10,18 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.UUID;
 
+import static dzavaPelikany.fileOperation.FilesNames.OWNERS_JSON;
 import static dzavaPelikany.fileOperation.FilesNames.TENANTS_JSON;
 
 public class TenantRepository implements TenantRepositoryInterface{
 
     @Override
-    public void saveTenant(Tenant tenant) throws IOException {
-        Tenants tenants = JsonReader.create(new Tenants(), TENANTS_JSON);
+    public void saveTenant(Tenant tenant, String path) throws IOException {
+        Tenants tenants = JsonReader.create(new Tenants(), path);
         tenants.addTenant(tenant);
-        JsonSaver.makeJson(tenants, TENANTS_JSON);
+        JsonSaver.makeJson(tenants, path);
     }
+
 
     @Override
     public Optional<Tenant> findById(UUID id) {
@@ -28,16 +30,20 @@ public class TenantRepository implements TenantRepositoryInterface{
     }
 
     @Override
-    public Optional<Tenant> findByLogin(String login) {
-        Tenants tenants = JsonReader.create(new Tenants(), TENANTS_JSON);
-        return Optional.ofNullable(tenants.getTenantsList().stream().filter(t->t.getLogin().equals(login)).findFirst().orElse(null));
+    public Optional<Tenant> findByLogin(String login, String path) {
+        Tenants tenants = JsonReader.create(new Tenants(), path);
+        return Optional.ofNullable(tenants.getTenantsList()
+                .stream()
+                .filter(t->t.getLogin().equals(login))
+                .findFirst()
+                .orElse(null));
     }
 
     @Override
-    public void deleteTenant(Tenant tenant) throws IOException {
-        Tenants tenants = JsonReader.create(new Tenants(), TENANTS_JSON);
+    public void deleteTenant(Tenant tenant, String path) throws IOException {
+        Tenants tenants = JsonReader.create(new Tenants(), path);
         tenants.deleteTenant(tenant.getId());
-        JsonSaver.makeJson(tenants, TENANTS_JSON);
+        JsonSaver.makeJson(tenants, path);
     }
 
     @Override

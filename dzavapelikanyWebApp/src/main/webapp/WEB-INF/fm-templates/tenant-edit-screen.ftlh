@@ -54,9 +54,45 @@
         <h1 class="display-3">Twoje dane</h1>
     </div>
 </header>
-
+<p><#if msg??>${msg}<#else> </#if>
+</p>
 <main role="main">
+    <main role="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="display-5">Formularz edycji</h3>
+                </div>
+            </div>
 
+            <form class="form-inline" method="post" action="/tenant-edit-details" class="form">
+                <div class="form-group mb-2">Imię:
+                    <label for="name" class="sr-only">Imię</label>
+                    <input type="text" class="form-control" id="name" value="${name}" name="name">
+                </div>
+                <br />
+                <div class="form-group mx-sm-3 mb-2">Nazwisko:
+                    <label for="surname" class="sr-only">Nazwisko</label>
+                    <input type="text" class="form-control" id="surname" value="${surname}" name="surname">
+                </div>
+                <br />
+                <div class="form-group mb-2">Email:
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="text" class="form-control" id="email" value="${email}" name="email">
+                </div>
+                <br/>
+                <div class="form-group mb-2">Hasło:
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="text" class="form-control" id="inputPassword2" value="${password}" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Zapisz zmiany</button>
+            </form>
+            <form action="/delete-tenant" method="post">
+                <input type="hidden" name="action" value="delete"/>
+                <button type="submit" class="btn btn-danger mb-2" value="delete">Usuń użytkownika</button>
+            </form>
+        </div>
+    </main>
 </main>
 
 <#include "footer.ftlh">
