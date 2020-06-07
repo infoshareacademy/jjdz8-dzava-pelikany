@@ -22,7 +22,8 @@ import java.util.HashMap;
 @WebServlet("/owner-edit-details")
 public class OwnerEditServlet extends HttpServlet {
 
-    OwnerService ownerService = new OwnerService();
+    @Inject
+    private OwnerService ownerService;
     @Inject
     private HttpSession httpSession;
     @Inject

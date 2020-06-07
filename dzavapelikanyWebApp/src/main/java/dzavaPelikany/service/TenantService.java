@@ -5,10 +5,11 @@ import dzavaPelikany.domain.Tenant;
 import dzavaPelikany.repository.TenantRepository;
 
 
+import javax.enterprise.context.RequestScoped;
 import java.io.IOException;
 import java.util.UUID;
 
-
+@RequestScoped
 public class TenantService {
 
     TenantRepository tenantRepository = new TenantRepository();

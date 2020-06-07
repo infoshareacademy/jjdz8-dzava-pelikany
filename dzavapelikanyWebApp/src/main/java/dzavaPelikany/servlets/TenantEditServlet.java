@@ -20,7 +20,8 @@ import java.util.HashMap;
 @WebServlet("/tenant-edit-details")
 public class TenantEditServlet extends HttpServlet {
 
-    TenantService tenantService = new TenantService();
+    @Inject
+    private TenantService tenantService;
 
     @Inject
     private TemplateProvider templateProvider;

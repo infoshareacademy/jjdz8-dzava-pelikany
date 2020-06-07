@@ -5,10 +5,11 @@ import dzavaPelikany.domain.Owner;
 import dzavaPelikany.repository.OwnerRepository;
 
 
+import javax.enterprise.context.RequestScoped;
 import java.io.IOException;
 import java.util.UUID;
 
-
+@RequestScoped
 public class OwnerService {
 
 

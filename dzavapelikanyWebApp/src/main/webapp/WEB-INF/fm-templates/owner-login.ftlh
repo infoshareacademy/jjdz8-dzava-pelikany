@@ -55,6 +55,7 @@
                 <h3 class="display-5">Formularz logowania</h3>
             </div>
         </div>
+        <p><#if msg??>${msg}<#else> </#if></p>
 
         <form class="form-inline" method="post" action="/owner-login">
             <div class="form-group mb-2">

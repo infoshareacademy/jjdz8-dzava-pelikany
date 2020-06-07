@@ -21,7 +21,9 @@ import java.util.HashMap;
 @WebServlet("/delete-tenant")
 public class TenantDeleteServlet extends HttpServlet {
 
-    TenantService tenantService = new TenantService();
+    @Inject
+    private TenantService tenantService;
+
     @Inject
     private HttpSession httpSession;
 
@@ -42,7 +44,6 @@ public class TenantDeleteServlet extends HttpServlet {
 
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter printWriter = resp.getWriter();
-
         try {
             template.process(dataModel, printWriter);
         } catch (TemplateException e) {

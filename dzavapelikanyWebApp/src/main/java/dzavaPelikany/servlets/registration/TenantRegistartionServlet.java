@@ -26,7 +26,8 @@ public class TenantRegistartionServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
 
-    TenantService tenantService = new TenantService();
+    @Inject
+    private TenantService tenantService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

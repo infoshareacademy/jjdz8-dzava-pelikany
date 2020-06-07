@@ -3,8 +3,10 @@ package dzavaPelikany.service;
 import dzavaPelikany.domain.Room;
 import dzavaPelikany.repository.RoomRepository;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
+@RequestScoped
 
 public class RoomService {
 

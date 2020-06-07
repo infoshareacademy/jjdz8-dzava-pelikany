@@ -1,10 +1,8 @@
-package dzavaPelikany.servlets.Login;
+package dzavaPelikany.servlets.login;
 
 import dzavaPelikany.domain.Owner;
-import dzavaPelikany.domain.Tenant;
 import dzavaPelikany.freemarker.TemplateProvider;
 import dzavaPelikany.service.OwnerService;
-import dzavaPelikany.service.TenantService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -24,9 +22,9 @@ import java.util.HashMap;
 public class OwnerLoginServlet extends HttpServlet {
 
     @Inject
+    private OwnerService ownerService;
+    @Inject
     private TemplateProvider templateProvider;
-
-    OwnerService ownerService = new OwnerService();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -50,36 +48,49 @@ public class OwnerLoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String path = getServletContext().getRealPath("/WEB-INF/resources/owners.json");
+        HashMap<String, String> dataModel = new HashMap<>();
 
-        if (ownerService.findByLogin(login, path) == null)
-            printWriter.println("<a href=\"/owner-login\">Uzytkownik o takim loginie nie istnieje</a>");
-        else if (!ownerService.findByLogin(login, path).getPassword().equals(password))
-            printWriter.println("<a href=\"/owner-login\">Przykro nam, nie prawidłowe hasło, spróbuj ponownie</a>");
-        else {
-            Owner owner = ownerService.findByLogin(login, path);
-
-            Template template = templateProvider.getTemplate(getServletContext(), "owner-menu-screen.ftlh");
-            HttpSession session = req.getSession();
-
-            session.setAttribute("name",     owner.getName());
-            session.setAttribute("surname",  owner.getSurname());
-            session.setAttribute("email",    owner.getEmail());
-            session.setAttribute("login",    owner.getLogin());
-            session.setAttribute("password", owner.getPassword());
-
-            session.setMaxInactiveInterval(30*60);
+        if (ownerService.findByLogin(login, path) == null || !ownerService.findByLogin(login, path).getPassword().equals(password)) {
 
             resp.setContentType("text/html;charset=UTF-8");
-            HashMap<String,String> dataModel = new HashMap<>();
 
-            dataModel.put("name", owner.getName());
+            dataModel.put("msg", "Niepoprawne dane logowania");
+
+
+            Template template = templateProvider.getTemplate(getServletContext(), "owner-login.ftlh");
 
             try {
                 template.process(dataModel, printWriter);
             } catch (TemplateException e) {
                 e.printStackTrace();
             }
-        }
 
+        } else {
+            Owner owner = ownerService.findByLogin(login, path);
+
+            HttpSession session = req.getSession();
+
+            session.setAttribute("name", owner.getName());
+            session.setAttribute("surname", owner.getSurname());
+            session.setAttribute("email", owner.getEmail());
+            session.setAttribute("login", owner.getLogin());
+            session.setAttribute("password", owner.getPassword());
+
+            session.setMaxInactiveInterval(30 * 60);
+
+            resp.setContentType("text/html;charset=UTF-8");
+
+            dataModel.put("name", owner.getName());
+
+
+            Template template = templateProvider.getTemplate(getServletContext(), "owner-menu-screen.ftlh");
+
+            try {
+                template.process(dataModel, printWriter);
+            } catch (TemplateException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 }
