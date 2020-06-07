@@ -42,7 +42,7 @@
 
 <header class="jumbotron">
     <div class="container my-header">
-        <h1 class="display-3">Witaj !</h1>
+        <h1 class="display-3">Witaj ${name} !</h1>
     </div>
 </header>
 

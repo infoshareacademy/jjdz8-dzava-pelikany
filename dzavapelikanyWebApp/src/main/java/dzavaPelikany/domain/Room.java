@@ -13,9 +13,22 @@ public class Room {
     private String registrationTerm;
     private boolean status;
 
+
     public boolean getStatus() {
         return status;
     }
+
+
+
+    public String getTenantLogin() {
+        return tenantLogin;
+    }
+
+    public void setTenantLogin(String tenantLogin) {
+        this.tenantLogin = tenantLogin;
+    }
+
+    private String tenantLogin;
 
 
     public Room(String roomLogin) {

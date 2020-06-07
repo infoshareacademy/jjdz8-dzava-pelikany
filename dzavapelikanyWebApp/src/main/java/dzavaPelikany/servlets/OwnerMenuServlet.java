@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -21,6 +22,8 @@ public class OwnerMenuServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
+    @Inject
+    private HttpSession httpSession;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +33,7 @@ public class OwnerMenuServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         Map<String, Object> dataModel = new HashMap<>();
-        dataModel.put("ownerName", "Pawel");
+        dataModel.put("name", (String)httpSession.getAttribute("name"));
 
         PrintWriter printWriter = response.getWriter();
         try {

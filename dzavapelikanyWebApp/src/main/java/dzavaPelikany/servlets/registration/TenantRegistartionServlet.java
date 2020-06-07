@@ -26,7 +26,8 @@ public class TenantRegistartionServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
 
-    TenantService tenantService = new TenantService();
+    @Inject
+    private TenantService tenantService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,21 +49,24 @@ public class TenantRegistartionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Tenant tenant = new Tenant();
+        tenant.setPassword(req.getParameter("password"));
         tenant.setName(req.getParameter("name"));
         tenant.setSurname(req.getParameter("surname"));
         tenant.setEmail(req.getParameter("email"));
         tenant.setLogin(req.getParameter("login"));
         tenant.setId(UUID.randomUUID());
+        String path = getServletContext().getRealPath("/WEB-INF/resources/tenants.json");
+        HashMap<String,String> dataModel = new HashMap<>();
+        dataModel.put("msg","Zarejestrowano nowego lokatora");
+        tenantService.saveTenant(tenant, path);
 
-        tenantService.saveTenant(tenant);
-
-        Template template = templateProvider.getTemplate(getServletContext(), "tenant-menu-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "index.ftlh");
 
         resp.setContentType("text/html;charset=UTF-8");
 
         PrintWriter printWriter = resp.getWriter();
         try {
-            template.process(new HashMap<String, Object>(), printWriter);
+            template.process(dataModel, printWriter);
         } catch (TemplateException e) {
             e.printStackTrace();
         }

@@ -15,10 +15,10 @@ import static dzavaPelikany.fileOperation.FilesNames.TENANTS_JSONWEB;
 public class TenantRepository implements TenantRepositoryInterface{
 
     @Override
-    public void saveTenant(Tenant tenant) throws IOException {
-        Tenants tenants = JsonReader.create(new Tenants(), TENANTS_JSONWEB);
+    public void saveTenant(Tenant tenant, String path) throws IOException {
+        Tenants tenants = JsonReader.create(new Tenants(), path);
         tenants.addTenant(tenant);
-        JsonSaver.makeJson(tenants, TENANTS_JSONWEB);
+        JsonSaver.makeJson(tenants, path);
     }
 
 
@@ -29,16 +29,20 @@ public class TenantRepository implements TenantRepositoryInterface{
     }
 
     @Override
-    public Optional<Tenant> findByLogin(String login) {
-        Tenants tenants = JsonReader.create(new Tenants(), TENANTS_JSONWEB);
-        return Optional.ofNullable(tenants.getTenantsList().stream().filter(t->t.getLogin().equals(login)).findFirst().orElse(null));
+    public Optional<Tenant> findByLogin(String login, String path) {
+        Tenants tenants = JsonReader.create(new Tenants(), path);
+        return Optional.ofNullable(tenants.getTenantsList()
+                .stream()
+                .filter(t->t.getLogin().equals(login))
+                .findFirst()
+                .orElse(null));
     }
 
     @Override
-    public void deleteTenant(Tenant tenant) throws IOException {
-        Tenants tenants = JsonReader.create(new Tenants(), TENANTS_JSONWEB);
+    public void deleteTenant(Tenant tenant, String path) throws IOException {
+        Tenants tenants = JsonReader.create(new Tenants(), path);
         tenants.deleteTenant(tenant.getId());
-        JsonSaver.makeJson(tenants, TENANTS_JSONWEB);
+        JsonSaver.makeJson(tenants, path);
     }
 
     @Override
