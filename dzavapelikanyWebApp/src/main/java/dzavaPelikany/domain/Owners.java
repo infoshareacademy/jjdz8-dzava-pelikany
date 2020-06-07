@@ -1,13 +1,8 @@
 package dzavaPelikany.domain;
 
-import dzavaPelikany.fileOperation.JsonReader;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-
-import static dzavaPelikany.fileOperation.FilesNames.OWNERS_JSON;
 
 
 public class Owners {
@@ -28,11 +23,7 @@ public class Owners {
                 ownersList.remove(i);
             }
         }
-
     }
-
-
-
 }
 
 

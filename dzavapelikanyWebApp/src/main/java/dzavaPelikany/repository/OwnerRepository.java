@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.UUID;
 
-import static dzavaPelikany.fileOperation.FilesNames.OWNERS_JSON;
+import static dzavaPelikany.fileOperation.FilesNames.OWNERS_JSONWEB;
 
 public class OwnerRepository implements OwnerRepositoryInterface{
 
@@ -25,7 +25,7 @@ public class OwnerRepository implements OwnerRepositoryInterface{
 
     @Override
     public Optional<Owner> findById(UUID id) {
-        Owners owners = JsonReader.create(new Owners(), OWNERS_JSON);
+        Owners owners = JsonReader.create(new Owners(), OWNERS_JSONWEB);
         return Optional.ofNullable(owners.getOwnersList().stream().filter(o->o.getId().equals(id)).findFirst().orElse(null));
     }
 
@@ -47,7 +47,7 @@ public class OwnerRepository implements OwnerRepositoryInterface{
     public boolean contains(Optional<Owner> owner) {
         if (owner.isEmpty()) return false;
         else {
-            Owners owners = JsonReader.create(new Owners(), OWNERS_JSON);
+            Owners owners = JsonReader.create(new Owners(), OWNERS_JSONWEB);
             return owners.getOwnersList().contains(owner.get());
         }
     }

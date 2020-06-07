@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="Strona mojej firmy"/>
-    <title>DzavaApp - Dodaj pokój.</title>
+    <title>DzavaApp - Menu Właścicela.</title>
     <link rel="stylesheet" href="../../styles.css"/>
     <link href="../../form.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Atomic Age' rel='stylesheet'>
@@ -42,46 +42,60 @@
 
 <header class="jumbotron">
     <div class="container my-header">
-        <h1 class="display-3">Dodaj pokój</h1>
+        <h1 class="display-3">Lista pokoi</h1>
     </div>
 </header>
 
-<main role="main">
+
+
+<main role="main" id="rentForm">
 
     <p><input class="button" type ="button" id="myMenu" value="<-- Powrót"/></p>
 
-    <form id="editForm" class="contact-from">
-        <div class="row">
-            <input type="hidden" value="${editedRoom.getId()}" name="id">
-            <div class="form col-lg-6 col-sm-12">
-                <label for="name">Twoja nazwa pokoju:</label>
-                <input type="text" value="${editedRoom.getRoomLogin()}" name="roomLogin" id="roomLogin" required/>
-            </div>
-            <div class="form col-lg-6 col-sm-12">
-                <label for="surname">Adres:</label>
-                <input type="text" value="${editedRoom.getStreetAndNumber()}" name="streetAndNumber" id="streetAndNumber" required/>
-            </div>
-            <div class="form col-lg-6 col-sm-12">
-                <label for="email">Miasto:</label>
-                <input type="text" value="${editedRoom.getCity()}" name="city" id="city" required/>
-            </div>
-            <div class="form col-lg-6 col-sm-12">
-                <label for="login">Metraż:</label>
-                <input type="text" value="${editedRoom.getArea()}" name="area" id="area" required/>
-            </div>
-            <div class="form col-12">
-                <button class="btn btn-primary subedt">
-                    Edytuj Pokój
-                </button>
-            </div>
-        </div>
-    </form>
+    <h1>Wolne pokoje</h1>
+    <table width="100%">
+    <#list freerooms as room>
+        <tr>
+            <th>${room.getRoomLogin()}</th>
+            <th> <td><button data-roomid="${room.getId()}" class="rnt" id="rnt" >Wynajmij</button></td></th>
+            <th> <td><button data-roomid="${room.getId()}" class="edt" id="edt">Edytuj</button></td></th>
+            <th> <td><button data-roomid="${room.getRoomLogin()}" class="rmv" >Usuń</button></td></th>
+        </tr>
+        <tr>
+            <td>Miasto: ${room.getCity()}</td>
+        </tr>
+        <tr>
+            <td>Ulica: ${room.getStreetAndNumber()}</td>
+        </tr>
+        <tr>
+            <td>Metraz: ${room.getArea()}</td>
+        </tr>
+        </#list>
+        </table>
+
+    <h1>Wynajęte pokoje</h1>
+    <table width="100%">
+        <#list rentedrooms as room>
+            <tr>
+                <th>${room.getRoomLogin()}</th>
+                <th> <td><button data-roomid="${room.getId()}" class="rnt" id="rnt">Anuluj</button></td></th>
+            </tr>
+            <tr>
+                <td>Miasto: ${room.getCity()}</td>
+            </tr>
+            <tr>
+                <td>Ulica: ${room.getStreetAndNumber()}</td>
+            </tr>
+            <tr>
+                <td>Metraz: ${room.getArea()}</td>
+            </tr>
+        </#list>
+    </table>
 
 </main>
 
+
 <#include "footer.ftlh">
 
-
 </body>
-</html>
 </html>

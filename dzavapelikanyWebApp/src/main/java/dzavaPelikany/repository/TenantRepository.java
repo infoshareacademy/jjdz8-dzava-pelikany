@@ -10,8 +10,7 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.UUID;
 
-import static dzavaPelikany.fileOperation.FilesNames.OWNERS_JSON;
-import static dzavaPelikany.fileOperation.FilesNames.TENANTS_JSON;
+import static dzavaPelikany.fileOperation.FilesNames.TENANTS_JSONWEB;
 
 public class TenantRepository implements TenantRepositoryInterface{
 
@@ -25,7 +24,7 @@ public class TenantRepository implements TenantRepositoryInterface{
 
     @Override
     public Optional<Tenant> findById(UUID id) {
-        Tenants tenants = JsonReader.create(new Tenants(), TENANTS_JSON);
+        Tenants tenants = JsonReader.create(new Tenants(), TENANTS_JSONWEB);
         return Optional.ofNullable(tenants.getTenantsList().stream().filter(t->t.getId().equals(id)).findFirst().orElse(null));
     }
 
@@ -50,7 +49,7 @@ public class TenantRepository implements TenantRepositoryInterface{
     public boolean contains(Optional<Tenant> tenant) {
         if (tenant.isEmpty()) return false;
         else {
-            Tenants tenants = JsonReader.create(new Tenants(), TENANTS_JSON);
+            Tenants tenants = JsonReader.create(new Tenants(), TENANTS_JSONWEB);
             return tenants.getTenantsList().contains(tenant.get());
 
         }
