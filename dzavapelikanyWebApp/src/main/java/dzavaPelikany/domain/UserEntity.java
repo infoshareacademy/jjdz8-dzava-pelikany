@@ -2,13 +2,13 @@ package dzavaPelikany.domain;
 
 
 import dzavaPelikany.dto.UserDto;
-import org.hibernate.annotations.ColumnDefault;
+
 
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity(name = "User")
-@Table(name = "Users")
+@Entity
+@Table(name = "users")
 public class UserEntity {
 
     @Id
@@ -20,8 +20,6 @@ public class UserEntity {
     private String email;
 
     @Column
-    @ColumnDefault(value = "1")
-    @Enumerated(EnumType.ORDINAL)
     private Role role;
 
     public UserEntity(String name, String surname, Role role){
