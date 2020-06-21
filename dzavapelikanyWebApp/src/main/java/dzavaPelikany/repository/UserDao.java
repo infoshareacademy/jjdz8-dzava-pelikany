@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 @Stateless
 public class UserDao implements UserRepositoryInterface {
 
-    @PersistenceContext(unitName = "company")
+    @PersistenceContext(unitName = "dzavapelikany")
     private EntityManager entityManager;
 
     Logger logger = LoggerFactory.getLogger("dzavaPelikany.repository");

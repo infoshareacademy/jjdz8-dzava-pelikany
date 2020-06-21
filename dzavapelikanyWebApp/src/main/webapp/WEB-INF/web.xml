@@ -11,9 +11,9 @@
   <display-name>DzavaApp</display-name>
 
   <data-source>
-    <name>java:ds/companyDS</name>
+    <name>java:ds/dzavapelikany</name>
     <class-name>com.mysql.cj.jdbc.MysqlDataSource</class-name>
-    <url>jdbc:mysql://0.0.0.0:3307/company?useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Warsaw</url>
+    <url>jdbc:mysql://0.0.0.0:3307/dzavapelikany?useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Warsaw</url>
     <user>root</user>
     <password>root</password>
   </data-source>
