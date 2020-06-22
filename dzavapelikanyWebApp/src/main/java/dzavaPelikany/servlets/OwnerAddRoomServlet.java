@@ -1,7 +1,6 @@
 package dzavaPelikany.servlets;
 
 import dzavaPelikany.domain.Room;
-import dzavaPelikany.domain.Tenant;
 import dzavaPelikany.freemarker.TemplateProvider;
 import dzavaPelikany.service.RoomCreatorService;
 import freemarker.template.Template;
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.UUID;
 
 
 @WebServlet("/owner-add-room")

@@ -25,7 +25,7 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "index.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "logout.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 

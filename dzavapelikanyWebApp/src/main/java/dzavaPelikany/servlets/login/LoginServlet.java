@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "login-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "login.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 
