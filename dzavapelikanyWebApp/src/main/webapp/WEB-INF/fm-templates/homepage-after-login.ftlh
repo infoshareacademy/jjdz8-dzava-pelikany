@@ -3,17 +3,16 @@
 <#include "parts/head.ftlh">
 <body id="page-top">
 <!-- Navigation-->
-<#include "parts/navbar-homepage.ftlh">
+<#include "parts/navbar-after-login.ftlh">
 <!-- Masthead-->
 <header class="masthead">
-    <div class="container h-100">
+    <div class="container h-50">
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end">
-                <h1 class="text-uppercase text-white font-weight-bold">Wylogowano poprawnie!</h1>
+                <h1 class="text-uppercase text-white font-weight-bold">Witaj!</h1>
                 <hr class="divider my-4" />
-            </div>
-            <div class="col-lg-8 align-self-baseline">
-                <a class="btn btn-primary btn-xl js-scroll-trigger" href="/homepage">Powrót do strony głównej!</a>
+                <p class="text-white-50 mb-4">Teraz masz pełny dostęp do naszej aplikacji!</p>
+                <p class="text-white-50 mb-4">Wybierz z menu co chcesz zrobić!</p>
             </div>
         </div>
     </div>

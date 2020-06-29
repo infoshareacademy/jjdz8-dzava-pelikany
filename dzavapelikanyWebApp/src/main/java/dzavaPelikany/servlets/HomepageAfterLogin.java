@@ -1,4 +1,4 @@
-package dzavaPelikany.servlets.registration;
+package dzavaPelikany.servlets;
 
 import dzavaPelikany.freemarker.TemplateProvider;
 import freemarker.template.Template;
@@ -14,17 +14,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 
-@WebServlet("/registration")
-public class Registration extends HttpServlet {
+@WebServlet("/homepage-after-login")
+public class HomepageAfterLogin extends HttpServlet {
 
         @Inject
         private TemplateProvider templateProvider;
 
-
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-            Template template = this.templateProvider.getTemplate(getServletContext(), "registration.ftlh");
+
+            Template template = templateProvider.getTemplate(getServletContext(), "homepage-after-login.ftlh");
 
             response.setContentType("text/html;charset=UTF-8");
 
@@ -35,6 +35,8 @@ public class Registration extends HttpServlet {
                 e.printStackTrace();
             }
 
-
         }
-}
+
+
+    }
+

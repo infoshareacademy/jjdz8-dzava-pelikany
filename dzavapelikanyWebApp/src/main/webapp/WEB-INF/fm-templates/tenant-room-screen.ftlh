@@ -72,7 +72,7 @@
 
 </main>
 
-<#include "footer.ftlh">
+<#include "parts/footer.ftlh">
 
 </body>
 </html>

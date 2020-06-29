@@ -25,7 +25,7 @@ public class HomePageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        Template template = templateProvider.getTemplate(getServletContext(), "index1.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "homepage.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 

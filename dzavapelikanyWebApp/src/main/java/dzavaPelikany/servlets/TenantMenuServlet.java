@@ -27,7 +27,7 @@ public class TenantMenuServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "tenant-menu-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-menu.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
         HashMap<String,String> dataModel = new HashMap<>();

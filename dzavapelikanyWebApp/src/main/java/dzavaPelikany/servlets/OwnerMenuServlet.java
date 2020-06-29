@@ -28,7 +28,7 @@ public class OwnerMenuServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-menu-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "owner-menu.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 
