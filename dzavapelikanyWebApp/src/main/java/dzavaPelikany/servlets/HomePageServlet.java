@@ -3,6 +3,8 @@ package dzavaPelikany.servlets;
 import dzavaPelikany.freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -18,6 +20,9 @@ import java.util.HashMap;
 @WebServlet("/homepage")
 public class HomePageServlet extends HttpServlet {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(HomePageServlet.class.getName());
+    protected static final String TEXT_HTML_CHARSET_UTF_8 = "text/html;charset=UTF-8";
+
     @Inject
     private TemplateProvider templateProvider;
 
@@ -27,13 +32,13 @@ public class HomePageServlet extends HttpServlet {
 
         Template template = templateProvider.getTemplate(getServletContext(), "homepage.ftlh");
 
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType(TEXT_HTML_CHARSET_UTF_8);
 
         PrintWriter printWriter = response.getWriter();
         try {
             template.process(new HashMap<String, Object>(), printWriter);
         } catch (TemplateException e) {
-            e.printStackTrace();
+            LOGGER.warn("Template not created");
         }
 
     }

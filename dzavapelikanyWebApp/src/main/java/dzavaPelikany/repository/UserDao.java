@@ -9,6 +9,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+
+import dzavaPelikany.servlets.HomePageServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +21,7 @@ public class UserDao implements UserRepositoryInterface {
     @PersistenceContext(unitName = "dzavapelikany")
     private EntityManager entityManager;
 
-    Logger logger = LoggerFactory.getLogger("dzavaPelikany.repository");
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserDao.class.getName());
 
 
 
@@ -33,7 +35,6 @@ public class UserDao implements UserRepositoryInterface {
                 .withEmail(userEntity.getEmail())
                 .build();
         entityManager.persist(newUserEntity);
-        logger.info("new user created: " + userEntity + " name: " + userEntity.getName() + " surname:" + userEntity.getSurname());
     return newUserEntity.getId();
     }
 

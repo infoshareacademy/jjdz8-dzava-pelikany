@@ -1,4 +1,9 @@
 package dzavaPelikany.service;
+
+import dzavaPelikany.servlets.HomePageServlet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 //
 //
 //import dzavaPelikany.domain.Room;
@@ -16,6 +21,9 @@ package dzavaPelikany.service;
 //
 //@RequestScoped
 public class RoomRegistrationService {
+
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(RoomRegistrationService.class.getName());
 //
 //    UUID roomUUID = null;
 //

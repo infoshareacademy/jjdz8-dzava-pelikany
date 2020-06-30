@@ -1,8 +1,11 @@
 package dzavaPelikany.servlets.registration;
 
 import dzavaPelikany.freemarker.TemplateProvider;
+import dzavaPelikany.servlets.HomePageServlet;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -19,6 +22,8 @@ public class Registration extends HttpServlet {
 
         @Inject
         private TemplateProvider templateProvider;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Registration.class.getName());
 
 
         @Override

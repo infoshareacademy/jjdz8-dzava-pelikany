@@ -3,6 +3,8 @@ package dzavaPelikany.servlets;
 import dzavaPelikany.freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -24,6 +26,8 @@ public class OwnerMenuServlet extends HttpServlet {
     private TemplateProvider templateProvider;
     @Inject
     private HttpSession httpSession;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(OwnerMenuServlet.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

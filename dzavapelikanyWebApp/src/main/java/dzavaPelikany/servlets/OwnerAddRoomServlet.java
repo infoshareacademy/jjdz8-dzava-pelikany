@@ -5,6 +5,8 @@ import dzavaPelikany.freemarker.TemplateProvider;
 import dzavaPelikany.service.RoomCreatorService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -25,6 +27,8 @@ public class OwnerAddRoomServlet extends HttpServlet {
 
     @Inject
     private RoomCreatorService roomCreatorService;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(OwnerAddRoomServlet.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

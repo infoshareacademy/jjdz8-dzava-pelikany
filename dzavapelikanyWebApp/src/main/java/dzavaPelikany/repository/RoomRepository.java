@@ -3,6 +3,9 @@ package dzavaPelikany.repository;
 import dzavaPelikany.domain.Room;
 import dzavaPelikany.domain.Rooms;
 import dzavaPelikany.fileOperation.JsonReader;
+import dzavaPelikany.servlets.HomePageServlet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +13,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class RoomRepository implements RoomRepositoryInterface{
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(RoomRepository.class.getName());
 
     @Override
     public Optional<Room> findRoomByTenantLogin(String tenantLogin, String path) {

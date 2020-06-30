@@ -1,8 +1,11 @@
 package dzavaPelikany.servlets.login;
 
 import dzavaPelikany.freemarker.TemplateProvider;
+import dzavaPelikany.servlets.HomePageServlet;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -20,6 +23,8 @@ public class LoginServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginServlet.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

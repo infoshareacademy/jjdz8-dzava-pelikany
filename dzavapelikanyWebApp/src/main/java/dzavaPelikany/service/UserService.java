@@ -2,6 +2,7 @@ package dzavaPelikany.service;
 
 import dzavaPelikany.domain.UserEntity;
 import dzavaPelikany.repository.UserRepositoryInterface;
+import dzavaPelikany.servlets.HomePageServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +16,7 @@ public class UserService {
     @EJB
     UserRepositoryInterface userRepositoryInterface;
 
-    Logger logger = LoggerFactory.getLogger("dzavapelikany.services");
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class.getName());
 
     public int createUser(UserEntity userEntity) {
         return userRepositoryInterface.createUser(userEntity);
