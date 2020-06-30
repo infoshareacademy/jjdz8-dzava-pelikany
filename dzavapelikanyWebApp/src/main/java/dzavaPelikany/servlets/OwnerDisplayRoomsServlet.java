@@ -31,7 +31,7 @@ public class OwnerDisplayRoomsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-display-rooms-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "owner-display-rooms.ftlh");
 
 
         response.setContentType("text/html;charset=UTF-8");

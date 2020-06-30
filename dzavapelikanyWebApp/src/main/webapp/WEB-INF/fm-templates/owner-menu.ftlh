@@ -6,28 +6,20 @@
 <#include "parts/owner-navbar.ftlh">
 <!-- Masthead-->
 <header class="masthead">
-    <div class="container h-50">
+    <div class="container h-75">
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end">
                 <h1 class="text-uppercase text-white font-weight-bold">Witaj!</h1>
                 <hr class="divider my-4" />
                 <p class="text-white-50 mb-4">Teraz masz pełny dostęp do naszej aplikacji!</p>
                 <p class="text-white-50 mb-4">Wybierz z menu co chcesz zrobić!</p>
+                <p><input class="btn btn-primary mb-2" type ="button" id="myRooms" value="Przeglądaj pokoje"/></p>
+                <p><input class="btn btn-primary mb-2" type ="button" id="addRoom" value="Dodaj pokój"/></p>
+                <p><input class="btn btn-primary mb-2" type ="button" id="EditMyData" value="Edytuj moje dane"/></p>
             </div>
         </div>
     </div>
 </header>
-<section class="page-section bg-dark text-white">
-
-    <div class="container text-center">
-
-    <p><input class="btn btn-primary mb-2" type ="button" id="myRooms" value="Przeglądaj pokoje"/></p>
-    <p><input class="btn btn-primary mb-2" type ="button" id="addRoom" value="Dodaj pokój"/></p>
-    <p><input class="btn btn-primary mb-2" type ="button" id="EditMyData" value="Edytuj moje dane"/></p>
-
-    </div>
-</section>
-
 <!-- Contact-->
 <#include "parts/contact.ftlh">
 <!-- Footer-->

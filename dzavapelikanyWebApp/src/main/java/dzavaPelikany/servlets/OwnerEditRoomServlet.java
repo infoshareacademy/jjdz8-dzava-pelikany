@@ -39,7 +39,7 @@ public class OwnerEditRoomServlet extends HttpServlet {
         dataModel.put("editedRoom", editedRoom);
 
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-edit-room-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "owner-edit-room.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 

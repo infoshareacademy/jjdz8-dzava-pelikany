@@ -15,7 +15,7 @@
             </div>
                     <p><#if msg??>${msg}<#else> </#if></p>
 
-                    <form class="form-inline" method="post" action="/owner-login">
+                    <form class="form-inline" method="post" action="/login">
                         <div class="form-group mb-2">
                             <label for="staticEmail2" class="sr-only">Email</label>
                             <input type="text" class="form-control" id="email" placeholder="Email" name="email" required>

@@ -30,7 +30,7 @@ public class TenantSearchRoomServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "tenant-search-room-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-search-room.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 
@@ -58,7 +58,7 @@ public class TenantSearchRoomServlet extends HttpServlet {
 
         if (!availableRooms.isEmpty()) dataModel.put("room", availableRooms);
         else dataModel.put("msg",msg);
-        Template template = templateProvider.getTemplate(getServletContext(), "tenant-search-room-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-search-room.ftlh");
 
         resp.setContentType("text/html;charset=UTF-8");
 

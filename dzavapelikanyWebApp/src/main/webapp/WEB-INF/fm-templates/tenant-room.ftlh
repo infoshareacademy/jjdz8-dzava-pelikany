@@ -6,16 +6,18 @@
 <#include "parts/tenant-navbar.ftlh">
 <!-- Masthead-->
 <header class="masthead">
-    <div class="container h-75">
+    <div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end">
-                <h1 class="text-uppercase text-white font-weight-bold">Witaj!</h1>
-                <hr class="divider my-4" />
-                <p class="text-white-50 mb-4">Teraz masz pełny dostęp do naszej aplikacji!</p>
-                <p class="text-white-50 mb-4">Wybierz z menu co chcesz zrobić!</p>
-                <p><input class="btn btn-primary mb-2" type ="button" id="myRooms" value="Twój pokój"/></p>
-                <p><input class="btn btn-primary mb-2" type ="button" id="addRoom" value="Szukaj pokoju"/></p>
-                <p><input class="btn btn-primary mb-2" type ="button" id="EditMyData" value="Edytuj dane"/></p>
+                <h1 class="text-uppercase text-white font-weight-bold">Dane twojego pokoju:</h1>
+                <p><input class="btn btn-primary" type ="button" id="myMenu" value="<-- Powrot"/></p>
+                <hr class="divider my-2" />
+                <#if msg??>${msg}<#else>
+                <p class="text-white-50 mb-4">Miasto: ${city} </p>
+                <p class="text-white-50 mb-4">Adres: ${address} </p>
+                <p class="text-white-50 mb-4">Data rejestracji: ${date} </p>
+                <p class="text-white-50 mb-4">Cena: ${price} </p>
+                </#if>
             </div>
         </div>
     </div>

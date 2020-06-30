@@ -47,7 +47,7 @@ public class TenantRoomServlet extends HttpServlet {
             dataModel.put("date",roomService.findRoomByTenantLogin(tenantLogin,path).getRegistrationTerm());
             dataModel.put("price",Double.toString(roomService.findRoomByTenantLogin(tenantLogin,path).getPrice()));
         }
-        Template template = templateProvider.getTemplate(getServletContext(), "tenant-room-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-room.ftlh");
 
         try {
             template.process(dataModel, printWriter);
