@@ -34,44 +34,8 @@
     });
 </script>
 
-<script>
-    $('.rmv').click(function removeRoom() {
-        $.ajax({url: '/owner-rooms?roomid='+$(this).data('roomid'), method: "DELETE"})
-            .then( function () {
-        location.reload();
-            })
-        .catch(function (err) {
-            console.log(err)
-        })
-    });
-</script>
 
-<script>
-    $('.subedt').click(function editRoom() {
-        $.ajax({url: '/owner-edit-room?editRoomId='+$(this).data('roomid'), method: "PUT", data:$("#editForm").serialize()})
-            .then( function () {
-                location.href="/owner-rooms";
-            })
-            .catch(function (err) {
-                console.log(err)
-            })
-    });
-</script>
-<script>
-    $('.edt').click(function goToRoomEdit() {
 
-                location.href="/owner-edit-room?editRoomId="+$(this).data('roomid');
 
-    });
-</script>
-<script>
-    $('.rnt').click(function rentRoom() {
-        $.ajax({url: '/owner-rooms?rentRoomId='+$(this).data('roomid'), method: "PUT", data:$("#rentForm").serialize()})
-            .then( function () {
-                location.reload();
-            })
-            .catch(function (err) {
-                console.log(err)
-            })
-    });
-</script>
+
+

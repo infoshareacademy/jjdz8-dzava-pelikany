@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-
 </head>
 <body>
 
@@ -51,32 +50,24 @@
 
     <p><input class="button" type ="button" id="myMenu" value="<-- Powrót"/></p>
 
-    <form id="editForm" class="contact-from">
+    <form id="rentForm" class="contact-from">
         <div class="row">
-            <input type="hidden" value="${editedRoom.getId()}" name="id">
+            <input type="hidden" value="${rentedRoom.getId()}" name="id">
             <div class="form col-lg-6 col-sm-12">
-                <label for="roomLogin">Twoja nazwa pokoju:</label>
-                <input type="text" value="${editedRoom.getRoomLogin()}" name="roomLogin" id="roomLogin" required/>
+                <label for="roomTerm">Termin:</label>
+                <input type="text" name="roomTerm" id="roomTerm" value="${rentedRoom.getRegistrationTerm()}" required/>
             </div>
             <div class="form col-lg-6 col-sm-12">
-                <label for="adress">Adres:</label>
-                <input type="text" value="${editedRoom.getStreetAndNumber()}" name="streetAndNumber" id="streetAndNumber" required/>
-            </div>
-            <div class="form col-lg-6 col-sm-12">
-                <label for="city">Miasto:</label>
-                <input type="text" value="${editedRoom.getCity()}" name="city" id="city" required/>
-            </div>
-            <div class="form col-lg-6 col-sm-12">
-                <label for="area">Metraż:</label>
-                <input type="text" value="${editedRoom.getArea()}" name="area" id="area" required/>
-            </div>
-            <div class="form col-lg-6 col-sm-12">
-                <label for="price">Cena:</label>
-                <input type="text" value="${editedRoom.getPrice()}" name="price" id="price" required/>
+                <label for="roomTenant">Osoba:</label>
+                <select name="tenant" id="tenant">
+                    <#list tenants as tenant>
+                        <option value="${tenant.getLogin()}">${tenant.getName()}  ${tenant.getSurname()}</option>
+                    </#list>
+                </select>
             </div>
             <div class="form col-12">
-                <button class="btn btn-primary subedt">
-                    Edytuj Pokój
+                <button class="btn btn-primary rnt">
+                    Wynajmij Pokój
                 </button>
             </div>
         </div>
@@ -87,12 +78,12 @@
 <#include "footer.ftlh">
 
 <script>
-    $('.subedt').click(function editRoom() {
-        $.ajax({url: '/owner-edit-room?editRoomId='+$(this).data('roomid'), method: "PUT", data:$("#editForm").serialize()})
+    $('.rnt').click(function rentRoom() {
+        $.ajax({url: '/owner-rent-room?rentRoomId='+$(this).data('roomid'), method: "PUT", data:$("#rentForm").serialize()})
             .then( function () {
                 location.href="/owner-rooms";
             }).then( function () {
-            return confirm('Pokoj zaktualizowany')
+            alert("Pokoj zostal wynajety");
         }).catch(function (err) {
                 console.log(err)
             })

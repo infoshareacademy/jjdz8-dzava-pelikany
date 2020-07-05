@@ -6,7 +6,7 @@ public class Room {
     private String roomLogin;
     private String streetAndNumber;
     private String city;
-    private byte area;
+    private Integer area;
     private double price;
     private UUID assigmentId;
     private UUID id;
@@ -81,11 +81,11 @@ public class Room {
         this.city = city;
     }
 
-    public byte getArea() {
+    public Integer getArea() {
         return area;
     }
 
-    public void setArea(byte area) {
+    public void setArea(Integer area) {
         this.area = area;
     }
 

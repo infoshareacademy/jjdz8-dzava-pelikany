@@ -2,6 +2,8 @@ package dzavaPelikany.servlets;
 
 import dzavaPelikany.domain.Room;
 import dzavaPelikany.domain.Rooms;
+import dzavaPelikany.domain.Tenant;
+import dzavaPelikany.domain.Tenants;
 import dzavaPelikany.fileOperation.JsonReader;
 import dzavaPelikany.fileOperation.JsonSaver;
 import dzavaPelikany.freemarker.TemplateProvider;
@@ -22,24 +24,27 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static dzavaPelikany.fileOperation.FilesNames.ROOMS_JSONWEB;
+import static dzavaPelikany.fileOperation.FilesNames.TENANTS_JSONWEB;
 
 
-@WebServlet("/owner-edit-room")
-public class OwnerEditRoomServlet extends HttpServlet {
+@WebServlet("/owner-rent-room")
+public class OwnerRentRoomServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        List<Tenant> tenants = JsonReader.create(new Tenants(), getServletContext().getRealPath(TENANTS_JSONWEB)).getTenantsList();
         List<Room> rooms = JsonReader.create(new Rooms(), getServletContext().getRealPath(ROOMS_JSONWEB)).getRoomsList();
-        Room editedRoom = rooms.stream().filter(room -> room.getId().toString().equals(request.getParameter("editRoomId"))).collect(Collectors.toCollection(ArrayList::new)).get(0);
+        Room rentedRoom = rooms.stream().filter(room -> room.getId().toString().equals(request.getParameter("rentRoomId"))).collect(Collectors.toCollection(ArrayList::new)).get(0);
 
         Map<String, Object> dataModel = new HashMap<>();
-        dataModel.put("editedRoom", editedRoom);
+        dataModel.put("rentedRoom", rentedRoom);
+        dataModel.put("tenants", tenants);
 
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-edit-room-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "owner-rent-room-screen.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 
@@ -58,11 +63,9 @@ public class OwnerEditRoomServlet extends HttpServlet {
 
         Rooms rooms = JsonReader.create(new Rooms(), getServletContext().getRealPath(ROOMS_JSONWEB));
         Room editedRoom = rooms.getRoomsList().stream().filter(room -> room.getId().toString().equals(req.getParameter("id"))).collect(Collectors.toCollection(ArrayList::new)).get(0);
-        editedRoom.setRoomLogin(req.getParameter("roomLogin"));
-        editedRoom.setStreetAndNumber(req.getParameter("streetAndNumber"));
-        editedRoom.setCity(req.getParameter("city"));
-        editedRoom.setArea(Integer.parseInt(req.getParameter("area")));
-        editedRoom.setPrice(Double.parseDouble(req.getParameter("price")));
+        editedRoom.setRegistrationTerm(req.getParameter("roomTerm"));
+        editedRoom.setTenantLogin(req.getParameter("tenant"));
+        editedRoom.setStatus(true);
         JsonSaver.makeJson(rooms, getServletContext().getRealPath(ROOMS_JSONWEB));
 
 
