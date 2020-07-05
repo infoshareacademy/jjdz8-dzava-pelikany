@@ -1,25 +1,60 @@
 package dzavaPelikany.service;
 
-import dzavaPelikany.domain.UserEntity;
-import dzavaPelikany.repository.UserRepositoryInterface;
-import dzavaPelikany.servlets.HomePageServlet;
+import dzavaPelikany.domain.User;
+import dzavaPelikany.dto.UserGoogleView;
+import dzavaPelikany.dto.UserView;
+import dzavaPelikany.mapper.UserMapper;
+import dzavaPelikany.repository.Dao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.Optional;
 
-@RequestScoped
+@Stateless
 public class UserService {
-
-    @EJB
-    UserRepositoryInterface userRepositoryInterface;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class.getName());
 
-    public int createUser(UserEntity userEntity) {
-        return userRepositoryInterface.createUser(userEntity);
-    }
+
+   @EJB
+   private Dao<User> userDao;
+
+   @Inject
+    UserMapper userMapper;
+
+   public void save(User user){
+       userDao.save(user);
+   }
+
+   public UserView getUserById(Long userId) {
+       User foundUser = userDao.findUserById(userId).orElseThrow();
+       if ((foundUser == null)){
+           return null;
+       }
+       return userMapper.toView(foundUser);
+   }
+
+   public User create(UserGoogleView userGoogleView){
+      User user = new User();
+      user.setName(userGoogleView.getName());
+      user.setEmail(userGoogleView.getEmail());
+      //TODO setUserType z roleDao
+       save(user);
+       return user;
+   }
+
+   public UserView login(UserGoogleView userGoogleView){
+       User user = userDao.findUserByEmail(userGoogleView.getEmail()).orElseGet(()->create(userGoogleView));
+       return userMapper.toView(user);
+   }
+
+
+
+
+
 
 }

@@ -33,6 +33,8 @@
                         <input type="password" class="form-control" id="inputPassword2" placeholder="Hasło" name="password" required>
                     </div>
                     <div class="form col-12">
+                        <p><input class="btn btn-primary" type ="submit" typeof="button" id="HomepageAfterLogin" value="Zarejestruj"/></p>
+
                         <button class="btn btn-primary" type="submit">
                             Zarejestruj
                         </button>

@@ -18,13 +18,13 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 
 
-@WebServlet("/logout")
-public class LogoutServlet extends HttpServlet {
+@WebServlet("/homepage-after-logout")
+public class HomePageAfterLogOut extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(LogoutServlet.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(HomePageAfterLogOut.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

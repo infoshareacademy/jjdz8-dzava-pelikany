@@ -1,7 +1,6 @@
-package dzavaPelikany.servlets.login;
+package dzavaPelikany.servlets;
 
 import dzavaPelikany.freemarker.TemplateProvider;
-import dzavaPelikany.servlets.HomePageServlet;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
@@ -17,17 +16,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 
-
 @WebServlet("/login")
-public class LoginServlet extends HttpServlet {
-
+public class LoginPage extends HttpServlet {
     @Inject
     private TemplateProvider templateProvider;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoginServlet.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginPage.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
         Template template = templateProvider.getTemplate(getServletContext(), "login.ftlh");
 
@@ -37,7 +35,7 @@ public class LoginServlet extends HttpServlet {
         try {
             template.process(new HashMap<String, Object>(), printWriter);
         } catch (TemplateException e) {
-            e.printStackTrace();
+            LOGGER.warn("Template not created");
         }
 
     }

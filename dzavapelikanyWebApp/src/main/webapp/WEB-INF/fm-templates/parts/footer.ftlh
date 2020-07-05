@@ -32,6 +32,9 @@
     $('#EditMyData').click(function() {
         window.location = "/owner-edit-details";
     });
+    $('#HomepageAfterLogin').click(function() {
+        window.location = "/homepage-after-login";
+    });
 </script>
 
 <script>

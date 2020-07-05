@@ -13,19 +13,7 @@
                 <hr class="divider my-4" />
                 <p class="text-white-50 mb-4">Zaloguj się już dziś i miej wszystko w jednym miejscu!</p>
             </div>
-                    <p><#if msg??>${msg}<#else> </#if></p>
-
-                    <form class="form-inline" method="post" action="/login">
-                        <div class="form-group mb-2">
-                            <label for="staticEmail2" class="sr-only">Email</label>
-                            <input type="text" class="form-control" id="email" placeholder="Email" name="email" required>
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="inputPassword2" class="sr-only">Password</label>
-                            <input type="password" class="form-control" id="inputPassword2" placeholder="Hasło" name="password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-2" >Zaloguj</button>
-                    </form>
+            <#include "parts/signin-google-button.ftlh">
         </div>
     </div>
 </header>

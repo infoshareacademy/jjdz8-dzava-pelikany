@@ -1,7 +1,10 @@
 package dzavaPelikany.servlets.registration;
 
+import dzavaPelikany.domain.User;
 import dzavaPelikany.freemarker.TemplateProvider;
+import dzavaPelikany.service.UserService;
 import dzavaPelikany.servlets.HomePageServlet;
+import dzavaPelikany.servlets.HomepageAfterLogin;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
@@ -23,6 +26,11 @@ public class Registration extends HttpServlet {
         @Inject
         private TemplateProvider templateProvider;
 
+        @Inject
+        UserService userService;
+
+
+
     private static final Logger LOGGER = LoggerFactory.getLogger(Registration.class.getName());
 
 
@@ -42,4 +50,17 @@ public class Registration extends HttpServlet {
 
 
         }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        String surname = req.getParameter("surname");
+        String email = req.getParameter("email");
+        User user = new User();
+        user.setName(name);
+        user.setSurname(surname);
+        user.setEmail(email);
+        userService.save(user);
+
+    }
 }
