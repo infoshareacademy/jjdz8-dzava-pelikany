@@ -34,8 +34,9 @@ public class User {
     @NotNull
     private String email;
 
-    @Column(name = "user_type")
-    private String userType;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id")
+    private Role role;
 
     public Long getId() {
         return this.id;
@@ -69,11 +70,11 @@ public class User {
         this.email = email;
     }
 
-    public String getUserType() {
-        return this.userType;
+    public Role getRole() {
+        return this.role;
     }
 
-    public void setUserType(String userType) {
-        this.userType = userType;
+    public void setRole( Role role) {
+        this.role = role;
     }
 }

@@ -1,12 +1,14 @@
 package dzavaPelikany.dto;
 
+import dzavaPelikany.domain.Role;
+
 public class UserView {
 
     private Long id;
     private String name;
     private String surname;
     private String email;
-    private String userType;
+    private Role role;
     private String login;
     private String password;
 
@@ -42,12 +44,12 @@ public class UserView {
         this.email = email;
     }
 
-    public String getUserType() {
-        return this.userType;
+    public Role getRole() {
+        return this.role;
     }
 
-    public void setUserType(final String userType) {
-        this.userType = userType;
+    public void setRole(final Role role) {
+        this.role = role;
     }
 
     public String getLogin() {
