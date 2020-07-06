@@ -5,7 +5,7 @@ services:
     image: mysql
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --init-connect='SET NAMES UTF8;' --innodb-flush-log-at-trx-commit=0
     ports:
-      - 4401:3307
+      - 4401:3306
     environment:
       MYSQL_USER: "root"
       MYSQL_ROOT_PASSWORD: "root"

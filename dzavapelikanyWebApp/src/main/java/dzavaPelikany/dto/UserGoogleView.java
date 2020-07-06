@@ -9,7 +9,7 @@ public class UserGoogleView {
         return this.name;
     }
 
-    public void setName(final String name) {
+    public void setName( String name) {
         this.name = name;
     }
 
@@ -17,7 +17,7 @@ public class UserGoogleView {
         return this.email;
     }
 
-    public void setEmail(final String email) {
+    public void setEmail( String email) {
         this.email = email;
     }
 }

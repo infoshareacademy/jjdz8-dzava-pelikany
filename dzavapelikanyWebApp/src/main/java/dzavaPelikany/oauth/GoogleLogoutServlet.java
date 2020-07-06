@@ -10,9 +10,9 @@ import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet("/logout")
-public class LogoutServlet extends HttpServlet {
+public class GoogleLogoutServlet extends HttpServlet {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(LogoutServlet.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(GoogleLogoutServlet.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

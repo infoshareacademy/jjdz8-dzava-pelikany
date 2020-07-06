@@ -8,9 +8,8 @@ public class UserView {
     private String name;
     private String surname;
     private String email;
-    private Role role;
-    private String login;
-    private String password;
+    private String role;
+
 
     public Long getId() {
         return this.id;
@@ -44,27 +43,11 @@ public class UserView {
         this.email = email;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return this.role;
     }
 
-    public void setRole(final Role role) {
+    public void setRole(final String role) {
         this.role = role;
-    }
-
-    public String getLogin() {
-        return this.login;
-    }
-
-    public void setLogin(final String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(final String password) {
-        this.password = password;
     }
 }

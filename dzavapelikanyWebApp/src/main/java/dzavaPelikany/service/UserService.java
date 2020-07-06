@@ -5,6 +5,7 @@ import dzavaPelikany.dto.UserGoogleView;
 import dzavaPelikany.dto.UserView;
 import dzavaPelikany.mapper.UserMapper;
 import dzavaPelikany.repository.Dao;
+import dzavaPelikany.repository.RoleBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,8 +24,11 @@ public class UserService {
    @EJB
    private Dao<User> userDao;
 
+   @EJB
+    private RoleBean roleBean;
+
    @Inject
-    UserMapper userMapper;
+    private UserMapper userMapper;
 
    public void save(User user){
        userDao.save(user);
@@ -42,7 +46,7 @@ public class UserService {
       User user = new User();
       user.setName(userGoogleView.getName());
       user.setEmail(userGoogleView.getEmail());
-      //TODO setUserType z roleDao
+       user.setRole(roleBean.findByRoleName("USER").orElseThrow());
        save(user);
        return user;
    }

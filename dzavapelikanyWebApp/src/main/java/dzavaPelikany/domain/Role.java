@@ -3,6 +3,7 @@ package dzavaPelikany.domain;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @NamedQueries( {
@@ -23,8 +24,8 @@ public class Role {
     @NotNull
     private String name;
 
-    @OneToMany(mappedBy = "role")
-    private List<User> user;
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+    private List<User> users = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -42,11 +43,11 @@ public class Role {
         this.name = name;
     }
 
-    public List<User> getUser() {
-        return user;
+    public List<User> getUsers() {
+        return this.users;
     }
 
-    public void setUser(List<User> user) {
-        this.user = user;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
