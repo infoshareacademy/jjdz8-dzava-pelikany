@@ -53,23 +53,27 @@
     <form action="/owner-add-room" method="post" class="contact-from">
         <div class="row">
             <div class="form col-lg-6 col-sm-12">
-                <label for="name">Twoja nazwa pokoju:</label>
+                <label for="roomLogin">Twoja nazwa pokoju:</label>
                 <input type="text" name="roomLogin" id="roomLogin" required/>
             </div>
             <div class="form col-lg-6 col-sm-12">
-                <label for="surname">Adres:</label>
+                <label for="adress">Adres:</label>
                 <input type="text" name="streetAndNumber" id="streetAndNumber" required/>
             </div>
             <div class="form col-lg-6 col-sm-12">
-                <label for="email">Miasto:</label>
+                <label for="city">Miasto:</label>
                 <input type="text" name="city" id="city" required/>
             </div>
             <div class="form col-lg-6 col-sm-12">
-                <label for="login">Metraz:</label>
+                <label for="area">Metraz:</label>
                 <input type="text" name="area" id="area" required/>
             </div>
+            <div class="form col-lg-6 col-sm-12">
+                <label for="price">Cena:</label>
+                <input type="text" name="price" id="price" required/>
+            </div>
             <div class="form col-12">
-                <button class="btn btn-primary" type="submit">
+                <button class="btn btn-primary crt" type="submit">
                     Dodaj Pokoj
                 </button>
             </div>
@@ -79,7 +83,13 @@
 </main>
 
 <#include "footer.ftlh">
-
+<script>
+    $('.crt').click(function () {
+                alert("Pokoj utworzony")
+            }).catch(function (err) {
+                console.log(err)
+            });
+</script>
 
 </body>
 </html>
