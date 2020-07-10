@@ -7,8 +7,6 @@ import dzavaPelikany.fileOperation.JsonSaver;
 import dzavaPelikany.freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -30,12 +28,10 @@ public class OwnerDisplayRoomsServlet extends HttpServlet {
     @Inject
     private TemplateProvider templateProvider;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OwnerDisplayRoomsServlet.class.getName());
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-display-rooms.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "owner-display-rooms-screen.ftlh");
 
 
         response.setContentType("text/html;charset=UTF-8");
@@ -66,9 +62,9 @@ public class OwnerDisplayRoomsServlet extends HttpServlet {
                 roomToRemove = Optional.of(room);
             }
         }
-                rooms.getRoomsList().remove(roomToRemove.get());
-                JsonSaver.makeJson(rooms,getServletContext().getRealPath(ROOMS_JSONWEB));
-            }
+        rooms.getRoomsList().remove(roomToRemove.get());
+        JsonSaver.makeJson(rooms,getServletContext().getRealPath(ROOMS_JSONWEB));
+    }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -83,4 +79,3 @@ public class OwnerDisplayRoomsServlet extends HttpServlet {
         JsonSaver.makeJson(rooms, getServletContext().getRealPath(ROOMS_JSONWEB));
     }
 }
-

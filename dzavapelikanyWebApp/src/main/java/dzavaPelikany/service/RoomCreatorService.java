@@ -1,3 +1,4 @@
+
 package dzavaPelikany.service;
 
 
@@ -5,9 +6,6 @@ import dzavaPelikany.domain.Room;
 import dzavaPelikany.domain.Rooms;
 import dzavaPelikany.fileOperation.JsonReader;
 import dzavaPelikany.fileOperation.JsonSaver;
-import dzavaPelikany.servlets.HomePageServlet;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.RequestScoped;
 import java.io.IOException;
@@ -20,8 +18,6 @@ import static java.lang.System.out;
 
 @RequestScoped
 public class RoomCreatorService {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(RoomCreatorService.class.getName());
 
 
 

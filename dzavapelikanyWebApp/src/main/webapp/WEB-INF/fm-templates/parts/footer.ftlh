@@ -1,5 +1,5 @@
-<footer class="bg-light py-5">
-    <div class="container"><div class="small text-center text-muted">DzavaApp prod. DzavaPelikany - Copyright© ${.now?string('yyyy')}</div></div>
+<footer class="container">
+    <p>DzavaApp prod. DzavaPelikany - Copyright© ${.now?string('yyyy')}</p>
 </footer>
 <script
         src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -32,12 +32,7 @@
     $('#EditMyData').click(function() {
         window.location = "/owner-edit-details";
     });
-    $('#HomepageAfterLogin').click(function() {
-        window.location = "/homepage-after-login";
-    });
 </script>
-
-
 
 
 

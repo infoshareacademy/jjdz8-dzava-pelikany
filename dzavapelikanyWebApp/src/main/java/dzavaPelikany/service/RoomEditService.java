@@ -5,9 +5,6 @@ package dzavaPelikany.service;
 import dzavaPelikany.domain.Rooms;
 import dzavaPelikany.fileOperation.JsonReader;
 import dzavaPelikany.fileOperation.JsonSaver;
-import dzavaPelikany.servlets.HomePageServlet;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -18,8 +15,6 @@ import static dzavaPelikany.fileOperation.FilesNames.ROOMS_JSONWEB;
 public class RoomEditService {
 
     Scanner scanner = new Scanner(System.in);
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(RoomEditService.class.getName());
 
 
     public void editRoomStreetAndNumber() throws IOException, InterruptedException {

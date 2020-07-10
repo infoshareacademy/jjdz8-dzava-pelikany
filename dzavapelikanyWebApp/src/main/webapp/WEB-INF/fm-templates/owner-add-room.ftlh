@@ -56,5 +56,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 <!-- Core theme JS-->
 <script src="../../js/scripts.js"></script>
+<script>
+    $('.crt').click(function () {
+        alert("Pokoj utworzony")
+    }).catch(function (err) {
+        console.log(err)
+    });
+</script>
 </body>
 </html>

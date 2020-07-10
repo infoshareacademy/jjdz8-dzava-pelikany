@@ -14,28 +14,32 @@
                 <p class="text-white-50 mb-4">Formularz pozwala zmienić dane pokoju.</p>
             </div>
             <p><input class="btn btn-primary" type ="button" id="myMenu" value="<-- Powrot"/></p>
-            <form action="/owner-edit-room" method="post" class="contact-from">
-                <div class="divider my-2">
+            <form id="editForm" class="contact-from">
+                <div class="row">
                     <input type="hidden" value="${editedRoom.getId()}" name="id">
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Nazwa pokoju</label>
-                        <input type="text" value="${editedRoom.getRoomLogin()}" class="form-control" id="roomLogin" placeholder="Nazwa pokoju" name="roomLogin" required>
+                    <div class="form col-lg-6 col-sm-12">
+                        <label for="roomLogin">Twoja nazwa pokoju:</label>
+                        <input type="text" value="${editedRoom.getRoomLogin()}" name="roomLogin" id="roomLogin" required/>
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Adres</label>
-                        <input type="text" value="${editedRoom.getStreetAndNumber()}" class="form-control" id="StreetAndNumber" placeholder="Adres" name="StreetAndNumber" required>
+                    <div class="form col-lg-6 col-sm-12">
+                        <label for="adress">Adres:</label>
+                        <input type="text" value="${editedRoom.getStreetAndNumber()}" name="streetAndNumber" id="streetAndNumber" required/>
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Miasto</label>
-                        <input type="text" value="${editedRoom.getCity()}" class="form-control" id="city" placeholder="Miasto" name="city" required>
+                    <div class="form col-lg-6 col-sm-12">
+                        <label for="city">Miasto:</label>
+                        <input type="text" value="${editedRoom.getCity()}" name="city" id="city" required/>
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Metraż</label>
-                        <input type="text" value="${editedRoom.getArea()}" class="form-control" id="area" placeholder="Metraż" name="area" required>
+                    <div class="form col-lg-6 col-sm-12">
+                        <label for="area">Metraż:</label>
+                        <input type="text" value="${editedRoom.getArea()}" name="area" id="area" required/>
+                    </div>
+                    <div class="form col-lg-6 col-sm-12">
+                        <label for="price">Cena:</label>
+                        <input type="text" value="${editedRoom.getPrice()}" name="price" id="price" required/>
                     </div>
                     <div class="form col-12">
-                        <button class="btn btn-primary" type="submit">
-                            Edytuj pokój
+                        <button class="btn btn-primary subedt">
+                            Edytuj Pokój
                         </button>
                     </div>
                 </div>
@@ -56,5 +60,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 <!-- Core theme JS-->
 <script src="../../js/scripts.js"></script>
+<script>
+    $('.subedt').click(function editRoom() {
+        $.ajax({url: '/owner-edit-room?editRoomId='+$(this).data('roomid'), method: "PUT", data:$("#editForm").serialize()})
+            .then( function () {
+                location.href="/owner-rooms";
+            }).then( function () {
+            return confirm('Pokoj zaktualizowany')
+        }).catch(function (err) {
+            console.log(err)
+        })
+    });
+</script>
 </body>
 </html>

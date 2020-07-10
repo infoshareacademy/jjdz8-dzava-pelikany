@@ -77,4 +77,14 @@ public class User {
     public void setRole( Role role) {
         this.role = role;
     }
+
+//    private UUID AssigmentId;
+//
+//    public UUID getAssigmentId() {
+//        return AssigmentId;
+//    }
+//
+//    public void setAssigmentId(UUID assigmentId) {
+//        AssigmentId = assigmentId;
+//    }
 }
