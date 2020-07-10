@@ -9,12 +9,9 @@ import dzavaPelikany.fileOperation.JsonSaver;
 
 import javax.enterprise.context.RequestScoped;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.UUID;
 
 import static dzavaPelikany.fileOperation.FilesNames.ROOMS_JSONWEB;
-import static java.lang.System.in;
-import static java.lang.System.out;
 
 @RequestScoped
 public class RoomCreatorService {

@@ -18,23 +18,27 @@
             <form action="/owner-add-room" method="post" class="contact-from">
                 <div class="divider my-2">
                     <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Nazwa pokoju</label>
+                        <label for="roomLogin" class="sr-only">Nazwa pokoju</label>
                         <input type="text" class="form-control" id="roomLogin" placeholder="Nazwa pokoju" name="roomLogin" required>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Adres</label>
+                        <label for="adress" class="sr-only">Adres</label>
                         <input type="text" class="form-control" id="StreetAndNumber" placeholder="Adres" name="StreetAndNumber" required>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Miasto</label>
+                        <label for="city" class="sr-only">Miasto</label>
                         <input type="text" class="form-control" id="city" placeholder="Miasto" name="city" required>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Metraż</label>
+                        <label for="area" class="sr-only">Metraż</label>
                         <input type="text" class="form-control" id="area" placeholder="Metraż" name="area" required>
                     </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="price" class="sr-only">Cena</label>
+                        <input type="text" class="form-control" id="price" placeholder="Cena" name="price" required>
+                    </div>
                     <div class="form col-12">
-                        <button class="btn btn-primary" type="submit">
+                        <button class="btn btn-primary crt" type="submit">
                             Dodaj pokój!
                         </button>
                     </div>

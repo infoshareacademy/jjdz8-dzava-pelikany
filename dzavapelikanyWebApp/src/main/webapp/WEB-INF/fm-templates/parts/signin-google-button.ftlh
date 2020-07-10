@@ -1,6 +1,6 @@
 
 <head>
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="91775248838-9bqih3iehirvm9sptj13a1hlo7cmpt4c.apps.googleusercontent.com">
 </head>
 <body>
 <div id="my-signin2"></div>
