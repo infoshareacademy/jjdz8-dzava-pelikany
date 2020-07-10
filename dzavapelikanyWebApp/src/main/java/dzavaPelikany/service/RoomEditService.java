@@ -69,7 +69,7 @@ public class RoomEditService {
 
     public void setNewArea(String roomLogin) throws IOException {
         Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSONWEB);
-        rooms.findRoomLogin(roomLogin).setArea(scanner.nextByte());
+        rooms.findRoomLogin(roomLogin).setArea(scanner.nextInt());
         JsonSaver.makeJson(rooms, ROOMS_JSONWEB);
     }
 

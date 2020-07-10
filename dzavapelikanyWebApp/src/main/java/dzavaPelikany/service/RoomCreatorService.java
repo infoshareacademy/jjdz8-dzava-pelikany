@@ -25,16 +25,17 @@ public class RoomCreatorService {
 
 
 
-    public Room createRoom(String roomLogin, String streetAndNumber, String city, byte area) {
+    public Room createRoom(String roomLogin, String streetAndNumber, String city, Integer area, double price) {
         Room room = new Room(roomLogin);
         room.setStreetAndNumber(streetAndNumber);
         room.setCity(city);
         room.setArea(area);
         room.setAssigmentId(UUID.randomUUID());
-        room.setPrice(0);
+        room.setPrice(price);
         room.setRegistrationTerm("brak");
         room.setStatus(false);
         room.setId(UUID.randomUUID());
+        room.setTenantLogin("");
         return room;
     }
 

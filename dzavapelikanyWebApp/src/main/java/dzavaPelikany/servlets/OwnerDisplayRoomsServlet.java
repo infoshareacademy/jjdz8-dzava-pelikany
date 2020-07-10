@@ -42,8 +42,8 @@ public class OwnerDisplayRoomsServlet extends HttpServlet {
         PrintWriter printWriter = response.getWriter();
 
 
-        Optional<List<Room>> freeRooms = Optional.of(JsonReader.create(new Rooms(), ROOMS_JSONWEB).getRoomsList().stream().filter(room -> !room.isStatus()).collect(Collectors.toCollection(ArrayList::new)));
-        Optional<List<Room>> rentedRooms = Optional.of(JsonReader.create(new Rooms(), ROOMS_JSONWEB).getRoomsList().stream().filter(Room::isStatus).collect(Collectors.toCollection(ArrayList::new)));
+        Optional<List<Room>> freeRooms = Optional.of(JsonReader.create(new Rooms(), getServletContext().getRealPath(ROOMS_JSONWEB)).getRoomsList().stream().filter(room -> !room.isStatus()).collect(Collectors.toCollection(ArrayList::new)));
+        Optional<List<Room>> rentedRooms = Optional.of(JsonReader.create(new Rooms(), getServletContext().getRealPath(ROOMS_JSONWEB)).getRoomsList().stream().filter(Room::isStatus).collect(Collectors.toCollection(ArrayList::new)));
         Map<String, Object> dataModel = new HashMap<>();
         dataModel.put("freerooms", freeRooms.get());
         dataModel.put("rentedrooms", rentedRooms.get());
@@ -59,7 +59,7 @@ public class OwnerDisplayRoomsServlet extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSONWEB);
+        Rooms rooms = JsonReader.create(new Rooms(), getServletContext().getRealPath(ROOMS_JSONWEB));
         Optional<Room> roomToRemove = Optional.empty();
         for (Room room : rooms.getRoomsList()) {
             if (room.getRoomLogin().equals(req.getParameter("roomid"))) {
@@ -67,20 +67,20 @@ public class OwnerDisplayRoomsServlet extends HttpServlet {
             }
         }
                 rooms.getRoomsList().remove(roomToRemove.get());
-                JsonSaver.makeJson(rooms, ROOMS_JSONWEB);
+                JsonSaver.makeJson(rooms,getServletContext().getRealPath(ROOMS_JSONWEB));
             }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Rooms rooms = JsonReader.create(new Rooms(), ROOMS_JSONWEB);
+        Rooms rooms = JsonReader.create(new Rooms(), getServletContext().getRealPath(ROOMS_JSONWEB));
         Room editedRoom = rooms.getRoomsList().stream().filter(room -> room.getId().toString().equals(req.getParameter("rentRoomId"))).collect(Collectors.toCollection(ArrayList::new)).get(0);
         if(editedRoom.isStatus()){
             editedRoom.setStatus(false);
-            } else {
-            editedRoom.setStatus(true);
+            editedRoom.setRegistrationTerm("brak");
+            editedRoom.setTenantLogin("brak");
         }
-        JsonSaver.makeJson(rooms, ROOMS_JSONWEB);
+        JsonSaver.makeJson(rooms, getServletContext().getRealPath(ROOMS_JSONWEB));
     }
 }
 
