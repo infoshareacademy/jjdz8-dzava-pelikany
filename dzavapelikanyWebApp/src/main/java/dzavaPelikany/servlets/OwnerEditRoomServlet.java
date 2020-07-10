@@ -39,7 +39,6 @@ public class OwnerEditRoomServlet extends HttpServlet {
 
         List<Room> rooms = JsonReader.create(new Rooms(), ROOMS_JSONWEB).getRoomsList();
         Room editedRoom = rooms.stream().filter(room -> room.getId().toString().equals(request.getParameter("editRoomId"))).collect(Collectors.toCollection(ArrayList::new)).get(0);
-
         Map<String, Object> dataModel = new HashMap<>();
         dataModel.put("editedRoom", editedRoom);
 
