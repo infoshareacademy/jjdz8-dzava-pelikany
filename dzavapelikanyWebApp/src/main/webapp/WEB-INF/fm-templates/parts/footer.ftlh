@@ -32,6 +32,12 @@
     $('#EditMyData').click(function() {
         window.location = "/owner-edit-details";
     });
+    $('#tenant').click(function() {
+        window.location = "/tenant-registration";
+    });
+    $('#owner').click(function() {
+        window.location = "/owner-registration";
+    });
 </script>
 
 

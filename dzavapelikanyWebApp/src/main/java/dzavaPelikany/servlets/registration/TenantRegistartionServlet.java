@@ -1,12 +1,10 @@
-package dzavaPelikany.servlets;
+package dzavaPelikany.servlets.registration;
 
-import dzavaPelikany.domain.Room;
-import dzavaPelikany.domain.Rooms;
+import dzavaPelikany.domain.Owner;
 import dzavaPelikany.domain.Tenant;
-import dzavaPelikany.fileOperation.JsonReader;
-import dzavaPelikany.fileOperation.JsonSaver;
 import dzavaPelikany.freemarker.TemplateProvider;
-import dzavaPelikany.service.RoomCreatorService;
+import dzavaPelikany.service.OwnerService;
+import dzavaPelikany.service.TenantService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -21,22 +19,20 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.UUID;
 
-import static dzavaPelikany.fileOperation.FilesNames.ROOMS_JSONWEB;
-
-
-@WebServlet("/owner-add-room")
-public class OwnerAddRoomServlet extends HttpServlet {
+@WebServlet("/tenant-registration")
+public class TenantRegistartionServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
 
+
     @Inject
-    private RoomCreatorService roomCreatorService;
+    private TenantService tenantService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-add-room.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-registration.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 
@@ -47,27 +43,32 @@ public class OwnerAddRoomServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Tenant tenant = new Tenant();
+        tenant.setPassword(req.getParameter("password"));
+        tenant.setName(req.getParameter("name"));
+        tenant.setSurname(req.getParameter("surname"));
+        tenant.setEmail(req.getParameter("email"));
+        tenant.setLogin(req.getParameter("login"));
+        tenant.setId(UUID.randomUUID());
+        String path = getServletContext().getRealPath("/WEB-INF/resources/tenants.json");
+        HashMap<String,String> dataModel = new HashMap<>();
+        dataModel.put("msg","Zarejestrowano nowego lokatora");
+        tenantService.saveTenant(tenant, path);
 
-        Rooms rooms = JsonReader.create(new Rooms(), getServletContext().getRealPath(ROOMS_JSONWEB));
-        Integer area = Integer.parseInt(req.getParameter("area"));
-        Double price = Double.parseDouble(req.getParameter("price"));
-        Room newRoom = roomCreatorService.createRoom(req.getParameter("roomLogin"), req.getParameter("streetAndNumber"), req.getParameter("city"), area, price);
-        rooms.addRoom(newRoom);
-        JsonSaver.makeJson(rooms, getServletContext().getRealPath(ROOMS_JSONWEB));
-
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-add-room.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "homepage.ftlh");
 
         resp.setContentType("text/html;charset=UTF-8");
 
         PrintWriter printWriter = resp.getWriter();
         try {
-            template.process(new HashMap<String, Object>(), printWriter);
+            template.process(dataModel, printWriter);
         } catch (TemplateException e) {
             e.printStackTrace();
         }
-
     }
 }

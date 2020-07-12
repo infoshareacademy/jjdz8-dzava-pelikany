@@ -51,9 +51,13 @@ public class UserService {
        return user;
    }
 
-   public UserView login(UserGoogleView userGoogleView){
+   public UserView logIn(UserGoogleView userGoogleView){
        User user = userDao.findUserByEmail(userGoogleView.getEmail()).orElseGet(()->create(userGoogleView));
        return userMapper.toView(user);
+   }
+
+   public User findByEmail(String email){
+       return userDao.findUserByEmail(email).orElse(null);
    }
 
 

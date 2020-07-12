@@ -56,10 +56,12 @@ public class Registration extends HttpServlet {
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
         String email = req.getParameter("email");
+        String password = req.getParameter("password");
         User user = new User();
         user.setName(name);
         user.setSurname(surname);
         user.setEmail(email);
+        user.setPassword(password);
         userService.save(user);
 
     }

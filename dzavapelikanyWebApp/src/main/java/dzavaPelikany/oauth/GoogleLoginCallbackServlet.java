@@ -43,7 +43,7 @@ public class GoogleLoginCallbackServlet extends AbstractAuthorizationCodeCallbac
         Oauth2 oauth2 = oAuthBuilder.buildOauth(credential);
         Userinfoplus user = oauth2.userinfo().get().execute();
        UserGoogleView userGoogleView= googleUserMapper.mapGoogleResponseToUserGoogleView(user);
-        UserView userView = userService.login(userGoogleView);
+        UserView userView = userService.logIn(userGoogleView);
         resp.sendRedirect("/");
     }
 
