@@ -28,7 +28,7 @@ public class OwnerLoginServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-login.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "login.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 
@@ -57,7 +57,7 @@ public class OwnerLoginServlet extends HttpServlet {
             dataModel.put("msg", "Niepoprawne dane logowania");
 
 
-            Template template = templateProvider.getTemplate(getServletContext(), "owner-login.ftlh");
+            Template template = templateProvider.getTemplate(getServletContext(), "login.ftlh");
 
             try {
                 template.process(dataModel, printWriter);

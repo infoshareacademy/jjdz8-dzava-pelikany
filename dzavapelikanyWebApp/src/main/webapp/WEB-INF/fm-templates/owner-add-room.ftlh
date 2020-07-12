@@ -22,8 +22,8 @@
                         <input type="text" class="form-control" id="roomLogin" placeholder="Nazwa pokoju" name="roomLogin" required>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
-                        <label for="adress" class="sr-only">Adres</label>
-                        <input type="text" class="form-control" id="StreetAndNumber" placeholder="Adres" name="StreetAndNumber" required>
+                        <label for="streetAndNumber" class="sr-only">Adres</label>
+                        <input type="text" class="form-control" id="streetAndNumber" placeholder="Adres" name="streetAndNumber" required>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="city" class="sr-only">Miasto</label>

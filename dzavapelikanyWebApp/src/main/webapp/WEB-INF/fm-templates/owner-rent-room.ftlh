@@ -14,32 +14,33 @@
                 <p class="text-white-50 mb-4">Formularz pozwala zmienić dane pokoju.</p>
             </div>
             <p><input class="btn btn-primary" type ="button" id="myMenu" value="<-- Powrot"/></p>
-
-    <form id="rentForm" class="contact-from">
-        <div class="row">
-            <input type="hidden" value="${rentedRoom.getId()}" name="id">
-            <div class="form col-lg-6 col-sm-12">
-                <label for="roomTerm">Termin:</label>
-                <input type="text" name="roomTerm" id="roomTerm" value="${rentedRoom.getRegistrationTerm()}" required/>
-            </div>
-            <div class="form col-lg-6 col-sm-12">
-                <label for="roomTenant">Osoba:</label>
-                <select name="tenant" id="tenant">
-                    <#list tenants as tenant>
-                        <option value="${tenant.getLogin()}">${tenant.getName()}  ${tenant.getSurname()}</option>
-                    </#list>
-                </select>
-            </div>
-            <div class="form col-12">
-                <button class="btn btn-primary rnt">
-                    Wynajmij Pokój
-                </button>
-            </div>
-        </div>
-    </form>
         </div>
     </div>
 </header>
+<main role="main">
+<form id="rentForm" class="contact-from">
+    <div class="row">
+        <input type="hidden" value="${rentedRoom.getId()}" name="id">
+        <div class="form col-lg-6 col-sm-12">
+            <label for="roomTerm">Termin:</label>
+            <input type="text" name="roomTerm" id="roomTerm" value="${rentedRoom.getRegistrationTerm()}" required/>
+        </div>
+        <div class="form col-lg-6 col-sm-12">
+            <label for="roomTenant">Osoba:</label>
+            <select name="tenant" id="tenant">
+                <#list tenants as tenant>
+                    <option value="${tenant.getLogin()}">${tenant.getName()}  ${tenant.getSurname()}</option>
+                </#list>
+            </select>
+        </div>
+        <div class="form col-12">
+            <button class="btn btn-primary rnt">
+                Wynajmij Pokój
+            </button>
+        </div>
+    </div>
+</form>
+</main>
 
 <!-- Contact-->
 <#include "parts/contact.ftlh">
