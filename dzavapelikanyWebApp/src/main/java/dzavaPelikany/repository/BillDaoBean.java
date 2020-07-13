@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 
-@Stateless
+@Stateless(name = "BillDao")
 public class BillDao implements Dao<Bill> {
 
     @PersistenceContext
