@@ -3,40 +3,27 @@
 <#include "parts/head.ftlh">
 <body id="page-top">
 <!-- Navigation-->
-<#include "parts/owner-navbar.ftlh">
+<#include "parts/tenant-navbar.ftlh">
 <!-- Masthead-->
 <header class="masthead">
     <div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end">
-                <h1 class="text-uppercase text-white font-weight-bold">Dodaj nowy rachunek:</h1>
+                <h1 class="text-uppercase text-white font-weight-bold">Szukaj po adresie:</h1>
                 <hr class="divider my-2" />
                 <p class="text-white-50 mb-4"></p>
             </div>
-
             <p><input class="btn btn-primary" type ="button" id="myMenu" value="<-- Powrot"/></p>
             <p><#if msg??>${msg}<#else> </#if></p>
-            <form action="/owner-add-bill" method="post" class="contact-from">
+            <form action="/tenant-view-bills" method="post" class="contact-from">
                 <div class="divider my-2">
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="name" class="sr-only">Adres</label>
-                        <input type="text" class="form-control" id="StreetAndNumber" placeholder="Adres" name="StreetAndNumber" required>
-                    </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Opis</label>
-                        <input type="text" class="form-control" id="Description" placeholder="Rachunek za prąd" name="Description" required>
-                    </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Wysokość rachunku</label>
-                        <input type="text" class="form-control" id="amount" placeholder="1,01zł" name="Amount" required>
-                    </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Termin spłaty</label>
-                        <input type="date" class="form-control" id="date" name="date" required>
+                        <input type="text" class="form-control" id="address" placeholder="Adres" name="address" required>
                     </div>
                     <div class="form col-12">
                         <button class="btn btn-primary" type="submit">
-                            Dodaj rachunek!
+                            Szukaj
                         </button>
                     </div>
                 </div>
@@ -44,7 +31,6 @@
         </div>
     </div>
 </header>
-
 <!-- Contact-->
 <#include "parts/contact.ftlh">
 <!-- Footer-->

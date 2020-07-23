@@ -1,21 +1,23 @@
 package dzavaPelikany.dto;
 
+import dzavaPelikany.domain.User;
+
 import java.time.LocalDate;
 
 public class BillView {
 
-    private String streetNameAndNUmber;
+    private Integer billId;
+    private String address;
     private LocalDate date;
     private String description;
     private Double amount;
-    private String linkToCopy;
 
-    public String getStreetNameAndNUmber() {
-        return streetNameAndNUmber;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStreetNameAndNUmber(String streetNameAndNUmber) {
-        this.streetNameAndNUmber = streetNameAndNUmber;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public LocalDate getDate() {
@@ -41,12 +43,13 @@ public class BillView {
     public void setAmount(Double amount) {
         this.amount = amount;
     }
-
-    public String getLinkToCopy() {
-        return linkToCopy;
+    public Integer getBillId() {
+        return billId;
     }
 
-    public void setLinkToCopy(String linkToCopy) {
-        this.linkToCopy = linkToCopy;
+    public void setBillId(Integer billId) {
+        this.billId = billId;
     }
+
+
 }

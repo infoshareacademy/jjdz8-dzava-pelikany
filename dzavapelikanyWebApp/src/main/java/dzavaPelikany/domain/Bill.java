@@ -3,7 +3,16 @@ package dzavaPelikany.domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
+@NamedQueries({
+    @NamedQuery(
+            name = "Bill.findAll",
+            query = "SELECT b FROM Bill b"
+    ),
+    @NamedQuery(
+        name = "Bill.findByAddress",
+        query = "SELECT b from Bill b WHERE  b.address LIKE  :address"
+)}
+)
 @Entity
 @Table(name = "bills")
 public class Bill {
@@ -11,13 +20,11 @@ public class Bill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer billId;
     @Basic
-    private String streetNameAndNumber;
+    private String address;
     @Basic
     private String description;
     @Basic
     private Double amount;
-    @Basic
-    private String linkToCopy;
     @Basic
     private Boolean active;
     @Basic
@@ -31,12 +38,12 @@ public class Bill {
         this.date = date;
     }
 
-    public String getStreetNameAndNumber() {
-        return streetNameAndNumber;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStreetNameAndNumber(String streetNameAndNumber) {
-        this.streetNameAndNumber = streetNameAndNumber;
+    public void setAddress(String streetNameAndNumber) {
+        this.address = streetNameAndNumber;
     }
 
     public String getDescription() {
@@ -53,14 +60,6 @@ public class Bill {
 
     public void setAmount(Double amount) {
         this.amount = amount;
-    }
-
-    public String getLinkToCopy() {
-        return linkToCopy;
-    }
-
-    public void setLinkToCopy(String linkToCopy) {
-        this.linkToCopy = linkToCopy;
     }
 
     public Boolean getActive() {

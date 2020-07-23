@@ -1,6 +1,7 @@
 package dzavaPelikany.servlets;
 
 import dzavaPelikany.domain.Bill;
+import dzavaPelikany.dto.BillView;
 import dzavaPelikany.freemarker.TemplateProvider;
 import dzavaPelikany.service.BillService;
 import freemarker.template.Template;
@@ -14,12 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
+import java.util.StringJoiner;
 
 
-@WebServlet("/owner-add-bill")
-public class OwnerAddBillServlet extends HttpServlet {
+@WebServlet("/tenant-view-bills")
+public class TenantViewBillsServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
@@ -30,8 +32,7 @@ public class OwnerAddBillServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-add-bill.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-view-bills.ftlh");
 
         resp.setContentType("text/html;charset=UTF-8");
 
@@ -45,40 +46,29 @@ public class OwnerAddBillServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HashMap<String, String> data = new HashMap<>();
+        String address = req.getParameter("address");
 
-        String address = req.getParameter("StreetAndNumber");
-        String description = req.getParameter("Description");
-        Double amount = Double.parseDouble(req.getParameter("Amount"));
-        String date = req.getParameter("date");
-        String[] dateArray = date.split("-");
-        int year = Integer.parseInt(dateArray[0]);
-        int month = Integer.parseInt(dateArray[1]);
-        int day = Integer.parseInt(dateArray[2]);
-        LocalDate localDate = LocalDate.of(year,month,day);
-
-        Bill bill = new Bill();
-
-        bill.setDate(localDate);
-        bill.setAddress(address);
-        bill.setDescription(description);
-        bill.setAmount(amount);
-        bill.setActive(true);
-
-
-        HashMap<String,String> data = new HashMap<>();
-        data.put("msg", "Dodano nowy rachunek" + date);
-
-        billService.addBill(bill);
-
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-add-bill.ftlh");
+        List<Bill> result = billService.findByAddress(address);
+        if (result.isEmpty()) data.put("msg","Nie znaleziono rachunku dla podanego adresu");
+        else {
+            StringBuilder sb = new StringBuilder();
+            for (Bill bill :
+                    result) {
+                sb.append(bill.getAddress()).append(" ").append(bill.getDescription()).append(" ").append(bill.getAmount()).append(" ").append(bill.getDate()).append(" \n");
+            }
+            data.put("msg", sb.toString());
+        }
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-view-bills.ftlh");
 
         resp.setContentType("text/html;charset=UTF-8");
 
         PrintWriter printWriter = resp.getWriter();
         try {
-            template.process(data, printWriter);
+            template.process(data,  printWriter);
         } catch (TemplateException e) {
             e.printStackTrace();
         }
     }
+
 }

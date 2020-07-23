@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import java.util.List;
 import java.util.Optional;
 
-@Stateless
+@Stateless(name = "userDao")
 public class UserDao implements Dao<User> {
 
 
@@ -44,5 +44,10 @@ public class UserDao implements Dao<User> {
     public List<User> findAll() {
         Query query = entityManager.createNamedQuery("User.findAll");
         return query.getResultList();
+    }
+
+    @Override
+    public List<User> findByAddress(String address) {
+        return null;
     }
 }

@@ -5,10 +5,11 @@ import dzavaPelikany.domain.Bill;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 import java.util.Optional;
 
-@Stateless(name = "BillDao")
+@Stateless(name = "billDao")
 public class BillDao implements Dao<Bill> {
 
     @PersistenceContext
@@ -36,7 +37,16 @@ public class BillDao implements Dao<Bill> {
 
     @Override
     public List<Bill> findAll() {
-        return null;
+
+        Query query = entityManager.createNamedQuery("Bill.findAll");
+        return query.getResultList();
+    }
+
+    public List<Bill> findByAddress(String address){
+
+        Query query = entityManager.createNamedQuery("Bill.findByAddress");
+        query.setParameter("address",address);
+        return query.getResultList();
     }
 
     @Override
