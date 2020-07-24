@@ -7,6 +7,7 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Edytuj dane</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/owner-rooms">Przeglądaj pokoje</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/owner-add-room">Dodaj pokój</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/owner-add-bill">Dodaj rachunek</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/logout">Wyloguj</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#kontakt">Kontakt</a></li>
             </ul>

@@ -18,6 +18,8 @@ public interface Dao<T> {
 
     List<T> findAll();
 
+    List<T> findByAddress(String address);
+
     Optional<T> findUserById(Long id);
 
 }

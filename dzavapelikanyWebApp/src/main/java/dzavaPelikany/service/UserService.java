@@ -21,7 +21,7 @@ public class UserService {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class.getName());
 
 
-   @EJB
+   @EJB(beanName = "userDao")
    private Dao<User> userDao;
 
    @EJB

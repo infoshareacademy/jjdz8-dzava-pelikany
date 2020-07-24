@@ -12,6 +12,7 @@ public class Room {
     private UUID id;
     private String registrationTerm;
     private boolean status;
+    private String tenantLogin;
 
 
     public boolean getStatus() {
@@ -27,8 +28,6 @@ public class Room {
     public void setTenantLogin(String tenantLogin) {
         this.tenantLogin = tenantLogin;
     }
-
-    private String tenantLogin;
 
 
     public Room(String roomLogin) {
