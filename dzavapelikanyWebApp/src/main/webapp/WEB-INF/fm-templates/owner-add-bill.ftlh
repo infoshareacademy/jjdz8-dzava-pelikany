@@ -15,7 +15,8 @@
             </div>
 
             <p><input class="btn btn-primary" type ="button" id="myMenu" value="<-- Powrot"/></p>
-            <p><#if msg??>${msg}<#else> </#if></p>
+
+            <div><p><#if msg??>${msg}<br /><br /><#else> </#if></p></div>
             <form action="/owner-add-bill" method="post" class="contact-from">
                 <div class="divider my-2">
                     <div class="form-group mx-sm-3 mb-2">
@@ -23,8 +24,16 @@
                         <input type="text" class="form-control" id="StreetAndNumber" placeholder="Adres" name="StreetAndNumber" required>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
-                        <label for="name" class="sr-only">Opis</label>
-                        <input type="text" class="form-control" id="Description" placeholder="Rachunek za prąd" name="Description" required>
+                        <label for="name" class="sr-only">Typ Opłaty</label>
+                        <select name="Description" id="Description">
+                            <option value="Energia">Energia</option>
+                            <option value="Gaz">Gaz</option>
+                            <option value="Woda">Woda</option>
+                            <option value="Internet">Internet</option>
+                            <option value="Telewizja">Telewizja</option>
+                            <option value="Ogrzewanie">Ogrzewanie</option>
+                            <option value="Inne">Inne</option>
+                        </select>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="name" class="sr-only">Wysokość rachunku</label>

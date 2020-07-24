@@ -15,9 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.List;
-import java.util.StringJoiner;
+import java.util.*;
 
 
 @WebServlet("/tenant-view-bills")
@@ -46,18 +44,24 @@ public class TenantViewBillsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HashMap<String, String> data = new HashMap<>();
+        HashMap<String, List<String>> data = new HashMap<>();
         String address = req.getParameter("address");
 
-        List<Bill> result = billService.findByAddress(address);
-        if (result.isEmpty()) data.put("msg","Nie znaleziono rachunku dla podanego adresu");
+        List<BillView> result = billService.findByAddress(address);
+        if (result.isEmpty()) data.put("msg", Arrays.asList("Nie znaleziono rachunku dla podanego adresu"));
         else {
-            StringBuilder sb = new StringBuilder();
-            for (Bill bill :
-                    result) {
-                sb.append(bill.getAddress()).append(" ").append(bill.getDescription()).append(" ").append(bill.getAmount()).append(" ").append(bill.getDate()).append(" \n");
+            List<String> billList = new ArrayList<>();
+
+            for (BillView bill : result) {
+
+                String sb = "Adres : " + bill.getAddress() +
+                        " Opis : " + bill.getDescription() +
+                        " Termin Spłaty : " + bill.getDate() +
+                        " Wysokość rachunku: " + bill.getAmount() + "zł ";
+                billList.add(sb);
             }
-            data.put("msg", sb.toString());
+            data.put("bill",billList);
+
         }
         Template template = templateProvider.getTemplate(getServletContext(), "tenant-view-bills.ftlh");
 

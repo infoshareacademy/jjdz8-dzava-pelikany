@@ -66,7 +66,7 @@ public class OwnerAddBillServlet extends HttpServlet {
 
 
         HashMap<String,String> data = new HashMap<>();
-        data.put("msg", "Dodano nowy rachunek" + date);
+        data.put("msg", "Dodano nowy rachunek");
 
         billService.addBill(bill);
 

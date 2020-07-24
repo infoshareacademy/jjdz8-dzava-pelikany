@@ -24,10 +24,13 @@ public class BillService {
         billDao.save(bill);
     }
 
-    public List<Bill> findByAddress(String address){
+    public List<BillView> findByAddress(String address){
         List<Bill> billList = billDao.findByAddress(address);
-
-        return billList;
+        List<BillView> billViewList = new ArrayList<>();
+        for (Bill bill: billList) {
+            billViewList.add(billMapper.toView(bill));
+            }
+        return billViewList;
     }
 
 

@@ -14,7 +14,16 @@
                 <p class="text-white-50 mb-4"></p>
             </div>
             <p><input class="btn btn-primary" type ="button" id="myMenu" value="<-- Powrot"/></p>
-            <p><#if msg??>${msg}<#else> </#if></p>
+            <div>
+
+            <p><#if msg??><#list msg as msg>
+                    <ul><li>${msg}</li></ul></#list></#if></p>
+            <p><#if bill??><#list bill as bill>
+                <ul>
+                <li> <h5> ${bill}</h5></li>
+            </ul>
+            </#list></#if></p>
+            </div>
             <form action="/tenant-view-bills" method="post" class="contact-from">
                 <div class="divider my-2">
                     <div class="form-group mx-sm-3 mb-2">
