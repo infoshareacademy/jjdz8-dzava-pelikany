@@ -4,6 +4,8 @@ import dzavaPelikany.freemarker.TemplateProvider;
 import dzavaPelikany.service.RoomService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -27,10 +29,12 @@ public class TenantSearchRoomServlet extends HttpServlet {
     @Inject
     private TemplateProvider templateProvider;
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(TenantSearchRoomServlet.class.getName());
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "tenant-search-room-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-search-room.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 
@@ -58,7 +62,7 @@ public class TenantSearchRoomServlet extends HttpServlet {
 
         if (!availableRooms.isEmpty()) dataModel.put("room", availableRooms);
         else dataModel.put("msg",msg);
-        Template template = templateProvider.getTemplate(getServletContext(), "tenant-search-room-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-search-room.ftlh");
 
         resp.setContentType("text/html;charset=UTF-8");
 

@@ -1,79 +1,48 @@
 package dzavaPelikany.repository;
 
-import dzavaPelikany.domain.UserBuilder;
-import dzavaPelikany.domain.UserEntity;
-import dzavaPelikany.dto.AuthUserDto;
-import dzavaPelikany.dto.UserDto;
+
+import dzavaPelikany.domain.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import java.util.Optional;
 
 @Stateless
-public class UserDao implements UserRepositoryInterface {
+public class UserDao implements Dao<User> {
 
-    @PersistenceContext(unitName = "dzavapelikany")
+
+    @PersistenceContext
     private EntityManager entityManager;
 
-    Logger logger = LoggerFactory.getLogger("dzavaPelikany.repository");
-
-
-
 
     @Override
-    public int createUser(UserEntity userEntity) {
-        UserEntity newUserEntity = UserBuilder.anUserEntity()
-                .withName(userEntity.getName())
-                .withSurname(userEntity.getSurname())
-                .withLogin(userEntity.getLogin())
-                .withEmail(userEntity.getEmail())
-                .build();
-        entityManager.persist(newUserEntity);
-        logger.info("new user created: " + userEntity + " name: " + userEntity.getName() + " surname:" + userEntity.getSurname());
-    return newUserEntity.getId();
+    public Optional<User> findUserById(Long userId) {
+        return Optional.ofNullable(entityManager.find(User.class, userId));
     }
 
     @Override
-    public AuthUserDto getAuthUserDTO(String email) {
-        return null;
+    public void save(User user) {
+        entityManager.persist(user);
     }
 
     @Override
-    public List<UserDto> getAllUsers() {
-        return null;
+    public void update(User user) {
+        entityManager.merge(user);
     }
 
     @Override
-    public List<UserDto> getUserDTObyName(String name) {
-        return null;
+    public Optional<User> findUserByEmail(String email) {
+        Query query = entityManager.createNamedQuery("User.findUserByEmail");
+        query.setParameter("email", email);
+        return query.getResultList().stream().findFirst();
     }
 
     @Override
-    public List<UserDto> getUserDTObyName(String name, String surname) {
-        return null;
-    }
-
-    @Override
-    public void updateUser(UserEntity userEntity) {
-
-    }
-
-    @Override
-    public int getUserIdByEmail(String email) {
-        return 0;
-    }
-
-    @Override
-    public UserEntity getUserEntity(int userId) {
-        return null;
-    }
-
-    @Override
-    public List<UserEntity> getAllUsersEntities() {
-        return null;
+    public List<User> findAll() {
+        Query query = entityManager.createNamedQuery("User.findAll");
+        return query.getResultList();
     }
 }

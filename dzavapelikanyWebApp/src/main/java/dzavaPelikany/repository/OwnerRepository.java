@@ -17,9 +17,9 @@ public class OwnerRepository implements OwnerRepositoryInterface{
 
     @Override
     public void saveOwner(Owner owner, String path) throws IOException {
-            Owners owners = JsonReader.create(new Owners(), path);
-            owners.addOwner(owner);
-            JsonSaver.makeJson(owners, path);
+        Owners owners = JsonReader.create(new Owners(), path);
+        owners.addOwner(owner);
+        JsonSaver.makeJson(owners, path);
 
     }
 

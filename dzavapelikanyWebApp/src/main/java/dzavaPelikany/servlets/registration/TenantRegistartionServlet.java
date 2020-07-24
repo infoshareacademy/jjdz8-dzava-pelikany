@@ -60,7 +60,7 @@ public class TenantRegistartionServlet extends HttpServlet {
         dataModel.put("msg","Zarejestrowano nowego lokatora");
         tenantService.saveTenant(tenant, path);
 
-        Template template = templateProvider.getTemplate(getServletContext(), "index.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "homepage.ftlh");
 
         resp.setContentType("text/html;charset=UTF-8");
 

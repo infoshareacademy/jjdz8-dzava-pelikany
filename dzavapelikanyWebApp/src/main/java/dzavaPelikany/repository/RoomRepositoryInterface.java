@@ -2,7 +2,6 @@ package dzavaPelikany.repository;
 
 import dzavaPelikany.domain.Room;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

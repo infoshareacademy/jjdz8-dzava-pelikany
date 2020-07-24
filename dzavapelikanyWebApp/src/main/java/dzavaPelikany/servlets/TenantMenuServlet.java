@@ -3,6 +3,8 @@ package dzavaPelikany.servlets;
 import dzavaPelikany.freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -24,10 +26,12 @@ public class TenantMenuServlet extends HttpServlet {
     @Inject
     private HttpSession httpSession;
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(TenantMenuServlet.class.getName());
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "tenant-menu-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "tenant-menu.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
         HashMap<String,String> dataModel = new HashMap<>();

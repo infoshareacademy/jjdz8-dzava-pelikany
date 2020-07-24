@@ -5,7 +5,6 @@ import dzavaPelikany.domain.Rooms;
 import dzavaPelikany.fileOperation.JsonReader;
 import dzavaPelikany.fileOperation.JsonSaver;
 import dzavaPelikany.freemarker.TemplateProvider;
-import dzavaPelikany.service.RoomCreatorService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -39,7 +37,7 @@ public class OwnerEditRoomServlet extends HttpServlet {
         dataModel.put("editedRoom", editedRoom);
 
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-edit-room-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "owner-edit-room.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 

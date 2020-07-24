@@ -36,7 +36,7 @@ public class OwnerAddRoomServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-add-room-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "owner-add-room.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 
@@ -58,7 +58,7 @@ public class OwnerAddRoomServlet extends HttpServlet {
         rooms.addRoom(newRoom);
         JsonSaver.makeJson(rooms, getServletContext().getRealPath(ROOMS_JSONWEB));
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-add-room-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "owner-add-room.ftlh");
 
         resp.setContentType("text/html;charset=UTF-8");
 

@@ -44,7 +44,7 @@ public class OwnerRentRoomServlet extends HttpServlet {
         dataModel.put("tenants", tenants);
 
 
-        Template template = templateProvider.getTemplate(getServletContext(), "owner-rent-room-screen.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "owner-rent-room.ftlh");
 
         response.setContentType("text/html;charset=UTF-8");
 
