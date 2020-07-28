@@ -12,7 +12,7 @@
                 <h1 class="text-uppercase text-white font-weight-bold">Szukaj pokoju</h1>
                 <hr class="divider my-2" />
                 <p class="text-white-50 mb-4">Wybierz kryteria:</p>
-                <p><input class="btn btn-primary" type ="button" id="myMenu" value="<-- Powrot"/></p>
+                <p><input class="btn btn-primary" type ="button" id="myMenuTenant" value="<-- Powrot"/></p>
             </div>
             <p><#if msg??>${msg}<#else> </#if></p>
             <form action="/tenant-search-room" method="post" class="form-inline">

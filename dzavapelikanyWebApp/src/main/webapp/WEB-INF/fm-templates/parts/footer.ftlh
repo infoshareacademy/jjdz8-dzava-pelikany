@@ -20,8 +20,11 @@
 ></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $('#myMenu').click(function() {
+    $('#myMenuOwner').click(function() {
         window.location = "/owner-menu";
+    });
+    $('#myMenuTenant').click(function() {
+        window.location = "/tenant-menu";
     });
     $('#myRooms').click(function() {
         window.location = "/owner-rooms";
@@ -37,6 +40,15 @@
     });
     $('#owner').click(function() {
         window.location = "/owner-registration";
+    });
+    $('#myRoom').click(function() {
+        window.location = "/tenant-room";
+    });
+    $('#editMyData').click(function() {
+        window.location = "/tenant-room";
+    });
+    $('#searchRoom').click(function() {
+        window.location = "/tenant-search-room";
     });
 </script>
 

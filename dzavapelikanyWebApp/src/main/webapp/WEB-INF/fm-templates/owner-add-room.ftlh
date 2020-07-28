@@ -14,7 +14,7 @@
                 <p class="text-white-50 mb-4">Wypełnij wszystkie pola aby móc dodać pokój!</p>
             </div>
             <p><#if msg??>${msg}<#else> </#if></p>
-            <p><input class="btn btn-primary" type ="button" id="myMenu" value="<-- Powrot"/></p>
+            <p><input class="btn btn-primary" type ="button" id="myMenuOwner" value="<-- Powrot"/></p>
             <form action="/owner-add-room" method="post" class="contact-from">
                 <div class="divider my-2">
                     <div class="form-group mx-sm-3 mb-2">
