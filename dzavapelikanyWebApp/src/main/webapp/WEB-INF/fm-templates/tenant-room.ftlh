@@ -10,7 +10,7 @@
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end">
                 <h1 class="text-uppercase text-white font-weight-bold">Dane twojego pokoju:</h1>
-                <p><input class="btn btn-primary" type ="button" id="myMenu" value="<-- Powrot"/></p>
+                <p><input class="btn btn-primary" type ="button" id="myMenuTenant" value="<-- Powrot"/></p>
                 <hr class="divider my-2" />
                 <#if msg??>${msg}<#else>
                 <p class="text-white-50 mb-4">Miasto: ${city} </p>

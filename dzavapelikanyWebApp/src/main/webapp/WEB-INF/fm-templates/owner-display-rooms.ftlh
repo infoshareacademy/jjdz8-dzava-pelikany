@@ -49,7 +49,7 @@
 
 <main role="main" id="rentForm">
 
-    <p><input class="button" type ="button" id="myMenu" value="<-- Powrót"/></p>
+    <p><input class="button" type ="button" id="myMenuOwner" value="<-- Powrót"/></p>
 
     <h1>Wolne pokoje</h1>
     <table width="100%">

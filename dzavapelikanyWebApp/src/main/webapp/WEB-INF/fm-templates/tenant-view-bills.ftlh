@@ -13,7 +13,7 @@
                 <hr class="divider my-2" />
                 <p class="text-white-50 mb-4"></p>
             </div>
-            <p><input class="btn btn-primary" type ="button" id="myMenu" value="<-- Powrot"/></p>
+            <p><input class="btn btn-primary" type ="button" id="myMenuTenant" value="<-- Powrot"/></p>
             <div>
 
             <p><#if msg??><#list msg as msg>

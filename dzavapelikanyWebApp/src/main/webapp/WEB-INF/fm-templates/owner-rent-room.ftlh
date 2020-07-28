@@ -48,7 +48,7 @@
 
 <main role="main">
 
-    <p><input class="button" type ="button" id="myMenu" value="<-- Powrót"/></p>
+    <p><input class="button" type ="button" id="myMenuOwner" value="<-- Powrót"/></p>
 
     <form id="rentForm" class="contact-from">
         <div class="row">
