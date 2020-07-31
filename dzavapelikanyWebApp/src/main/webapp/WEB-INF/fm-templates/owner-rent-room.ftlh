@@ -59,7 +59,7 @@
             </div>
             <div class="form col-lg-6 col-sm-12">
                 <label for="roomTenant">Osoba:</label>
-                <select name="tenant" id="tenant">
+                <select name="tenant">
                     <#list tenants as tenant>
                         <option value="${tenant.getLogin()}">${tenant.getName()}  ${tenant.getSurname()}</option>
                     </#list>

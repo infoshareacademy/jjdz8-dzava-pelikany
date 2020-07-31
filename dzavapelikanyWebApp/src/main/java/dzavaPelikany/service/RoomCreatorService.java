@@ -6,6 +6,9 @@ import dzavaPelikany.domain.Room;
 import dzavaPelikany.domain.Rooms;
 import dzavaPelikany.fileOperation.JsonReader;
 import dzavaPelikany.fileOperation.JsonSaver;
+import dzavaPelikany.oauth.GoogleLogoutServlet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.RequestScoped;
 import java.io.IOException;
@@ -16,7 +19,7 @@ import static dzavaPelikany.fileOperation.FilesNames.ROOMS_JSONWEB;
 @RequestScoped
 public class RoomCreatorService {
 
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(RoomCreatorService.class.getName());
 
     public Room createRoom(String roomLogin, String streetAndNumber, String city, Integer area, double price) {
         Room room = new Room(roomLogin);
@@ -29,6 +32,7 @@ public class RoomCreatorService {
         room.setStatus(false);
         room.setId(UUID.randomUUID());
         room.setTenantLogin("");
+        LOGGER.info("room created: " + room);
         return room;
     }
 

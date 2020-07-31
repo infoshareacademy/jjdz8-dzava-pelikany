@@ -64,5 +64,7 @@ public class Registration extends HttpServlet {
         user.setPassword(password);
         userService.save(user);
 
+        LOGGER.info("user registered: " + user);
+
     }
 }

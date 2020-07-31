@@ -3,10 +3,13 @@ package dzavaPelikany.servlets.registration;
 import dzavaPelikany.domain.Owner;
 import dzavaPelikany.domain.Tenant;
 import dzavaPelikany.freemarker.TemplateProvider;
+import dzavaPelikany.oauth.GoogleLogoutServlet;
 import dzavaPelikany.service.OwnerService;
 import dzavaPelikany.service.TenantService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -28,6 +31,8 @@ public class TenantRegistartionServlet extends HttpServlet {
 
     @Inject
     private TenantService tenantService;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(TenantRegistartionServlet.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,6 +64,8 @@ public class TenantRegistartionServlet extends HttpServlet {
         HashMap<String,String> dataModel = new HashMap<>();
         dataModel.put("msg","Zarejestrowano nowego lokatora");
         tenantService.saveTenant(tenant, path);
+
+        LOGGER.info("tenant registered: " + tenant);
 
         Template template = templateProvider.getTemplate(getServletContext(), "homepage.ftlh");
 

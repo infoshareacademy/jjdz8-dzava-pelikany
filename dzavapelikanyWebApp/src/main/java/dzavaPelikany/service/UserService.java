@@ -32,6 +32,7 @@ public class UserService {
 
    public void save(User user){
        userDao.save(user);
+       LOGGER.info("user added: " + user);
    }
 
    public UserView getUserById(Long userId) {
