@@ -2,9 +2,12 @@ package dzavaPelikany.servlets.registration;
 
 import dzavaPelikany.domain.Owner;
 import dzavaPelikany.freemarker.TemplateProvider;
+import dzavaPelikany.oauth.GoogleLogoutServlet;
 import dzavaPelikany.service.OwnerService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -27,6 +30,8 @@ public class OwnerRegistrationServlet extends HttpServlet {
 
     @Inject
     private OwnerService ownerService;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(OwnerRegistrationServlet.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,6 +61,8 @@ public class OwnerRegistrationServlet extends HttpServlet {
         owner.setId(UUID.randomUUID());
         String path = getServletContext().getRealPath("/WEB-INF/resources/owners.json");
         ownerService.saveOwner(owner, path);
+
+        LOGGER.info("owner registered: " + owner);
 
         Template template = templateProvider.getTemplate(getServletContext(), "homepage.ftlh");
         HashMap<String,String> dataModel = new HashMap<>();

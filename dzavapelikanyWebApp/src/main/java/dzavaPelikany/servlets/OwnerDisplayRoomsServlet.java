@@ -5,8 +5,11 @@ import dzavaPelikany.domain.Rooms;
 import dzavaPelikany.fileOperation.JsonReader;
 import dzavaPelikany.fileOperation.JsonSaver;
 import dzavaPelikany.freemarker.TemplateProvider;
+import dzavaPelikany.oauth.GoogleLogoutServlet;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -24,6 +27,8 @@ import static dzavaPelikany.fileOperation.FilesNames.ROOMS_JSONWEB;
 
 @WebServlet("/owner-rooms")
 public class OwnerDisplayRoomsServlet extends HttpServlet {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(OwnerDisplayRoomsServlet.class.getName());
 
     @Inject
     private TemplateProvider templateProvider;
@@ -64,6 +69,7 @@ public class OwnerDisplayRoomsServlet extends HttpServlet {
         }
         rooms.getRoomsList().remove(roomToRemove.get());
         JsonSaver.makeJson(rooms,getServletContext().getRealPath(ROOMS_JSONWEB));
+        LOGGER.info("room deleted: " + roomToRemove);
     }
 
     @Override
@@ -77,5 +83,6 @@ public class OwnerDisplayRoomsServlet extends HttpServlet {
             editedRoom.setTenantLogin("brak");
         }
         JsonSaver.makeJson(rooms, getServletContext().getRealPath(ROOMS_JSONWEB));
+        LOGGER.info("room edited: " + editedRoom);
     }
 }

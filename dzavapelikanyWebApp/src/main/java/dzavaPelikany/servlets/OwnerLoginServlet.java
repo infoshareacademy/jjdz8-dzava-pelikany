@@ -2,9 +2,12 @@ package dzavaPelikany.servlets.login;
 
 import dzavaPelikany.domain.Owner;
 import dzavaPelikany.freemarker.TemplateProvider;
+import dzavaPelikany.oauth.GoogleLogoutServlet;
 import dzavaPelikany.service.OwnerService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -25,6 +28,8 @@ public class OwnerLoginServlet extends HttpServlet {
     private OwnerService ownerService;
     @Inject
     private TemplateProvider templateProvider;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(OwnerLoginServlet.class.getName());
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -82,6 +87,7 @@ public class OwnerLoginServlet extends HttpServlet {
             dataModel.put("name", owner.getName());
 
 
+            LOGGER.info("owner logged: " + owner);
             Template template = templateProvider.getTemplate(getServletContext(), "homepage-after-login.ftlh");
 
             try {
